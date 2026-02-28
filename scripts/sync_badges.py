@@ -138,7 +138,7 @@ Badge nuevo:
 
 Responde SOLO con un JSON válido (sin markdown)."""
 
-    models_to_try = ["gemini-2.0-flash", "gemini-1.5-flash"]
+    models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
     response = None
     for model in models_to_try:
         try:
