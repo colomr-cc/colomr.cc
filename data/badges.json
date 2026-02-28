@@ -1,5 +1,21 @@
 [
   {
+    "titulo": "Streamline Application Development with Gemini CLI",
+    "img": "https://cdn.qwiklabs.com/0StdzE4PDfr%2F%2FfdKcTSAqkVWI5P2dPY35QPpRxZB5wk%3D",
+    "fecha": "2026-02-28",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22675996",
+    "desc": "Descubre cómo optimizar y acelerar el desarrollo de aplicaciones utilizando la interfaz de línea de comandos (CLI) de Gemini. Aprende a integrar Gemini en tus flujos de trabajo para mejorar la productividad y la eficiencia en la creación de software.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "Accelerate App Development with Gemini CLI",
+    "img": "https://cdn.qwiklabs.com/Z24C%2BrQ0cQ5C%2Fq7oojU8MSc1uorI632zwPv0QsdZtew%3D",
+    "fecha": "2026-02-26",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22616340",
+    "desc": "Aprende a utilizar la interfaz de línea de comandos (CLI) de Gemini para acelerar el desarrollo de aplicaciones en Google Cloud, integrando capacidades de IA directamente en tu flujo de trabajo.",
+    "categoria": "ai-ml"
+  },
+  {
     "titulo": "AI Infrastructure: Networking Techniques",
     "img": "https://cdn.qwiklabs.com/yVvTL%2FdSmsIrykfv6aYYWaUUmviuW9TYqnZ1gJYmPlg%3D",
     "fecha": "2026-02-16",
