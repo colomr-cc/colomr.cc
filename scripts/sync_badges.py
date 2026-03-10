@@ -148,8 +148,8 @@ Responde SOLO con un JSON válido (sin markdown)."""
             )
             break
         except Exception as e:
-            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                print(f"  -> Quota exceeded for {model}, trying next model...")
+            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e) or "503" in str(e) or "UNAVAILABLE" in str(e):
+                print(f"  -> Model {model} unavailable (quota/capacity), trying next model...")
                 continue
             raise
     if response is None:
