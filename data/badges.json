@@ -1,5 +1,29 @@
 [
   {
+    "titulo": "AI Boost Bites: Content Generation with Gemini Made Easy",
+    "img": "https://cdn.qwiklabs.com/9UrQECS5xwTQbTYNrh3RfL88dWAH0t33na6sbZj09eM%3D",
+    "fecha": "2026-03-12",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22963315",
+    "desc": "Aprende a utilizar Gemini para generar contenido de forma eficiente, explorando técnicas y herramientas que simplifican el proceso de creación.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Customer insights with NotebookLM",
+    "img": "https://cdn.qwiklabs.com/jTe812NsVw%2Bb5UyKo0JrVrNf%2FLNy0cLrnNZbz4ymjzg%3D",
+    "fecha": "2026-03-12",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22963274",
+    "desc": "Descubre cómo generar insights de clientes utilizando NotebookLM para potenciar tus análisis. Aprende a aprovechar esta herramienta para obtener información valiosa y mejorar la comprensión de tus usuarios.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Gemini Gems – Your ultimate marketing sidekick",
+    "img": "https://cdn.qwiklabs.com/WPXAhcv9U7hTrwB7bp86uMEyMViSQ0anOtY7xszxDkU%3D",
+    "fecha": "2026-03-11",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22929083",
+    "desc": "Descubre cómo aprovechar las capacidades de Gemini para potenciar tus estrategias de marketing. Aprende a generar contenido, analizar datos y optimizar campañas con esta potente herramienta de IA.",
+    "categoria": "ai-ml"
+  },
+  {
     "titulo": "Vibe Coding for Beginners: From Zero to App",
     "img": "https://cdn.qwiklabs.com/w08Qy7b1VOOPaieflHPtrilBC6kuMyrY9Vvs2BbZndE%3D",
     "fecha": "2026-03-10",
