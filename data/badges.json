@@ -1,5 +1,61 @@
 [
   {
+    "titulo": "AI Boost Bites: \"Eat the Frog\" with NotebookLM",
+    "img": "https://cdn.qwiklabs.com/zu4IlrPPX7ty%2B11bWNvvFGqAOiXbOmRbJsnREnkJhyg%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23011123",
+    "desc": "Aprende a utilizar NotebookLM para maximizar tu productividad, enfocándote en técnicas y herramientas que te permiten abordar las tareas más importantes primero.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Gemini Image-to-Sheets Hack",
+    "img": "https://cdn.qwiklabs.com/%2BrIpa83CQUzIpdsu0Dc5zXJiXx%2F%2BTKSi35dsTzzE2T4%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23011099",
+    "desc": "Aprende a utilizar Gemini para automatizar la transferencia de información desde imágenes a hojas de cálculo, mejorando la eficiencia en la captura y organización de datos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Poke Holes in Your Strategy",
+    "img": "https://cdn.qwiklabs.com/MR2VThssybuWq3Epa%2F0ZuVnpclfk4onY3igsHP28Azw%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23011061",
+    "desc": "Identifica las debilidades y optimiza tu estrategia de IA, aprendiendo a evaluar y mejorar tus enfoques actuales en Google Cloud.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: NotebookLM for Competitive Edge",
+    "img": "https://cdn.qwiklabs.com/lQEE5iqPEa%2BAIhmJmB769uyFwmwIoLvz0Bln5Fk5zvI%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23011036",
+    "desc": "Descubre cómo utilizar NotebookLM para obtener una ventaja competitiva, explorando sus funcionalidades para análisis y generación de insights a partir de documentos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Personalization with customized prompts",
+    "img": "https://cdn.qwiklabs.com/ZwYG3SlROXHvUoDMKccD%2BlEMrAQJtDMpjUPoGa%2BjMI4%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23010996",
+    "desc": "Domina el arte de la personalización mediante prompts personalizados, optimizando la generación de contenido para aplicaciones específicas y mejorando la experiencia del usuario.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: TL;DR with Gemini in Docs & Drive",
+    "img": "https://cdn.qwiklabs.com/5S5xEoPuikFEU0g0TBxTIrNB%2BM9olkl2ulABU4FVuHI%3D",
+    "fecha": "2026-03-14",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23010605",
+    "desc": "Descubre cómo usar Gemini de manera eficiente dentro de Google Docs y Drive para resumir información y acelerar la creación de contenido.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Prompting like a Pro with Google Workspace",
+    "img": "https://cdn.qwiklabs.com/hsgoaIaNDljV9yZPQ6UPN67yG0FAtTJ4V7uERoiZDUY%3D",
+    "fecha": "2026-03-13",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/22989848",
+    "desc": "Aprende a dominar el arte de la escritura de prompts para generar resultados de alta calidad con Gemini en Google Workspace. Explora técnicas avanzadas y mejores prácticas para maximizar la eficiencia y la creatividad.",
+    "categoria": "ai-ml"
+  },
+  {
     "titulo": "AI Boost Bites: Content Generation with Gemini Made Easy",
     "img": "https://cdn.qwiklabs.com/9UrQECS5xwTQbTYNrh3RfL88dWAH0t33na6sbZj09eM%3D",
     "fecha": "2026-03-12",
