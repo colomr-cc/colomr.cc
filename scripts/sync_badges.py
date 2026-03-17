@@ -98,8 +98,8 @@ def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> 
     return [b for b in profile_badges if b["fecha"] > latest_date]
 
 
-def generate_desc_and_category(badge: dict, categorias: list[dict], existing_badges: list[dict]) -> dict:
-    """Use Gemini API to generate description and category for a badge."""
+def generate_desc_and_category_batch(badges: list[dict], categorias: list[dict], existing_badges: list[dict]) -> list[dict]:
+    """Use Gemini API to generate description and category for multiple badges in a single call."""
     client = genai.Client()
 
     cat_list = "\n".join(f'- {c["id"]}: {c["nombre"]}' for c in categorias)
@@ -113,19 +113,20 @@ def generate_desc_and_category(badge: dict, categorias: list[dict], existing_bad
             examples.append(b)
 
     examples_text = json.dumps(examples, ensure_ascii=False, indent=2)
+    badges_list = "\n".join(f'{i+1}. "{b["titulo"]}"' for i, b in enumerate(badges))
 
     prompt = f"""Eres un asistente que clasifica y describe badges/certificaciones de Google Cloud.
 
-Dado el siguiente badge, genera:
-1. "desc": Descripción en español de 1-2 frases sobre qué se aprende en este curso. Estilo profesional y conciso.
+Para cada badge de la lista, genera un objeto JSON con:
+1. "desc": Descripción en español de 1-2 frases sobre qué se aprende. Estilo profesional y conciso.
 2. "categoria": Una de estas categorías existentes:
 {cat_list}
 
-Si ninguna categoría existente encaja con el badge, puedes crear una nueva. En ese caso, añade también:
-3. "nueva_categoria": Un objeto con los campos:
+Si ninguna categoría existente encaja, puedes crear una nueva añadiendo:
+3. "nueva_categoria": objeto con campos:
    - "id": identificador en minúsculas con guiones (ej: "seguridad-cloud")
    - "nombre": nombre visible (ej: "Seguridad Cloud")
-   - "icono": icono de Font Awesome 6 (ej: "fa-shield-halved"). Elige uno apropiado para la temática
+   - "icono": icono de Font Awesome 6 (ej: "fa-shield-halved")
    - "color": color hexadecimal que no repita los existentes
 
 Solo incluye "nueva_categoria" si realmente no encaja en ninguna existente.
@@ -133,10 +134,10 @@ Solo incluye "nueva_categoria" si realmente no encaja en ninguna existente.
 Ejemplos de badges existentes para referencia de estilo:
 {examples_text}
 
-Badge nuevo:
-- Título: "{badge['titulo']}"
+Badges a clasificar:
+{badges_list}
 
-Responde SOLO con un JSON válido (sin markdown)."""
+Responde SOLO con un JSON array válido (sin markdown), un objeto por badge, en el mismo orden."""
 
     models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
     response = None
@@ -156,7 +157,6 @@ Responde SOLO con un JSON válido (sin markdown)."""
         raise RuntimeError("All Gemini models exhausted their quota.")
 
     response_text = response.text.strip()
-    # Clean potential markdown wrapping
     response_text = re.sub(r"^```(?:json)?\s*", "", response_text)
     response_text = re.sub(r"\s*```$", "", response_text)
 
@@ -198,11 +198,12 @@ def main():
     categorias = load_categorias()
     categorias_updated = False
 
-    # Generate description and category for each new badge
+    # Generate description and category for all new badges in a single API call
+    print(f"Generating desc/category for {len(new_badges)} badge(s) in one batch call...")
+    results = generate_desc_and_category_batch(new_badges, categorias, existing_badges)
+
     completed_badges = []
-    for badge in new_badges:
-        print(f"Generating desc/category for: {badge['titulo']}...")
-        result = generate_desc_and_category(badge, categorias, existing_badges)
+    for badge, result in zip(new_badges, results):
         badge["desc"] = result["desc"]
         badge["categoria"] = result["categoria"]
 
@@ -216,7 +217,7 @@ def main():
                 print(f"  -> NEW category created: {new_cat['id']} ({new_cat['nombre']})")
 
         completed_badges.append(badge)
-        print(f"  -> category: {badge['categoria']}")
+        print(f"  -> {badge['titulo']}: {badge['categoria']}")
 
     # Insert new badges at the beginning (sorted by date, newest first)
     completed_badges.sort(key=lambda b: b["fecha"], reverse=True)
