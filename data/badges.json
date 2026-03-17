@@ -1,5 +1,109 @@
 [
   {
+    "titulo": "AI Boost Bites: NotebookLM Video Overviews",
+    "img": "https://cdn.qwiklabs.com/OgEKKA6lK1kMMYWRVX0WJAMuteS44UB8IRD4SuamxJU%3D",
+    "fecha": "2026-03-17",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23073393",
+    "desc": "Descubre cómo las vistas generales de video en NotebookLM te permiten comprender rápidamente conceptos complejos y aprovechar al máximo las funcionalidades de la herramienta.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Discover Sources in NotebookLM",
+    "img": "https://cdn.qwiklabs.com/lmE%2BtIwpWmqaKkFhz%2BmG1p2rcP8he2lN8lHU%2BmxGZ4M%3D",
+    "fecha": "2026-03-16",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23045358",
+    "desc": "Aprende a identificar y utilizar fuentes de información en NotebookLM para enriquecer tus investigaciones y asegurar la precisión de tus hallazgos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: NotebookLM Mind Maps",
+    "img": "https://cdn.qwiklabs.com/lY3dvoYQhE%2BDRnTHhHq0byo1Mv3NSNwSwcDyRC4zUUQ%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027823",
+    "desc": "Explora la creación de mapas mentales con NotebookLM, una técnica visual que facilita la organización de ideas y la comprensión de relaciones entre conceptos complejos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Intro to NotebookLM",
+    "img": "https://cdn.qwiklabs.com/LfphJE4ffS8gMf1%2Favz7ZvrsZPwFZ1CjxSQEQ4LZR84%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027785",
+    "desc": "Obtén una introducción a NotebookLM, una herramienta de IA diseñada para potenciar tu investigación y escritura, facilitando la comprensión de documentos extensos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Email Content Creation",
+    "img": "https://cdn.qwiklabs.com/hebgtvz8tlnaoha5CYFrSG1D08LS5WX1LAucQRHkdjQ%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027761",
+    "desc": "Descubre cómo utilizar NotebookLM para generar contenido de correo electrónico de manera eficiente, ahorrando tiempo y mejorando la comunicación.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Create Docs in Seconds",
+    "img": "https://cdn.qwiklabs.com/m3RGonNoaiqg65yFpO6v1xPR8ovDrrnZNqWI0i1s9YQ%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027729",
+    "desc": "Aprende a crear documentos rápidamente utilizando NotebookLM, aprovechando sus capacidades de IA para agilizar el proceso de redacción y estructuración.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: AI Power-Ups for Google Workspace",
+    "img": "https://cdn.qwiklabs.com/ydX8SIVF3NS1pN246f9PtJjGf5EmnyrlnQMNYJ9X0zQ%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027694",
+    "desc": "Explora cómo la IA, a través de NotebookLM y Gemini, puede potenciar tus flujos de trabajo en Google Workspace, mejorando la productividad y la eficiencia.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Tame Your Inbox with AI",
+    "img": "https://cdn.qwiklabs.com/GovfqO0LLP29A0CGYWOopTjGbUmv2j3rv8dIqALv2J4%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027664",
+    "desc": "Aprende a dominar tu bandeja de entrada con soluciones de IA, utilizando NotebookLM y otras herramientas para organizar y responder correos de manera más efectiva.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Gemini Slide Summaries",
+    "img": "https://cdn.qwiklabs.com/tZobx%2FFQAl1nfDYMRhUg95mlYBI51n1Gfghld39%2FAp0%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027639",
+    "desc": "Descubre cómo utilizar Gemini para generar resúmenes concisos y efectivos de presentaciones, facilitando la rápida comprensión de información clave.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: No-Code Sheets & Scripts",
+    "img": "https://cdn.qwiklabs.com/1g0gpiB8XR0%2Ft0yObuq99ZvwqDzBTbpEEZtV0MRDzWw%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027607",
+    "desc": "Aprende a automatizar tareas y potenciar Google Sheets y Scripts sin necesidad de codificación avanzada, utilizando herramientas de IA.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Amplify Exec Voices with AI",
+    "img": "https://cdn.qwiklabs.com/b5V%2FIhsctZ78FMGa3uYoqf8vjr63N9wzGzPoFwui25k%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027584",
+    "desc": "Explora cómo amplificar la voz de los ejecutivos utilizando IA, creando resúmenes y comunicaciones impactantes y eficientes.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Exec Summaries with Gemini Gems",
+    "img": "https://cdn.qwiklabs.com/3bxJs0CERuRoHFv4lUX7J5aPRv%2F58RluvEDcQDZHCWA%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027558",
+    "desc": "Descubre cómo generar resúmenes ejecutivos efectivos utilizando Gemini Gems, presentando información crucial de manera clara y concisa.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Automate tasks with Gemini and Apps Script",
+    "img": "https://cdn.qwiklabs.com/ifSp1k5lkn1JqxI7fz1oGAxqrfoHzEKdGOmOLII%2FNd0%3D",
+    "fecha": "2026-03-15",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23027517",
+    "desc": "Aprende a automatizar tareas comunes utilizando Gemini y Apps Script, optimizando flujos de trabajo y aumentando la eficiencia en Google Workspace.",
+    "categoria": "ai-ml"
+  },
+  {
     "titulo": "AI Boost Bites: \"Eat the Frog\" with NotebookLM",
     "img": "https://cdn.qwiklabs.com/zu4IlrPPX7ty%2B11bWNvvFGqAOiXbOmRbJsnREnkJhyg%3D",
     "fecha": "2026-03-14",
