@@ -1,5 +1,141 @@
 [
   {
+    "titulo": "AI Boost Bites: AI Magic in a Sheets Cell",
+    "img": "https://cdn.qwiklabs.com/fCar2tT5H%2BCfIGmFUC3yS0Wqn4lOoYg80qxswWQTMiE%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23212081",
+    "desc": "Aprende a integrar la magia de la IA directamente en Google Sheets. Descubre cómo las capacidades de Gemini pueden transformar tus datos en información valiosa y automatizar tareas directamente en tus hojas de cálculo.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Create ‘What If’ Scenarios with AI",
+    "img": "https://cdn.qwiklabs.com/oI44gvkzJsRAoRwr27uik6R7TlbK6IIqU17oygPKe0Q%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211976",
+    "desc": "Domina la creación de escenarios de simulación 'What If' utilizando IA en Google Cloud. Explora cómo las herramientas de IA pueden ayudarte a predecir resultados y tomar decisiones estratégicas basadas en datos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Become a Creative Mashup Artist",
+    "img": "https://cdn.qwiklabs.com/Q4NU16PHnMZT1gv%2FNLktZwthKnGF%2FOncadx6prRNXDA%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211652",
+    "desc": "Conviértete en un artista de 'mashups' creativos utilizando IA. Aprende a combinar y transformar diferentes elementos visuales y de contenido para generar obras únicas y originales con Gemini.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Become an AI Art Director for Your World",
+    "img": "https://cdn.qwiklabs.com/v5NyWNFdNLvbQB382WkEOn%2FXEEknN2AjdkcqY21%2BX2U%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211623",
+    "desc": "Desarrolla habilidades como director de arte para IA en tu entorno. Descubre cómo utilizar herramientas de IA para conceptualizar y visualizar ideas, transformando tu mundo a través de la creatividad asistida por inteligencia artificial.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Create the Perfect Portrait",
+    "img": "https://cdn.qwiklabs.com/nMy4XWOu3iDhorzpljJcNH9g1iMH6atVI7Im%2BX6RmBo%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211557",
+    "desc": "Crea el retrato perfecto utilizando las capacidades de generación de imágenes con IA de Google Cloud. Aprende técnicas para diseñar y refinar retratos digitales que capturen la esencia deseada.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Research Hacks with NotebookLM",
+    "img": "https://cdn.qwiklabs.com/QnMrsZVGxlKRTBXYgibnFidS4Bm3XUG4uRc0%2FcFyhcU%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211459",
+    "desc": "Mejora tus habilidades de investigación utilizando NotebookLM, una herramienta de IA de Google. Descubre cómo organizar, resumir y analizar información de manera eficiente para potenciar tus proyectos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Find the Story in Your Data",
+    "img": "https://cdn.qwiklabs.com/0ENaohMg5NF58FLM1EKmbcBCWe8utR6JvFweczvikF8%3D",
+    "fecha": "2026-03-24",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23211417",
+    "desc": "Aprende a encontrar la historia oculta en tus datos utilizando IA. Explora cómo Gemini y otras herramientas de Google Cloud pueden ayudarte a extraer narrativas significativas y insights valiosos de conjuntos de datos complejos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Streamline Event Planning with AI",
+    "img": "https://cdn.qwiklabs.com/29cYZ0Z0zjFQUFZPBdLzxtSNxCMg7E0DwiSm%2FasjR9k%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23188041",
+    "desc": "Optimiza la planificación de eventos con el poder de la IA. Descubre cómo Gemini y las herramientas de Google Cloud pueden agilizar la organización, la gestión de invitaciones y la logística para eventos exitosos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Supercharge Research with Gemini",
+    "img": "https://cdn.qwiklabs.com/QCD6qqT%2B%2FQ30G4CsV2u8BDzGZLmj5JJdziaeugF09%2BQ%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187972",
+    "desc": "Potencia tu investigación y análisis utilizando Gemini en Google Cloud. Aprende a obtener respuestas rápidas y precisas, resumir información extensa y generar contenido relevante para tus necesidades de investigación.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Make Any Big Purchase with Confidence",
+    "img": "https://cdn.qwiklabs.com/rO9aGKQKCBKB2sGCJIPQcCRVun1RNbtRyswLhNdUViU%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187831",
+    "desc": "Toma decisiones de compra importantes con mayor confianza, asistido por IA. Aprende a utilizar herramientas de Google Cloud para investigar productos, comparar opciones y evaluar el valor antes de tomar una decisión.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Animated Charts with Gemini",
+    "img": "https://cdn.qwiklabs.com/B9NwADnwxT%2F2Ox06LkGwllQXK5n8sYxYco6AitOsa5E%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187774",
+    "desc": "Crea gráficos animados y visualizaciones dinámicas utilizando Gemini en Google Cloud. Descubre cómo transformar tus datos estáticos en presentaciones atractivas y fáciles de entender.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Turn Your Ideas into Animated Art",
+    "img": "https://cdn.qwiklabs.com/nELM7maJy2gnbDkZPpiBtiCulbT6ZSZSk%2FQJQb90izA%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187131",
+    "desc": "Transforma tus ideas en arte animado con IA. Aprende a utilizar las capacidades de generación de contenido de Google Cloud para dar vida a tus conceptos visuales y crear animaciones impactantes.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Your Personal AI Tutor",
+    "img": "https://cdn.qwiklabs.com/AuLQ1FEl093O58CyWdGPf4%2BG8NvRdJXJLe5YDi1Vsh8%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187062",
+    "desc": "Conviértete en tu propio tutor personal de IA. Explora cómo las herramientas de Google Cloud pueden adaptar el aprendizaje a tu ritmo, ofrecer explicaciones personalizadas y ayudarte a dominar nuevos conceptos.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Gamify Your Study Guides",
+    "img": "https://cdn.qwiklabs.com/%2FCX5yCny46yTm0P8pFP9wRPZJldf2RyUsNKz%2FSS6WN4%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23187013",
+    "desc": "Gamifica tus guías de estudio con IA. Descubre cómo las herramientas de Google Cloud pueden hacer que el aprendizaje sea más interactivo y divertido, transformando la revisión de contenidos en una experiencia atractiva.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Get Your Competitor's Playbook in Minutes",
+    "img": "https://cdn.qwiklabs.com/jN83C3C564BTnoEFB3c4hHVbIAerjkOMR9GLmHT7UgQ%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23186956",
+    "desc": "Obtén la estrategia de tu competencia en minutos utilizando IA. Aprende a emplear herramientas de Google Cloud para analizar información pública y generar insights sobre las tácticas de tus competidores.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Build a Personalized Weather App",
+    "img": "https://cdn.qwiklabs.com/cwN3xKY3gOBgOhN3GYYA02OLiO6Eyq3oDg0Prc0EfFs%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23186887",
+    "desc": "Construye una aplicación meteorológica personalizada utilizando IA y Google Cloud. Descubre cómo integrar datos en tiempo real y capacidades de IA para crear una herramienta de pronóstico a tu medida.",
+    "categoria": "ai-ml"
+  },
+  {
+    "titulo": "AI Boost Bites: Create a 3D Solar System",
+    "img": "https://cdn.qwiklabs.com/PuTER%2B9UCnPwdtE9FYd57am08S9C6T85bOVS%2FqvwZRk%3D",
+    "fecha": "2026-03-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23186307",
+    "desc": "Crea un modelo interactivo de sistema solar en 3D utilizando IA y Google Cloud. Aprende a visualizar datos astronómicos y a crear experiencias inmersivas para explorar el espacio.",
+    "categoria": "ai-ml"
+  },
+  {
     "titulo": "AI Boost Bites: Create Your Own Productivity Tools",
     "img": "https://cdn.qwiklabs.com/oAk8KVgG3dPCgOZfTCQ2VF7QaZ%2FHpVNaQjfftp%2BX%2By4%3D",
     "fecha": "2026-03-22",
