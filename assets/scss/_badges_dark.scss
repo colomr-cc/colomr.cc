@@ -119,6 +119,22 @@
     }
   }
 
+  .page-btn {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: $fg-color-dark;
+
+    &:hover:not(:disabled) {
+      border-color: $link-color-dark;
+      color: $link-color-dark;
+    }
+
+    &.active {
+      background-color: $link-color-dark;
+      border-color: $link-color-dark;
+      color: white;
+    }
+  }
+
   .scroll-top-btn {
     background-color: $link-color-dark;
 
