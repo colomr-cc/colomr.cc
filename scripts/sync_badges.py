@@ -90,12 +90,12 @@ def load_categorias() -> list[dict]:
 
 
 def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> list[dict]:
-    """Find badges from profile that are newer than the most recent in badges.json."""
+    """Find badges from profile that are not already in badges.json (matched by URL)."""
     if not existing_badges:
         return profile_badges
 
-    latest_date = existing_badges[0]["fecha"]
-    return [b for b in profile_badges if b["fecha"] > latest_date]
+    existing_urls = {b["url"] for b in existing_badges}
+    return [b for b in profile_badges if b["url"] not in existing_urls]
 
 
 def generate_desc_and_category_batch(badges: list[dict], categorias: list[dict], existing_badges: list[dict]) -> list[dict]:
