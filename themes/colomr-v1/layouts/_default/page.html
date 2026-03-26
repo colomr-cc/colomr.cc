@@ -1,17 +1,15 @@
 {{ define "main" }}
-{{ $slug := .File.ContentBaseName }}
-{{ $page := index .Site.Params.pages $slug }}
 
-{{ if $page }}
+{{ if .Params.blocks }}
 <!-- Cover + Perfil -->
 <section class="ipage-hero">
-  <div class="ipage-hero__cover" {{ with $page.cover }}style="background-image: url('{{ . }}')"{{ end }}></div>
+  <div class="ipage-hero__cover" {{ with .Params.cover }}style="background-image: url('{{ . }}')"{{ end }}></div>
   <div class="ipage-hero__profile">
-    <div class="ipage-hero__icon">{{ $page.icon }}</div>
+    <div class="ipage-hero__icon">{{ .Params.icon }}</div>
     <div class="ipage-hero__info">
-      <h1 class="ipage-hero__title">{{ $page.title }}</h1>
-      <p class="ipage-hero__subtitle">{{ $page.subtitle }}</p>
-      {{ with $page.tags }}
+      <h1 class="ipage-hero__title">{{ .Params.pageTitle }}</h1>
+      <p class="ipage-hero__subtitle">{{ .Params.subtitle }}</p>
+      {{ with .Params.tags_list }}
       <div class="ipage-hero__tags">
         {{ range . }}<span class="chip">{{ .label }}</span>{{ end }}
       </div>
@@ -22,7 +20,7 @@
 
 <!-- Bloques de contenido -->
 <div class="ipage-content">
-  {{ range $page.blocks }}
+  {{ range .Params.blocks }}
 
   {{ if eq .type "text" }}
   <section class="iblock iblock--text">

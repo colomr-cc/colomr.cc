@@ -38,7 +38,6 @@ style = "github-dark"
 
 [taxonomies]
   category = "categories"
-  contentDir = "content"
   tag = "tags"
   author = "authors"
   collection = "collections"
@@ -65,77 +64,7 @@ style = "github-dark"
   weight = 4
   url = "https://g.dev/colomr"
 
-  
 
-# ============================================================
-# Páginas interiores — bloques estilo Notion
-# ============================================================
-
-[params.pages.quien]
-  cover    = "/images/avatar.png"
-  icon     = "👨‍💻"
-  title    = "Francisco Colomer"
-  subtitle = "Google Cloud Presales Engineer · 20+ años en preventa técnica"
-
-  [[params.pages.quien.tags]]
-    label = "Google Cloud"
-  [[params.pages.quien.tags]]
-    label = "Presales Engineer"
-  [[params.pages.quien.tags]]
-    label = "Vibe Coder"
-
-  [[params.pages.quien.blocks]]
-    type    = "text"
-    heading = "Sobre mí"
-    body    = "Llevo más de 20 años ayudando a empresas a tomar decisiones tecnológicas que importan. Empecé cuando el cloud era solo una palabra rara, y he acompañado la transformación de decenas de organizaciones hacia Google Cloud. Hoy combino ese bagaje con IA generativa — no como tendencia, sino como herramienta real de trabajo."
-
-  [[params.pages.quien.blocks]]
-    type = "cards"
-    heading = "En qué destaco"
-    [[params.pages.quien.blocks.items]]
-      icon  = "architecture"
-      title = "Preventa Técnica"
-      body  = "Diseño de soluciones GCP, RFPs, demos técnicas y acompañamiento en ciclos de venta complejos."
-    [[params.pages.quien.blocks.items]]
-      icon  = "psychology"
-      title = "Pensamiento Crítico"
-      body  = "Traduzco necesidades de negocio en arquitecturas concretas. Sin humo, con criterio."
-    [[params.pages.quien.blocks.items]]
-      icon  = "bolt"
-      title = "IA Generativa"
-      body  = "Uso diario de Gemini y Claude para acelerar trabajo real. Construyo con el API, no solo consumo."
-
-  [[params.pages.quien.blocks]]
-    type    = "timeline"
-    heading = "Trayectoria"
-    [[params.pages.quien.blocks.items]]
-      role    = "Presales Engineer — Google Cloud"
-      company = "Google (via partner)"
-      period  = "2021 – presente"
-    [[params.pages.quien.blocks.items]]
-      role    = "Solutions Architect"
-      company = "Sector financiero y telco"
-      period  = "2015 – 2021"
-    [[params.pages.quien.blocks.items]]
-      role    = "Technical Consultant"
-      company = "Consultoría TI"
-      period  = "2004 – 2015"
-
-  [[params.pages.quien.blocks]]
-    type    = "contact"
-    heading = "Encuéntrame en"
-    [[params.pages.quien.blocks.items]]
-      label = "LinkedIn"
-      url   = "https://www.linkedin.com/in/colomr-cv/"
-      icon  = "fa fa-linkedin"
-    [[params.pages.quien.blocks.items]]
-      label = "GitHub"
-      url   = "https://github.com/colomr-dev"
-      icon  = "fa fa-github"
-    [[params.pages.quien.blocks.items]]
-      label = "Google for Developers"
-      url   = "https://g.dev/colomr"
-      icon  = "fa fa-code"
 
 # Menu links
 [[menu.main]]
