@@ -1,54 +1,289 @@
 # colomr-v1
 
-Tema Hugo diseñado desde cero para [colomr.pm](https://colomr.pm). Basado en Material Design 3, con soporte nativo de modo claro/oscuro y un sistema de páginas configurables desde `config.toml` sin tocar código.
+Tema Hugo para [colomr.pm](https://colomr.pm). Material Design 3, modo claro/oscuro nativo, sistema de bloques tipo Notion para páginas interiores.
 
 ---
 
 ## Requisitos
 
 - Hugo Extended `>= 0.120.0`
-- Las fuentes se cargan desde Google Fonts (Plus Jakarta Sans + Inter + Material Symbols)
+- Fuentes externas: Google Fonts (Plus Jakarta Sans + Inter + Material Symbols)
 
 ---
 
-## Estructura del tema
+## Dónde se gestiona cada cosa
+
+| Pregunta | Respuesta | Fichero(s) |
+|----------|-----------|------------|
+| Datos globales del sitio (título, autor, analytics, social links) | `config.toml` → `[params]` | `config.toml` |
+| Datos de una página concreta (título, bloques, cover) | Front matter del `index.md` | `content/*/index.md` |
+| Texto narrativo libre | Body del markdown (debajo del front matter) | `content/*/index.md` |
+| Datos estructurados reutilizables (badges, categorías) | Data files | `data/*.json` |
+| Assets globales (logos, favicons, avatar) | Carpeta static | `static/images/` |
+| Assets de una página concreta | Page Bundle (junto al `index.md`) | `content/*/` |
+| Estilos visuales y layout | Tema | `themes/colomr-v1/` |
+| Overrides de layout específicos del sitio | Root layouts | `layouts/` |
+
+---
+
+## Estructura del proyecto
 
 ```
-themes/colomr-v1/
-├── assets/
-│   ├── scss/
-│   │   ├── main.scss          # Entry point — importa el resto
-│   │   ├── _tokens.scss       # Design tokens MD3 (colores, tipografía, spacing)
-│   │   ├── _components.scss   # Header, footer, nav, botones, chips...
-│   │   ├── _home.scss         # Estilos exclusivos del Home
-│   │   └── _page.scss         # Estilos del template de páginas interiores
-│   └── js/
-│       └── main.js            # Toggle dark/light + drawer móvil
-├── layouts/
-│   ├── index.html             # Home page
-│   ├── _default/
-│   │   ├── baseof.html        # Plantilla base (head, header, main, footer)
-│   │   ├── page.html          # Template para páginas interiores (Quién, Qué, Dónde)
-│   │   └── single.html        # Fallback genérico
-│   ├── badges/
-│   │   └── single.html        # Página de badges/formación
+colomr.pm/
+├── config.toml                    # Solo configuración global del sitio
+├── content/
+│   ├── _index.md                  # Home — datos del hero, learning, context
+│   ├── quien/
+│   │   └── index.md               # Page Bundle — front matter con bloques
+│   ├── donde/
+│   │   └── index.md               # Page Bundle
+│   ├── que/
+│   │   └── index.md               # Page Bundle
+│   └── badges/
+│       └── index.md               # Page Bundle — type: badges
+├── data/
+│   ├── badges.json                # Badges de Google Cloud Skills Boost
+│   └── categorias.json            # Categorías con icono y color
+├── static/images/                 # Assets globales (avatar, logos, favicons)
+├── layouts/                       # Overrides raíz (se eliminarán al completar el tema)
+│   ├── badges/single.html         # Entry point → partial badges.html
 │   └── partials/
-│       ├── header.html        # Nav + drawer móvil + bottom nav
-│       ├── footer.html        # Footer con créditos
-│       ├── scripts.html       # JS compilado
-│       └── head/
-│           ├── meta.html      # SEO, favicons
-│           ├── fonts.html     # Google Fonts
-│           ├── styles.html    # SCSS compilado con fingerprint
-│           └── analytics.html # GA4 (solo en producción)
-└── theme.toml
+│       ├── badges.html            # Grid de badges con filtros y paginación
+│       ├── header.html            # Nav, drawer móvil, bottom nav
+│       └── footer.html            # Footer con social links
+└── themes/colomr-v1/              # EL TEMA
+    ├── assets/
+    │   ├── scss/
+    │   │   ├── main.scss          # Entry point — importa el resto
+    │   │   ├── _tokens.scss       # Design tokens MD3 (colores, tipografía, spacing)
+    │   │   ├── _components.scss   # Header, footer, nav, botones, chips
+    │   │   ├── _home.scss         # Estilos del Home
+    │   │   └── _page.scss         # Estilos de páginas interiores
+    │   └── js/
+    │       ├── main.js            # Toggle dark/light + drawer móvil
+    │       └── badges.js          # Filtros, paginación y scroll-to-top de badges
+    ├── layouts/
+    │   ├── index.html             # Home — lee de content/_index.md front matter
+    │   ├── _default/
+    │   │   ├── baseof.html        # Plantilla base (head, header, main, footer)
+    │   │   ├── page.html          # Páginas interiores — lee bloques del front matter
+    │   │   └── single.html        # Fallback genérico — renderiza .Content
+    │   └── partials/
+    │       ├── header.html        # Nav + drawer móvil + bottom nav
+    │       ├── footer.html        # Footer con créditos
+    │       ├── scripts.html       # JS compilado con fingerprint
+    │       ├── icons/
+    │       │   ├── google-cloud.html
+    │       │   └── anthropic.html
+    │       └── head/
+    │           ├── meta.html      # SEO, favicons
+    │           ├── fonts.html     # Google Fonts
+    │           ├── styles.html    # SCSS compilado con fingerprint
+    │           └── analytics.html # GA4 (solo en producción)
+    └── theme.toml
 ```
+
+---
+
+## Convención Hugo que seguimos
+
+```
+config.toml      →  configuración global, [params], [menus], taxonomías
+front matter     →  datos de cada página (bloques, cover, icon, subtitle...)
+body markdown    →  contenido narrativo (renderizado con {{ .Content }})
+data/*.json      →  datos estructurados reutilizables
+Page Bundles     →  cada página es una carpeta con index.md (content/*/index.md)
+partials         →  trozos reutilizables de layout
+assets/          →  SCSS y JS procesados por Hugo Pipes (minify + fingerprint)
+static/          →  solo assets globales (logos, favicons)
+```
+
+---
+
+## Páginas interiores — sistema de bloques
+
+Las páginas interiores usan `layout: "page"` y definen su contenido en el **front matter YAML** del `index.md`, no en `config.toml`.
+
+### Crear una página nueva
+
+**1. Crear el Page Bundle:**
+
+```bash
+mkdir content/mi-pagina
+```
+
+**2. Crear `content/mi-pagina/index.md`:**
+
+```yaml
+---
+title: "Mi Página"
+description: "Descripción para SEO"
+url: "/mi-pagina/"
+layout: "page"
+
+cover: "/images/mi-cover.jpg"
+icon: "🚀"
+pageTitle: "Título visible en la página"
+subtitle: "Una línea descriptiva"
+
+tags_list:
+  - label: "Tag 1"
+  - label: "Tag 2"
+
+blocks:
+  - type: "text"
+    heading: "Sección de texto"
+    body: "Contenido del párrafo."
+
+  - type: "cards"
+    heading: "Tarjetas"
+    items:
+      - icon: "architecture"
+        title: "Card 1"
+        body: "Descripción"
+
+  - type: "timeline"
+    heading: "Trayectoria"
+    items:
+      - role: "Cargo"
+        company: "Empresa"
+        period: "2021 – presente"
+
+  - type: "contact"
+    heading: "Contacto"
+    items:
+      - label: "LinkedIn"
+        url: "https://linkedin.com/in/..."
+        icon: "fa fa-linkedin"
+---
+```
+
+**3. (Opcional) Colocar assets junto al `index.md`:**
+
+```
+content/mi-pagina/
+├── index.md
+├── cover.jpg      # asset local del Page Bundle
+└── diagram.png
+```
+
+Accesibles en el template con `{{ .Resources.GetMatch "cover.*" }}`.
+
+---
+
+### Tipos de bloque disponibles
+
+#### `text` — Párrafo de texto
+
+```yaml
+- type: "text"
+  heading: "Sobre mí"       # opcional
+  body: "Texto del párrafo"
+```
+
+#### `cards` — Tarjetas en grid (1–3 columnas según pantalla)
+
+```yaml
+- type: "cards"
+  heading: "En qué destaco"  # opcional
+  items:
+    - icon: "architecture"    # nombre de Material Symbol
+      title: "Título"
+      body: "Descripción breve"
+```
+
+#### `timeline` — Línea de tiempo
+
+```yaml
+- type: "timeline"
+  heading: "Trayectoria"
+  items:
+    - role: "Cargo o título"
+      company: "Empresa"
+      period: "2021 – presente"
+```
+
+#### `contact` — Links de contacto
+
+```yaml
+- type: "contact"
+  heading: "Encuéntrame en"
+  items:
+    - label: "LinkedIn"
+      url: "https://linkedin.com/in/..."
+      icon: "fa fa-linkedin"
+```
+
+### Añadir un nuevo tipo de bloque
+
+1. Añadir `{{ else if eq .type "nuevo" }}` en `themes/colomr-v1/layouts/_default/page.html`
+2. Añadir estilos en `themes/colomr-v1/assets/scss/_page.scss`
+3. Documentar el schema YAML en este README
+
+---
+
+## Home page
+
+El contenido del home se gestiona desde `content/_index.md`. El front matter define tres secciones:
+
+```yaml
+hero:
+  chips: ["GOOGLE CLOUD", "ANTHROPIC"]
+  title: "Texto antes del "
+  titleHighlight: "gradiente"
+  subtitle: "Subtítulo"
+  subtitleEmphasis: "texto en cursiva"
+  subtitleEmoji: "🤖"
+  ctas:
+    - label: "CTA primario"
+      url: "/quien/"
+      style: "primary"
+    - label: "CTA secundario"
+      url: "/donde/"
+      style: "ghost"
+
+learning:
+  title: "Aprendizaje Continuo"
+  subtitle: "Subtítulo"
+  cards:
+    - name: "Google"
+      desc: "Descripción"
+      url: "/que/"
+      icon: "google-cloud"        # partial en partials/icons/
+      cssModifier: ""
+    - name: "Anthropic"
+      desc: "Descripción"
+      url: "/que/"
+      icon: "anthropic"
+      cssModifier: "learning-card--anthropic"
+
+context:
+  heading: "Título"
+  body: "Texto"
+  icon: "architecture"            # Material Symbol
+  stat: "20+"
+  statLabel: "LABEL"
+```
+
+Los SVG de las learning cards se gestionan como **partials** en `themes/colomr-v1/layouts/partials/icons/`. Para añadir uno nuevo, crear el fichero `.html` con el SVG y referenciarlo por nombre en el campo `icon`.
+
+---
+
+## Badges
+
+La página de badges (`content/badges/index.md`) usa `type: "badges"` y se alimenta de:
+
+- `data/badges.json` — array de badges (título, imagen, fecha, URL, descripción, categoría)
+- `data/categorias.json` — definiciones de categoría (id, nombre, icono, color)
+- Front matter — `pageTitle`, `profileUrl`, `profileLinkText`
+
+El JS de filtros y paginación está en `themes/colomr-v1/assets/js/badges.js`, cargado via Hugo Pipes con minificación y fingerprint.
 
 ---
 
 ## Diseño y tokens
 
-Los tokens de diseño están en `assets/scss/_tokens.scss` como custom properties CSS. Están disponibles en ambos modos (claro y oscuro) y siguen la nomenclatura Material Design 3:
+Los design tokens están en `assets/scss/_tokens.scss` como custom properties CSS:
 
 ```scss
 var(--color-primary)                // #0058bd
@@ -60,130 +295,25 @@ var(--space-6)                      // 1.5rem
 var(--radius-xl)                    // 1.5rem
 ```
 
-El modo oscuro se activa automáticamente por preferencia del sistema (`prefers-color-scheme`) o manualmente mediante `data-theme="dark"/"light"` en `<html>`. El toggle en el header llama a `window.__toggleTheme()`.
-
----
-
-## Páginas interiores — sistema de bloques
-
-Las páginas interiores (Quién, Qué, Dónde) usan el layout `page` y su contenido se define **íntegramente en `config.toml`**, sin tocar código HTML.
-
-### Crear una página nueva
-
-**1. Crear el fichero de contenido** en `content/`:
-
-```markdown
----
-title: "Mi Página"
-description: "Descripción para SEO"
-url: "/mi-pagina/"
-layout: "page"
----
-```
-
-**2. Añadir su sección en `config.toml`** bajo `[params.pages.<slug>]`, donde `<slug>` es el nombre del fichero sin extensión:
-
-```toml
-[params.pages.mi-pagina]
-  cover    = "/images/covers/mi-pagina.jpg"  # imagen de cabecera (opcional)
-  icon     = "🚀"                             # emoji Notion-style
-  title    = "Mi Página"
-  subtitle = "Una línea descriptiva"
-
-  [[params.pages.mi-pagina.tags]]
-    label = "Tag 1"
-  [[params.pages.mi-pagina.tags]]
-    label = "Tag 2"
-
-  # Bloques de contenido (ver tipos más abajo)
-  [[params.pages.mi-pagina.blocks]]
-    type = "text"
-    ...
-```
-
----
-
-### Tipos de bloque disponibles
-
-#### `text` — Párrafo de texto
-
-```toml
-[[params.pages.quien.blocks]]
-  type    = "text"
-  heading = "Sobre mí"          # opcional
-  body    = "Texto del párrafo"
-```
-
-#### `cards` — Tarjetas en grid (1–3 columnas según pantalla)
-
-```toml
-[[params.pages.quien.blocks]]
-  type    = "cards"
-  heading = "En qué destaco"    # opcional
-  [[params.pages.quien.blocks.items]]
-    icon  = "architecture"      # nombre de Material Symbol
-    title = "Título"
-    body  = "Descripción breve"
-```
-
-#### `timeline` — Línea de tiempo (experiencia, hitos...)
-
-```toml
-[[params.pages.quien.blocks]]
-  type    = "timeline"
-  heading = "Trayectoria"
-  [[params.pages.quien.blocks.items]]
-    role    = "Cargo o título"
-    company = "Empresa u organización"
-    period  = "2021 – presente"
-```
-
-#### `contact` — Links de contacto en formato píldora
-
-```toml
-[[params.pages.quien.blocks]]
-  type    = "contact"
-  heading = "Encuéntrame en"
-  [[params.pages.quien.blocks.items]]
-    label = "LinkedIn"
-    url   = "https://linkedin.com/in/..."
-    icon  = "fa fa-linkedin"
-```
-
----
-
-### Próximamente
-
-- Activar/desactivar bloques con `enabled = false` sin eliminarlos del TOML
-- Layouts predefinidos (perfil, landing, listado) seleccionables desde el frontmatter
-- Nuevos tipos de bloque: `badges`, `gallery`, `stats`
-
----
-
-## Navegación
-
-El menú de cada página se controla desde `config.toml` (para el nav desktop) y desde `layouts/partials/header.html` (para el drawer móvil y el bottom nav). Los links del nav apuntan a las rutas definidas en los ficheros `.md`.
+El modo oscuro se activa por preferencia del sistema (`prefers-color-scheme`) o manualmente con `data-theme="dark"/"light"` en `<html>`. El toggle llama a `window.__toggleTheme()`.
 
 ---
 
 ## Iconos
 
-El tema usa dos sistemas de iconos:
-
 | Sistema | Uso | Sintaxis |
 |---------|-----|----------|
-| **Material Symbols Outlined** | UI (nav, bloques) | `<span class="material-symbols-outlined">home</span>` |
+| **Material Symbols Outlined** | UI (nav, bloques, cards) | `<span class="material-symbols-outlined">home</span>` |
 | **Font Awesome 4** | Social links, contacto | `<i class="fa fa-github"></i>` |
-
-> Font Awesome 4 se hereda del tema anterior. En una próxima iteración se migrará a Material Symbols o SVG.
 
 ---
 
-## Añadir un nuevo tipo de bloque
+## Comandos
 
-1. Añadir el bloque `{{ else if eq .type "nuevo" }}` en `themes/colomr-v1/layouts/_default/page.html`
-2. Añadir los estilos correspondientes en `themes/colomr-v1/assets/scss/_page.scss`
-3. Documentar el schema TOML en este README
+```bash
+hugo server                  # desarrollo local con live reload
+hugo --cleanDestinationDir   # build de producción
+```
 
 ---
 
