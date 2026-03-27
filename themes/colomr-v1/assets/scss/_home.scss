@@ -159,16 +159,23 @@
 .learning-card__logo {
   width: 4rem;
   height: 4rem;
-  color: #ffffff; // modo oscuro por defecto
 }
 
-[data-theme="light"] .learning-card__logo {
-  color: #181c20;
+// Modo oscuro (defecto): mostrar variante white, ocultar black
+.learning-card__logo--light { display: none; }
+.learning-card__logo--dark  { display: block; }
+
+// Modo claro via atributo
+[data-theme="light"] {
+  .learning-card__logo--light { display: block; }
+  .learning-card__logo--dark  { display: none; }
 }
 
+// Modo claro via preferencia del sistema (sin selección manual)
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .learning-card__logo {
-    color: #181c20;
+  :root:not([data-theme="dark"]) {
+    .learning-card__logo--light { display: block; }
+    .learning-card__logo--dark  { display: none; }
   }
 }
 
@@ -242,6 +249,15 @@
   font-size: 1.0625rem;
 }
 
+.context__emphasis {
+  font-size: 1.2em;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .context__highlight {
   background-color: var(--color-primary-container);
   color: var(--color-on-primary-container);
@@ -249,26 +265,29 @@
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.25rem;
 }
 
 .context__icon {
-  font-size: 3rem !important;
+  font-size: 6rem !important;
 }
 
 .context__stat {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(3rem, 6vw, 4rem);
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
 .context__stat-label {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.85;
 }
