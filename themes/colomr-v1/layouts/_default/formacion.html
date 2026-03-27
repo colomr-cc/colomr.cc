@@ -47,7 +47,7 @@
   <div class="ftabs__panel{{ if eq $i 0 }} ftabs__panel--active{{ end }}" id="tab-{{ $p.id }}">
 
     <div class="fbadges__grid">
-      {{ range first 5 $badges }}
+      {{ range first 6 $badges }}
       <a href="{{ .url }}" class="fbadge" target="_blank" rel="noopener noreferrer">
         <div class="fbadge__img-wrap">
           <img src="{{ .img }}" alt="{{ .titulo }}" class="fbadge__img" loading="lazy" />

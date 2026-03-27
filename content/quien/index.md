@@ -19,18 +19,18 @@ tags_list:
 blocks:
   - type: "text"
     heading: "Sobre mí"
-    body: "Llevo más de 20 años ayudando a empresas a tomar decisiones tecnológicas que importan. Empecé cuando el Cloud era solo una palabra rara, y he acompañado la transformación de decenas de organizaciones hacia Google Cloud. Hoy combino ese bagaje con el aprendizaje continuo de Inteligencia Artificial — no como tendencia, sino como herramienta real de trabajo."
+    body: "Llevo más de 20 años ayudando a empresas a tomar decisiones tecnológicas. Empecé cuando Linux era solo una palabra rara y he acompañado a decenas de organizaciones en su viaje a la nube. Hoy combino todo ese bagaje con la Inteligencia Artificial, no como tendencia, sino como herramienta real de trabajo."
 
   - type: "cards"
     heading: "En qué destaco"
     items:
-      - icon: "architecture"
+      - icon: "cloud"
         title: "Preventa Técnica"
         body: "Diseño de soluciones GCP, RFPs, demos técnicas y acompañamiento en ciclos de venta complejos."
       - icon: "psychology"
         title: "Pensamiento Crítico"
         body: "Traduzco necesidades de negocio en arquitecturas concretas. Sin humo, con criterio."
-      - icon: "bolt"
+      - icon: "robot"
         title: "Inteligencia Artificial"
         body: "Uso diario de Gemini y Claude para acelerar trabajo real. Construyo soluciones para clientes y side-projects personales."
 
