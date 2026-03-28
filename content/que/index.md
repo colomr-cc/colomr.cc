@@ -32,7 +32,7 @@ providers:
     data: "badges"
   - id: "anthropic"
     name: "Anthropic Academy"
-    profile_url: "https://www.anthropic.com/academy"
-    profile_label: "Ver mi perfil en Anthropic Academy"
+    # profile_url: ""          # Anthropic aún no tiene perfiles públicos
+    # profile_label: "Ver mi perfil en Anthropic Academy"
     data: "anthropic_badges"
 ---
