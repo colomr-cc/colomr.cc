@@ -281,6 +281,45 @@ El JS de filtros y paginación está en `themes/colomr-v1/assets/js/badges.js`, 
 
 ---
 
+## Navegación
+
+El tema tiene tres sistemas de navegación, uno por contexto:
+
+| Componente | Dónde se ve | Estado actual |
+|------------|-------------|---------------|
+| **Nav links** | Desktop (>= 768px) | Activo |
+| **Bottom nav** | Móvil (< 768px) | Activo |
+| **Hamburger + Drawer** | Móvil (< 768px) | Oculto via CSS |
+
+### Bottom nav (móvil)
+
+Navegación principal en móvil. Fijo en la parte inferior con 4 ítems: Home, Quién, Qué, Dónde. Se define en `layouts/partials/header.html`.
+
+### Hamburger + Drawer (desactivado)
+
+El código HTML y JS del hamburger/drawer están presentes pero ocultos via CSS. Para reactivarlos, descomentar las líneas marcadas en `assets/scss/_components.scss`:
+
+```scss
+// En .nav-hamburger:
+// @media (max-width: 767px) { display: flex; }
+
+// En .nav-drawer:
+// @media (max-width: 767px) { display: flex; transform: translateX(100%); }
+// &.is-open { @media (max-width: 767px) { transform: translateX(0); } }
+
+// En .nav-overlay:
+// &.is-open { display: block !important; }
+// @media (min-width: 768px) { display: none !important; }
+```
+
+Esto permite usar ambos sistemas (drawer para navegación secundaria/settings, bottom nav para la primaria) sin reescribir código.
+
+### Nav links (desktop)
+
+Links horizontales en el header. Se definen en `layouts/partials/header.html`. Se ocultan en móvil y se muestran a partir de 768px.
+
+---
+
 ## Diseño y tokens
 
 Los design tokens están en `assets/scss/_tokens.scss` como custom properties CSS:

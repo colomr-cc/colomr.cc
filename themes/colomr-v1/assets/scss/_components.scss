@@ -104,9 +104,9 @@
   img { width: 100%; height: 100%; object-fit: cover; }
 }
 
-// --- Hamburger (solo móvil) ---
+// --- Hamburger (oculto mientras bottom nav es suficiente) ---
 .nav-hamburger {
-  display: flex;
+  display: none;
   align-items: center;
   background: none;
   border: none;
@@ -118,10 +118,11 @@
 
   &:hover { background-color: var(--color-surface-container-high); }
 
-  @media (min-width: 768px) { display: none; }
+  // Descomentar para reactivar en móvil:
+  // @media (max-width: 767px) { display: flex; }
 }
 
-// --- Drawer móvil ---
+// --- Drawer móvil (oculto mientras bottom nav es suficiente) ---
 .nav-drawer {
   position: fixed;
   top: 0;
@@ -131,7 +132,7 @@
   background-color: var(--color-surface-container);
   z-index: 200;
   padding: 5rem 1.5rem 2rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 0.5rem;
   transform: translateX(100%);
@@ -139,7 +140,9 @@
 
   &.is-open { transform: translateX(0); }
 
-  @media (min-width: 768px) { display: none; }
+  // Descomentar para reactivar en móvil:
+  // @media (max-width: 767px) { display: flex; transform: translateX(100%); }
+  // &.is-open { @media (max-width: 767px) { transform: translateX(0); } }
 }
 
 .nav-drawer__link {
@@ -159,16 +162,17 @@
   &--active { color: var(--color-primary); background-color: var(--color-surface-container-high); }
 }
 
+// Overlay del drawer (oculto mientras drawer está desactivado)
 .nav-overlay {
-  display: none;
+  display: none !important;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 199;
 
-  &.is-open { display: block; }
-
-  @media (min-width: 768px) { display: none !important; }
+  // Descomentar para reactivar con el drawer:
+  // &.is-open { display: block !important; }
+  // @media (min-width: 768px) { display: none !important; }
 }
 
 // --- Bottom nav (mobile) ---
