@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "es" }}" data-theme="auto">
+<head>
+  {{ partial "head/meta.html" . }}
+  {{ partial "head/fonts.html" . }}
+  {{ partial "head/styles.html" . }}
+  {{ partial "head/analytics.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main id="main-content">
+    {{- block "main" . }}{{- end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+</html>

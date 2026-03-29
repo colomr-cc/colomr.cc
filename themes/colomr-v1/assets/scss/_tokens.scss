@@ -1,0 +1,129 @@
+// ============================================================
+// Design tokens — Material Design 3 / colomr-v1
+// ============================================================
+
+:root {
+  // --- Colores modo claro ---
+  --color-primary:                #0058bd;
+  --color-primary-container:      #2771df;
+  --color-on-primary:             #ffffff;
+  --color-on-primary-container:   #fefcff;
+  --color-primary-fixed:          #d8e2ff;
+  --color-primary-fixed-dim:      #adc6ff;
+  --color-inverse-primary:        #adc6ff;
+
+  --color-secondary:              #b4271f;
+  --color-secondary-container:    #fa5a4b;
+  --color-on-secondary:           #ffffff;
+  --color-on-secondary-container: #5c0002;
+  --color-secondary-fixed:        #ffdad5;
+  --color-secondary-fixed-dim:    #ffb4a9;
+
+  --color-tertiary:               #775600;
+  --color-tertiary-container:     #966e00;
+  --color-on-tertiary:            #ffffff;
+  --color-on-tertiary-container:  #fffbff;
+  --color-tertiary-fixed:         #ffdea3;
+  --color-tertiary-fixed-dim:     #fdbc13;
+  --color-on-tertiary-fixed:      #261900;
+
+  --color-background:             #f7f9ff;
+  --color-on-background:          #181c20;
+
+  --color-surface:                #f7f9ff;
+  --color-surface-bright:         #f7f9ff;
+  --color-surface-dim:            #d7dae0;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f1f4fa;
+  --color-surface-container:         #ebeef4;
+  --color-surface-container-high:    #e5e8ee;
+  --color-surface-container-highest: #dfe3e8;
+  --color-surface-tint:           #005ac1;
+  --color-surface-variant:        #dfe3e8;
+  --color-on-surface:             #181c20;
+  --color-on-surface-variant:     #424753;
+  --color-inverse-surface:        #2d3135;
+  --color-inverse-on-surface:     #eef1f7;
+
+  --color-outline:                #727785;
+  --color-outline-variant:        #c2c6d5;
+
+  --color-error:                  #ba1a1a;
+  --color-error-container:        #ffdad6;
+  --color-on-error:               #ffffff;
+  --color-on-error-container:     #93000a;
+
+  // --- Tipografía ---
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  // --- Spacing ---
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  // --- Radios ---
+  --radius-sm:   0.25rem;
+  --radius-md:   0.75rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-full: 9999px;
+
+  // --- Gradiente primario ---
+  --gradient-primary: linear-gradient(135deg, #0058bd 0%, #2771df 100%);
+}
+
+// --- Modo oscuro via atributo ---
+[data-theme="dark"] {
+  --color-background:             #0f1117;
+  --color-on-background:          #e2e5eb;
+  --color-surface:                #0f1117;
+  --color-surface-bright:         #353a42;
+  --color-surface-dim:            #0f1117;
+  --color-surface-container-lowest:  #0a0d13;
+  --color-surface-container-low:     #181c23;
+  --color-surface-container:         #1c2028;
+  --color-surface-container-high:    #262b33;
+  --color-surface-container-highest: #313640;
+  --color-surface-variant:        #424753;
+  --color-on-surface:             #e2e5eb;
+  --color-on-surface-variant:     #c2c6d5;
+  --color-inverse-surface:        #e2e5eb;
+  --color-inverse-on-surface:     #2d3135;
+  --color-primary:                #adc6ff;
+  --color-primary-container:      #2771df;
+  --color-on-primary:             #002d6e;
+  --color-outline:                #8c9099;
+  --color-outline-variant:        #424753;
+}
+
+// --- Modo oscuro via preferencia del sistema (si no hay selección manual) ---
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background:             #0f1117;
+    --color-on-background:          #e2e5eb;
+    --color-surface:                #0f1117;
+    --color-surface-bright:         #353a42;
+    --color-surface-dim:            #0f1117;
+    --color-surface-container-lowest:  #0a0d13;
+    --color-surface-container-low:     #181c23;
+    --color-surface-container:         #1c2028;
+    --color-surface-container-high:    #262b33;
+    --color-surface-container-highest: #313640;
+    --color-surface-variant:        #424753;
+    --color-on-surface:             #e2e5eb;
+    --color-on-surface-variant:     #c2c6d5;
+    --color-inverse-surface:        #e2e5eb;
+    --color-inverse-on-surface:     #2d3135;
+    --color-primary:                #adc6ff;
+    --color-primary-container:      #2771df;
+    --color-on-primary:             #002d6e;
+    --color-outline:                #8c9099;
+    --color-outline-variant:        #424753;
+  }
+}

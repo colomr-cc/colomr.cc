@@ -1,0 +1,361 @@
+// ============================================================
+// Home page
+// ============================================================
+
+// --- Hero ---
+.hero {
+  position: relative;
+  padding: 8rem 1.5rem 5rem;
+  background-size: cover;
+  background-position: center;
+
+  @media (min-width: 768px) { padding: 10rem 1.5rem 6rem; }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--hero-overlay-opacity, 0.65));
+  pointer-events: none;
+}
+
+// Modo claro: overlay blanco
+[data-theme="light"] .hero__overlay {
+  background: rgba(255, 255, 255, var(--hero-overlay-opacity, 0.65));
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .hero__overlay {
+    background: rgba(255, 255, 255, var(--hero-overlay-opacity, 0.65));
+  }
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+// --- Efecto 1: Glassmorphism ---
+.hero--glass .hero__inner {
+  padding: 2.5rem 3rem;
+  border-radius: 1.5rem;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] .hero--glass .hero__inner {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .hero--glass .hero__inner {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// --- Efecto 2: Vignette (degradado central) ---
+.hero--vignette .hero__overlay {
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 70%, transparent 100%);
+}
+
+// --- Efecto 3: Text shadow (sin caja, texto flotante) ---
+.hero--shadow .hero__overlay {
+  background: rgba(0, 0, 0, 0.25);
+}
+.hero--shadow .hero__title,
+.hero--shadow .hero__subtitle {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+// --- Efecto 4: Highlight (fondo negro inline detrás del texto) ---
+.hero--highlight .hero__overlay {
+  background: rgba(0, 0, 0, 0.15);
+}
+.hero--highlight .hero__title,
+.hero--highlight .hero__subtitle {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+}
+
+.hero__title-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-on-surface-variant);
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+// --- Aprendizaje Continuo ---
+.learning {
+  background-color: var(--color-surface-container-low);
+  padding: 5rem 1.5rem;
+}
+
+.learning__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.learning__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.learning__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.learning__subtitle {
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+}
+
+.learning__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 52rem;
+  margin: 0 auto;
+
+  @media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
+}
+
+.learning-card {
+  position: relative;
+  background-color: var(--color-surface-container-lowest);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 3px rgba(24, 28, 32, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  min-height: 20rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(24, 28, 32, 0.08);
+
+    .learning-card__hover-overlay { opacity: 1; }
+    .learning-card__btn {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+  }
+}
+
+.learning-card__hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 88, 189, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.learning-card--anthropic .learning-card__hover-overlay {
+  background: linear-gradient(135deg, rgba(180, 39, 31, 0.08), transparent);
+}
+
+.learning-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.learning-card__logo-wrap {
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--color-surface-container-high);
+  border-radius: var(--radius-lg);
+}
+
+.learning-card__logo {
+  width: 4rem;
+  height: 4rem;
+}
+
+// Modo oscuro (defecto): mostrar variante white, ocultar black
+.learning-card__logo--light { display: none; }
+.learning-card__logo--dark  { display: block; }
+
+// Modo claro via atributo
+[data-theme="light"] {
+  .learning-card__logo--light { display: block; }
+  .learning-card__logo--dark  { display: none; }
+}
+
+// Modo claro via preferencia del sistema (sin selección manual)
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    .learning-card__logo--light { display: block; }
+    .learning-card__logo--dark  { display: none; }
+  }
+}
+
+.learning-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.learning-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+  max-width: 16rem;
+  margin: 0 auto;
+}
+
+.learning-card__btn {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-container-high);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+// --- Professional Context ---
+.context {
+  padding: 5rem 1.5rem;
+}
+
+.context__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) { grid-template-columns: 2fr 1fr; }
+}
+
+.context__main {
+  background-color: var(--color-surface-container-high);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.context__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-on-surface);
+}
+
+.context__body {
+  color: var(--color-on-surface-variant);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.context__emphasis {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.context__highlight {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.context__icon {
+  font-size: 4.5rem !important;
+}
+
+.context__stat {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 0.8;
+  margin-top: -4px;
+}
+
+.context__stat-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}

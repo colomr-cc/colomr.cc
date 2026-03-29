@@ -1,0 +1,76 @@
+{{ define "main" }}
+{{ $hero := .Params.hero }}
+{{ $learning := .Params.learning }}
+{{ $context := .Params.context }}
+
+<!-- Hero -->
+<section class="hero{{ with $hero.cover_effect }} hero--{{ . }}{{ end }}" style="{{ with $hero.cover }}background-image: url('{{ . }}');{{ end }}{{ with $hero.cover_opacity }}--hero-overlay-opacity: {{ . }};{{ end }}{{ with $hero.cover_position }}background-position: {{ . }};{{ end }}">
+  <div class="hero__overlay"></div>
+  <div class="hero__inner">
+    {{ with $hero }}
+    <div class="hero__tags">
+      {{ range .chips }}<span class="chip">{{ . }}</span>{{ end }}
+    </div>
+    <h1 class="hero__title">
+      {{ .title }}&nbsp;<span class="hero__title-gradient">{{ .titleHighlight }}</span>.
+    </h1>
+    <p class="hero__subtitle">
+      {{ .subtitle }}<br>
+      <em>{{ .subtitleEmphasis }}</em> {{ .subtitleEmoji }}
+    </p>
+    <div class="hero__ctas">
+      {{ range .ctas }}
+      <a href="{{ .url | relURL }}" class="btn btn--{{ .style }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Aprendizaje Continuo -->
+<section class="learning">
+  <div class="learning__inner">
+    {{ with $learning }}
+    <div class="learning__header">
+      <h2 class="learning__title">{{ .title }}</h2>
+      <p class="learning__subtitle">{{ .subtitle }}</p>
+    </div>
+    <div class="learning__grid">
+      {{ range .cards }}
+      <div class="learning-card {{ .cssModifier }}">
+        <div class="learning-card__hover-overlay"></div>
+        <div class="learning-card__content">
+          <div class="learning-card__logo-wrap">
+            {{ partial (printf "icons/%s.html" .icon) . }}
+          </div>
+          <div class="learning-card__text">
+            <h3 class="learning-card__name">{{ .name }}</h3>
+            <p class="learning-card__desc">{{ .desc }}</p>
+          </div>
+        </div>
+        <a href="{{ .url | relURL }}" class="learning-card__btn">Explorar</a>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Professional Context -->
+<section class="context">
+  <div class="context__inner">
+    {{ with $context }}
+    <div class="context__main">
+      <h3 class="context__heading">{{ .heading }}</h3>
+      <p class="context__body">{{ .body | safeHTML }}</p>
+    </div>
+    <div class="context__highlight">
+      <span class="material-symbols-outlined context__icon">{{ .icon }}</span>
+      <div class="context__stat">{{ .stat }}</div>
+      <div class="context__stat-label">{{ .statLabel }}</div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

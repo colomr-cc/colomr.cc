@@ -1,0 +1,86 @@
+{{ define "main" }}
+
+{{ if .Params.blocks }}
+<!-- Cover + Perfil -->
+<section class="ipage-hero" style="{{ with .Params.cover_position }}--cover-pos: {{ . }};{{ end }}{{ with .Params.cover_opacity }}--cover-overlay-opacity: {{ . }};{{ end }}{{ with .Params.cover_ratio }}--cover-ratio: {{ . | safeCSS }};{{ end }}">
+  <div class="ipage-hero__cover" {{ with .Params.cover }}style="background-image: url('{{ . }}')"{{ end }}></div>
+  <div class="ipage-hero__profile">
+    <div class="ipage-hero__icon">{{ .Params.icon }}</div>
+    <div class="ipage-hero__info">
+      <h1 class="ipage-hero__title">{{ .Params.pageTitle }}</h1>
+      <p class="ipage-hero__subtitle">{{ .Params.subtitle }}</p>
+      {{ with .Params.tags_list }}
+      <div class="ipage-hero__tags">
+        {{ range . }}<span class="chip">{{ .label }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Bloques de contenido -->
+<div class="ipage-content">
+  {{ range .Params.blocks }}
+
+  {{ if eq .type "text" }}
+  <section class="iblock iblock--text">
+    {{ with .heading }}<h2 class="iblock__heading">{{ . }}</h2>{{ end }}
+    <p class="iblock__body">{{ .body }}</p>
+  </section>
+
+  {{ else if eq .type "cards" }}
+  <section class="iblock iblock--cards">
+    {{ with .heading }}<h2 class="iblock__heading">{{ . }}</h2>{{ end }}
+    <div class="iblock-cards__grid">
+      {{ range .items }}
+      <div class="iblock-card">
+        {{ with .icon }}<span class="material-symbols-outlined iblock-card__icon">{{ . }}</span>{{ end }}
+        <h3 class="iblock-card__title">{{ .title }}</h3>
+        <p class="iblock-card__body">{{ .body }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ else if eq .type "timeline" }}
+  <section class="iblock iblock--timeline">
+    {{ with .heading }}<h2 class="iblock__heading">{{ . }}</h2>{{ end }}
+    <ol class="iblock-timeline">
+      {{ range .items }}
+      <li class="iblock-timeline__item">
+        <div class="iblock-timeline__dot"></div>
+        <div class="iblock-timeline__body">
+          <span class="iblock-timeline__role">{{ .role }}</span>
+          <span class="iblock-timeline__company">{{ .company }}</span>
+          <span class="iblock-timeline__period">{{ .period }}</span>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+
+  {{ else if eq .type "contact" }}
+  <section class="iblock iblock--contact">
+    {{ with .heading }}<h2 class="iblock__heading">{{ . }}</h2>{{ end }}
+    {{ with .body }}<div class="iblock__body">{{ . }}</div>{{ end }}
+    <div class="iblock-contact__links">
+      {{ range .items }}
+      <a href="{{ .url }}" class="iblock-contact__link" target="_blank" rel="noopener noreferrer">
+        <i class="{{ .icon }}"></i>
+        <span>{{ .label }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ end }}
+  {{ end }}
+</div>
+
+{{ else }}
+<div class="ipage-empty">
+  <p>Página en construcción.</p>
+</div>
+{{ end }}
+
+{{ end }}

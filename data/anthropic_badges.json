@@ -1,0 +1,10 @@
+[
+  {
+    "titulo": "Claude 101",
+    "img": "/images/anthropic-claude101-opt.jpg",
+    "fecha": "2024-12-01",
+    "url": "https://verify.skilljar.com/c/46ocuxdgxcvz",
+    "desc": "Fundamentos del uso de Claude: prompting, contexto, seguridad y buenas prácticas para integrar IA en flujos de trabajo reales.",
+    "categoria": "fundamentos"
+  }
+]

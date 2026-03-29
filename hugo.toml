@@ -1,0 +1,99 @@
+baseurl = "https://colomr.pm/"
+title = "GCP Presales Manager | Google Cloud Expert"
+theme = "colomr-v1"
+languagecode = "es"
+defaultcontentlanguage = "es"
+
+[pagination]
+  pagerSize = 10
+
+# Google Analytics tracking ID
+googleAnalytics = 'G-Y0X8CR726Y'
+
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "Francisco Colomer"
+  info = "Google Cloud Presales Engineer"
+  description = "Preventa técnica de Google Cloud Platform (GCP)"
+  keywords = "preventa, preventa técnica, presales, presales engineer, google, google cloud, gcp, google cloud plaform. sales, ventas"
+  avatarurl = "/images/avatar.png"
+  #gravatar = "john.doe@example.com"
+
+  favicon_32 = "/images/favicon-32x32.png"
+  favicon_16 = "/images/favicon-16x16.png"
+  
+  since = 2023
+  enableTwemoji = true
+
+  
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  # customCSS = ["css/custom.css"]
+  customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  author = "authors"
+  collection = "collections"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/colomr-dev"
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa fa-linkedin fa-2x"
+  weight = 2
+  url = "https://www.linkedin.com/in/colomr-cv/"
+[[params.social]]
+  name = "Google Cloud"
+  icon = "fa fa-google fa-2x"
+  weight = 3
+  url = "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45"
+[[params.social]]
+  name = "Google for Developers"
+  icon = "fa fa-code fa-2x"
+  weight = 4
+  url = "https://g.dev/colomr"
+
+
+
+# Menu links
+[[menu.main]]
+  name = "Bio"
+  weight = 1
+  url = "https://mnf.red/colomr"
+  target = "_blank"
+
+[[menu.main]]
+  name = "Formación"
+  weight = 2
+  url = "/badges/"
+
+[[menu.main]]
+  name = "Trayectoria"
+  weight = 3
+  url = "https://www.linkedin.com/in/colomr-cv/"
+  target = "_blank"
+
+# Nav links (icon = Material Symbols name, dejar vacío para sin icono)
+[[params.nav_links]]
+  label = "Quién"
+  url = "/sobre-mi/"
+  nav_icon = "person"
+[[params.nav_links]]
+  label = "Qué"
+  url = "/formacion/"
+  nav_icon = "experiment"
+[[params.nav_links]]
+  label = "Dónde"
+  url = "/vision/"
+  nav_icon = "tactic"

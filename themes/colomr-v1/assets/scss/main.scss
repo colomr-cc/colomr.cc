@@ -1,0 +1,33 @@
+// colomr-v1 — hoja de estilos principal
+@import "tokens";
+
+// Reset mínimo
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+#main-content {
+  // espacio para header fijo
+  padding-bottom: 4rem; // espacio para bottom nav móvil
+
+  @media (min-width: 768px) { padding-bottom: 0; }
+}
+
+img { max-width: 100%; display: block; }
+
+@import "components";
+@import "home";
+@import "page";
+@import "formacion";
