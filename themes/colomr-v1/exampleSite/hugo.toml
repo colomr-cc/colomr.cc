@@ -15,6 +15,7 @@ defaultcontentlanguage = "en"
   favicon_32 = "/images/favicon-32x32.png"
   favicon_16 = "/images/favicon-16x16.png"
   since = 2024
+  github_corner = "https://github.com/colomr-dev/colomr-v1-theme"
 
 # Social links (footer)
 [[params.social]]

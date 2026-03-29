@@ -18,6 +18,7 @@ googleAnalytics = 'G-Y0X8CR726Y'
   favicon_32 = "/images/favicon-32x32.png"
   favicon_16 = "/images/favicon-16x16.png"
   since = 2023
+  github_corner = "false"
 
 # Social links (footer)
 [[params.social]]
