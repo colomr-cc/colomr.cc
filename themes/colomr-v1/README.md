@@ -257,10 +257,20 @@ hugo server --source themes/colomr-v1/exampleSite --themesDir ../..
 
 ## License
 
-GPL-3.0 — See [LICENSE](LICENSE) for details.
+This theme is licensed under the [GNU General Public License v3.0](LICENSE).
+
+You are free to use, modify, and distribute this theme, provided that:
+- Any derivative work is also licensed under GPL-3.0
+- The original author is credited (see below)
+- The license file is included in any distribution
 
 ## Author
 
-**Francisco Colomer** — [colomr.pm](https://colomr.pm)
+Created by **Francisco Colomer** ([colomr.pm](https://colomr.pm))
 
-Designed with [Google Stitch 2](https://stitch.withgoogle.com) and built with [Claude](https://claude.ai).
+- Design: [Google Stitch 2](https://stitch.withgoogle.com)
+- Development: [Claude](https://claude.ai) (Anthropic)
+- Icons: [Material Symbols](https://fonts.google.com/icons) + [Font Awesome 4.7](https://fontawesome.com/v4/)
+- Fonts: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) + [Inter](https://fonts.google.com/specimen/Inter)
+
+If you use this theme, a link back to the [original repository](https://github.com/colomr-dev/colomr-v1-theme) or to [colomr.pm](https://colomr.pm) is appreciated.
