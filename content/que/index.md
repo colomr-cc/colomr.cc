@@ -2,7 +2,7 @@
 title: "Formación"
 description: "Badges y certificaciones en Google Cloud Skills Boost y Anthropic Academy"
 url: "/formacion/"
-layout: "formacion"
+layout: "providers"
 
 # cover_ratio: "3 / 1"          # 3/1 (defecto) | 16/9 | 4/1 | 2.5/1
 # cover_position: "center center"  # top center | right center | bottom center
@@ -28,7 +28,7 @@ providers:
   - id: "google"
     name: "Google Cloud Skills Boost"
     profile_url: "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45"
-    profile_label: "Ver mi perfil en Google Skills Boost"
+    profile_label: "Mi perfil en Google Skills"
     data: "badges"
   - id: "anthropic"
     name: "Anthropic Academy"

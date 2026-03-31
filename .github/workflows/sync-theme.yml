@@ -1,0 +1,24 @@
+name: Sync Theme to Public Repo
+
+on:
+  push:
+    branches: [feature/colomr-v1, main]
+    paths:
+      - 'themes/colomr-v1/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+          token: ${{ secrets.THEME_SYNC_PAT }}
+
+      - name: Push submodule to public repo
+        run: |
+          cd themes/colomr-v1
+          git remote set-url origin https://x-access-token:${{ secrets.THEME_SYNC_PAT }}@github.com/colomr-dev/colomr-v1-theme.git
+          git push origin HEAD:main

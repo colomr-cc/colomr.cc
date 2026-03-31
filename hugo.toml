@@ -4,45 +4,23 @@ theme = "colomr-v1"
 languagecode = "es"
 defaultcontentlanguage = "es"
 
-[pagination]
-  pagerSize = 10
-
 # Google Analytics tracking ID
 googleAnalytics = 'G-Y0X8CR726Y'
 
-
-[markup.highlight]
-style = "github-dark"
+# Desactivar taxonomías (no las usamos)
+[taxonomies]
 
 [params]
   author = "Francisco Colomer"
-  info = "Google Cloud Presales Engineer"
   description = "Preventa técnica de Google Cloud Platform (GCP)"
-  keywords = "preventa, preventa técnica, presales, presales engineer, google, google cloud, gcp, google cloud plaform. sales, ventas"
+  keywords = "preventa, preventa técnica, presales, presales engineer, google, google cloud, gcp, google cloud platform, sales, ventas, IA, inteligencia artificial"
   avatarurl = "/images/avatar.png"
-  #gravatar = "john.doe@example.com"
-
   favicon_32 = "/images/favicon-32x32.png"
   favicon_16 = "/images/favicon-16x16.png"
-  
   since = 2023
-  enableTwemoji = true
+  github_corner = "false"
 
-  
-  colorScheme = "auto"
-  hidecolorschemetoggle = false
-
-  # customCSS = ["css/custom.css"]
-  customSCSS = ["scss/custom.scss"]
-  # customJS = ["js/custom.js"]
-
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  author = "authors"
-  collection = "collections"
-
-# Social links
+# Social links (footer)
 [[params.social]]
   name = "Github"
   icon = "fa fa-github fa-2x"
@@ -63,26 +41,6 @@ style = "github-dark"
   icon = "fa fa-code fa-2x"
   weight = 4
   url = "https://g.dev/colomr"
-
-
-
-# Menu links
-[[menu.main]]
-  name = "Bio"
-  weight = 1
-  url = "https://mnf.red/colomr"
-  target = "_blank"
-
-[[menu.main]]
-  name = "Formación"
-  weight = 2
-  url = "/badges/"
-
-[[menu.main]]
-  name = "Trayectoria"
-  weight = 3
-  url = "https://www.linkedin.com/in/colomr-cv/"
-  target = "_blank"
 
 # Nav links (icon = Material Symbols name, dejar vacío para sin icono)
 [[params.nav_links]]

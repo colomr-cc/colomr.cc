@@ -1,17 +1,17 @@
 ---
-title: "Dónde"
+title: "Visión"
 description: "Visión profesional y hacia dónde voy — Francisco Colomer"
 url: "/vision/"
-layout: "page"
+layout: "blocks"
 
 # Page hero data
 # cover_ratio: "3 / 1"          # 3/1 (defecto) | 16/9 | 4/1 | 2.5/1
 # cover_position: "top center"  # top center | right center | bottom center
 # cover_opacity: "0.5"          # 0 = sin oscurecer, 1 = negro total (defecto 0.5)
-cover: "https://7televalencia.com/wp-content/uploads/2025/10/76ddf4dd-94f3-41da-9579-a36e0b300708_16-9-discover-aspect-ratio_default_0-e1759420777959.jpg"
+cover: "https://images.unsplash.com/photo-1648607200576-12a71a662ec1"
 cover_ratio: "16 / 9"
 cover_position: "center center"
-cover_opacity: "0.7"
+cover_opacity: "0.4"
 icon: "🔭"
 pageTitle: "Visión"
 subtitle: "En la era de la IA"

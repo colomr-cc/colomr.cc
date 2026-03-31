@@ -1,8 +1,8 @@
 ---
-title: "Quién"
+title: "Sobre mí"
 description: "Francisco Colomer — Presales Engineer especializado en Google Cloud"
 url: "/sobre-mi/"
-layout: "page"
+layout: "blocks"
 
 # Page hero data
 # cover_ratio: "3 / 1"          # 3/1 (defecto) | 16/9 | 4/1 | 2.5/1

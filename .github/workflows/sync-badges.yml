@@ -2,7 +2,7 @@ name: Sync Badges
 
 on:
   schedule:
-    - cron: '0 8 */2 * *' # Cada 2 días a las 8:00 UTC
+    - cron: '0 8 * * 1' # Cada lunes a las 8:00 UTC
   workflow_dispatch: {} # Trigger manual
 
 jobs:
@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,7 +33,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet data/badges.json data/categorias.json; then
+          if git diff --quiet data/badges.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -63,6 +65,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/badges.json data/categorias.json
+          git add data/badges.json
           git commit -m "$COMMIT_MSG"
           git push

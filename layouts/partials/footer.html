@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-social">
+      {{ range .Site.Params.social }}
+      <a href="{{ .url }}" class="footer-social__link" aria-label="{{ .name }}"{{ with .target }} target="{{ . }}" rel="noopener noreferrer"{{ end }}>
+        <i class="{{ .icon }}"></i>
+      </a>
+      {{ end }}
+    </div>
+    <p class="footer-credit">
+      © {{ .Site.Params.since }} - {{ now.Year }} {{ .Site.Params.author }} · Desarrollado con 💚 usando <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/colomr-dev/colomr-v1-theme" target="_blank" rel="noopener">colomr-v1</a> y <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>.
+    </p>
+  </div>
+</footer>

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Sincroniza badges desde el perfil público de Google Cloud Skills Boost.
+Sincroniza los 6 badges más recientes desde el perfil público de Google Cloud Skills Boost.
 
-Detecta nuevos badges por fecha, genera descripción y categoría via Gemini API,
-y actualiza data/badges.json.
+Detecta badges nuevos comparando con data/badges.json,
+genera una descripción en español via Gemini API,
+y guarda solo los 6 más recientes.
 """
 
 import json
@@ -20,7 +21,7 @@ from google import genai
 PROFILE_URL = "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BADGES_JSON = PROJECT_ROOT / "data" / "badges.json"
-CATEGORIAS_JSON = PROJECT_ROOT / "data" / "categorias.json"
+MAX_BADGES = 6
 
 
 def fetch_profile_badges() -> list[dict]:
@@ -68,7 +69,6 @@ def parse_date(text: str) -> str | None:
         dt = datetime.strptime(match.group(1).strip(), "%b %d, %Y")
         return dt.strftime("%Y-%m-%d")
     except ValueError:
-        # Handle dates with extra spaces like "Feb  3, 2026"
         cleaned = re.sub(r"\s+", " ", match.group(1).strip())
         try:
             dt = datetime.strptime(cleaned, "%b %d, %Y")
@@ -79,65 +79,31 @@ def parse_date(text: str) -> str | None:
 
 def load_existing_badges() -> list[dict]:
     """Load current badges.json."""
+    if not BADGES_JSON.exists():
+        return []
     with open(BADGES_JSON, encoding="utf-8") as f:
         return json.load(f)
 
 
-def load_categorias() -> list[dict]:
-    """Load categorias.json."""
-    with open(CATEGORIAS_JSON, encoding="utf-8") as f:
-        return json.load(f)
-
-
 def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> list[dict]:
-    """Find badges from profile that are not already in badges.json (matched by URL)."""
-    if not existing_badges:
-        return profile_badges
-
+    """Find badges from profile not already in badges.json (matched by URL)."""
     existing_urls = {b["url"] for b in existing_badges}
     return [b for b in profile_badges if b["url"] not in existing_urls]
 
 
-def generate_desc_and_category_batch(badges: list[dict], categorias: list[dict], existing_badges: list[dict]) -> list[dict]:
-    """Use Gemini API to generate description and category for multiple badges in a single call."""
+def generate_descriptions(badges: list[dict]) -> list[str]:
+    """Use Gemini API to generate Spanish descriptions for new badges."""
     client = genai.Client()
 
-    cat_list = "\n".join(f'- {c["id"]}: {c["nombre"]}' for c in categorias)
-
-    # Pick examples from existing badges (up to 6, diverse categories)
-    seen_cats = set()
-    examples = []
-    for b in existing_badges:
-        if b["categoria"] not in seen_cats and len(examples) < 6:
-            seen_cats.add(b["categoria"])
-            examples.append(b)
-
-    examples_text = json.dumps(examples, ensure_ascii=False, indent=2)
     badges_list = "\n".join(f'{i+1}. "{b["titulo"]}"' for i, b in enumerate(badges))
 
-    prompt = f"""Eres un asistente que clasifica y describe badges/certificaciones de Google Cloud.
+    prompt = f"""Para cada badge/certificación de Google Cloud, genera una descripción
+en español de 1-2 frases sobre qué se aprende. Estilo profesional y conciso.
 
-Para cada badge de la lista, genera un objeto JSON con:
-1. "desc": Descripción en español de 1-2 frases sobre qué se aprende. Estilo profesional y conciso.
-2. "categoria": Una de estas categorías existentes:
-{cat_list}
-
-Si ninguna categoría existente encaja, puedes crear una nueva añadiendo:
-3. "nueva_categoria": objeto con campos:
-   - "id": identificador en minúsculas con guiones (ej: "seguridad-cloud")
-   - "nombre": nombre visible (ej: "Seguridad Cloud")
-   - "icono": icono de Font Awesome 6 (ej: "fa-shield-halved")
-   - "color": color hexadecimal que no repita los existentes
-
-Solo incluye "nueva_categoria" si realmente no encaja en ninguna existente.
-
-Ejemplos de badges existentes para referencia de estilo:
-{examples_text}
-
-Badges a clasificar:
+Badges:
 {badges_list}
 
-Responde SOLO con un JSON array válido (sin markdown), un objeto por badge, en el mismo orden."""
+Responde SOLO con un JSON array de strings (sin markdown), una descripción por badge, en el mismo orden."""
 
     models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
     response = None
@@ -150,7 +116,7 @@ Responde SOLO con un JSON array válido (sin markdown), un objeto por badge, en 
             break
         except Exception as e:
             if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e) or "503" in str(e) or "UNAVAILABLE" in str(e):
-                print(f"  -> Model {model} unavailable (quota/capacity), trying next model...")
+                print(f"  -> Model {model} unavailable, trying next...")
                 continue
             raise
     if response is None:
@@ -164,16 +130,9 @@ Responde SOLO con un JSON array válido (sin markdown), un objeto por badge, en 
 
 
 def save_badges(badges: list[dict]) -> None:
-    """Save badges to badges.json with consistent formatting."""
+    """Save badges to badges.json."""
     with open(BADGES_JSON, "w", encoding="utf-8") as f:
         json.dump(badges, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-
-
-def save_categorias(categorias: list[dict]) -> None:
-    """Save categorias to categorias.json with consistent formatting."""
-    with open(CATEGORIAS_JSON, "w", encoding="utf-8") as f:
-        json.dump(categorias, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
 
@@ -182,67 +141,60 @@ def main():
     profile_badges = fetch_profile_badges()
     print(f"Found {len(profile_badges)} badges on profile.")
 
+    # Sort by date (newest first) and take only the 6 most recent
+    profile_badges.sort(key=lambda b: b["fecha"], reverse=True)
+    latest_badges = profile_badges[:MAX_BADGES]
+    print(f"Keeping {len(latest_badges)} most recent badges.")
+
     existing_badges = load_existing_badges()
     print(f"Existing badges in JSON: {len(existing_badges)}")
 
-    new_badges = find_new_badges(profile_badges, existing_badges)
+    new_badges = find_new_badges(latest_badges, existing_badges)
 
     if not new_badges:
-        print("No new badges found. Nothing to do.")
+        print("No new badges in the top 6. Nothing to do.")
         sys.exit(0)
 
     print(f"Found {len(new_badges)} new badge(s):")
     for b in new_badges:
         print(f"  - {b['titulo']} ({b['fecha']})")
 
-    categorias = load_categorias()
-    categorias_updated = False
+    # Generate descriptions for new badges
+    print(f"Generating descriptions for {len(new_badges)} badge(s)...")
+    descriptions = generate_descriptions(new_badges)
 
-    # Generate description and category for all new badges in a single API call
-    print(f"Generating desc/category for {len(new_badges)} badge(s) in one batch call...")
-    results = generate_desc_and_category_batch(new_badges, categorias, existing_badges)
+    for badge, desc in zip(new_badges, descriptions):
+        badge["desc"] = desc
 
-    completed_badges = []
-    for badge, result in zip(new_badges, results):
-        badge["desc"] = result["desc"]
-        badge["categoria"] = result["categoria"]
+    # Merge: keep existing descriptions for badges we already had
+    existing_by_url = {b["url"]: b for b in existing_badges}
+    final_badges = []
+    for badge in latest_badges:
+        if badge["url"] in existing_by_url:
+            final_badges.append(existing_by_url[badge["url"]])
+        else:
+            # Find the new badge with description
+            for nb in new_badges:
+                if nb["url"] == badge["url"]:
+                    final_badges.append(nb)
+                    break
 
-        # Handle new category creation
-        if "nueva_categoria" in result:
-            new_cat = result["nueva_categoria"]
-            cat_ids = {c["id"] for c in categorias}
-            if new_cat["id"] not in cat_ids:
-                categorias.append(new_cat)
-                categorias_updated = True
-                print(f"  -> NEW category created: {new_cat['id']} ({new_cat['nombre']})")
+    save_badges(final_badges)
+    print(f"Saved {len(final_badges)} badges to badges.json.")
 
-        completed_badges.append(badge)
-        print(f"  -> {badge['titulo']}: {badge['categoria']}")
-
-    # Insert new badges at the beginning (sorted by date, newest first)
-    completed_badges.sort(key=lambda b: b["fecha"], reverse=True)
-    updated_badges = completed_badges + existing_badges
-
-    save_badges(updated_badges)
-    if categorias_updated:
-        save_categorias(categorias)
-        print("Updated categorias.json with new category(ies).")
-    print(f"Updated badges.json with {len(completed_badges)} new badge(s).")
-
-    # Write badge names for use in commit message
-    names = ", ".join(b["titulo"] for b in completed_badges)
+    # GitHub Actions output
+    names = ", ".join(b["titulo"] for b in new_badges)
     output_file = os.environ.get("GITHUB_OUTPUT")
     if output_file:
         with open(output_file, "a") as f:
-            f.write(f"new_badges=true\n")
-            f.write(f"badge_count={len(completed_badges)}\n")
-            if len(completed_badges) == 1:
-                f.write(f"commit_msg=añadido nuevo badge {completed_badges[0]['titulo']}\n")
+            f.write("new_badges=true\n")
+            f.write(f"badge_count={len(new_badges)}\n")
+            if len(new_badges) == 1:
+                f.write(f"commit_msg=añadido nuevo badge {new_badges[0]['titulo']}\n")
             else:
-                f.write(f"commit_msg=añadidos {len(completed_badges)} nuevos badges: {names}\n")
+                f.write(f"commit_msg=añadidos {len(new_badges)} nuevos badges: {names}\n")
     else:
-        # Local execution
-        print(f"\nBadges added: {names}")
+        print(f"\nNew badges: {names}")
 
 
 if __name__ == "__main__":

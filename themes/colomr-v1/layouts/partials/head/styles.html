@@ -1,3 +1,0 @@
-{{- $opts := dict "targetPath" "css/main.css" "enableSourceMap" (not hugo.IsProduction) }}
-{{- $style := resources.Get "scss/main.scss" | toCSS $opts | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />

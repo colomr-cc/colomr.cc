@@ -13,8 +13,8 @@ hero:
   chips:
     - "GOOGLE CLOUD"
     - "ANTHROPIC"
-  title: "Chips, Nubes y"
-  titleHighlight: "Neuronas"
+  title: "Tecnología, Negocio y"
+  titleHighlight: "Personas"
   subtitle: "Más de 20 años diseñando \"cosas\" que funcionan"
   subtitleEmphasis: "y que ahora van solas"
   subtitleEmoji: "🤖"
