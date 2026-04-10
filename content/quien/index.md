@@ -1,6 +1,6 @@
 ---
 title: "Sobre mí"
-description: "Francisco Colomer — Frontier AI Practitioner"
+description: "Francisco Colomer — AI Practitioner"
 url: "/sobre-mi/"
 layout: "blocks"
 
@@ -14,11 +14,11 @@ cover_ratio: "16 / 9"
 cover_opacity: "0.50"
 icon: "👨‍💻"
 pageTitle: "Francisco Colomer"
-subtitle: "Frontier AI Practitioner"
+subtitle: "AI Practitioner"
 
 tags_list:
   - label: "Google Cloud"
-  - label: "Frontier AI Practitioner"
+  - label: "AI Practitioner"
   - label: "Vibe Coder"
 
 # Content blocks (Notion-style)

@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "AI Practitioner | Google Cloud · Anthropic"
 
 # Hero section
 hero:
