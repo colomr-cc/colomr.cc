@@ -1,4 +1,4 @@
-# CLAUDE.md — Contexto del proyecto colomr.pm
+# CLAUDE.md — Contexto del proyecto colomr.cc
 
 ## Qué es este proyecto
 Sitio web personal generado con **Hugo** y desplegado en **Firebase Hosting**.

@@ -1,4 +1,4 @@
-# colomr.pm
+# colomr.cc
 
 Sitio web personal construido con [Hugo](https://gohugo.io/) y desplegado en [Firebase Hosting](https://firebase.google.com/).
 
@@ -15,7 +15,7 @@ Tema propio [colomr-v1](https://github.com/colomr-dev/colomr-v1-theme) basado en
 ## Estructura
 
 ```
-colomr.pm/
+colomr.cc/
 ├── hugo.toml                    # Configuración del sitio
 ├── content/
 │   ├── _index.md                # Home
@@ -43,7 +43,7 @@ colomr.pm/
 
 ```bash
 # Clonar con submódulos
-git clone --recurse-submodules https://github.com/colomr-dev/colomr.pm.git
+git clone --recurse-submodules https://github.com/colomr-dev/colomr.cc.git
 
 # Servidor local
 hugo server
@@ -78,4 +78,4 @@ El tema colomr-v1 está bajo [GPL-3.0](https://github.com/colomr-dev/colomr-v1-t
 
 ## Autor
 
-**Francisco Colomer** — [colomr.pm](https://colomr.pm)
+**Francisco Colomer** — [colomr.cc](https://colomr.cc)
