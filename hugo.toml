@@ -25,12 +25,12 @@ googleAnalytics = 'G-Y0X8CR726Y'
   name = "Github"
   icon = "fa fa-github fa-2x"
   weight = 1
-  url = "https://github.com/colomr-dev"
+  url = "https://github.com/colomr-cc"
 [[params.social]]
   name = "LinkedIn"
   icon = "fa fa-linkedin fa-2x"
   weight = 2
-  url = "https://www.linkedin.com/in/colomr-cv/"
+  url = "https://www.linkedin.com/in/colomr"
 [[params.social]]
   name = "Google Cloud"
   icon = "fa fa-google fa-2x"

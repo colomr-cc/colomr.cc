@@ -44,6 +44,6 @@ blocks:
     body: "Mis siguientes retos deben estar alineados con oportunidades para crecer en el campo de la Inteligencia Artificial, especialmente con soluciones de Google y/o Anthropic."
     items:
       - label: "LinkedIn"
-        url: "https://www.linkedin.com/in/colomr-cv/"
+        url: "https://www.linkedin.com/in/colomr"
         icon: "fa fa-linkedin"
 ---

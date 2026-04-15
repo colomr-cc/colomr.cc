@@ -32,7 +32,7 @@ blocks:
 
       No negocié precio, negocié que mi equipo tuviera un nuevo hogar. Me quedé dos años dentro, viendo cómo se integra una adquisición. Ahora sé leer cuándo una tecnología empuja al negocio y cuándo el negocio va arrastrando a la tecnología.
 
-      Busco mi próximo reto como Forward-Deployed / Customer / Solutions Engineer en una compañía que cree su propio producto de IA. Prefiero la operativa de campo a la teoría de despacho.
+      Busco mi próximo reto como Presales / Customer / Solutions Engineer en una compañía que cree su propio producto de IA.
 
   - type: "cards"
     heading: "En qué destaco"
@@ -79,10 +79,10 @@ blocks:
     heading: "Encuéntrame en"
     items:
       - label: "LinkedIn"
-        url: "https://www.linkedin.com/in/colomr-cv/"
+        url: "https://www.linkedin.com/in/colomr"
         icon: "fa fa-linkedin"
       - label: "GitHub"
-        url: "https://github.com/colomr-dev"
+        url: "https://github.com/colomr-cc"
         icon: "fa fa-github"
       - label: "Google for Developers"
         url: "https://g.dev/colomr"

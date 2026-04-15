@@ -13,7 +13,7 @@ Rama principal: **`main`**. Tema colomr-v1 en producción.
 - `scripts/MANUAL_BADGES.md` — procedimiento manual para badges Anthropic
 - `.github/workflows/sync-badges.yml` — sync semanal (lunes 8:00 UTC)
 - `.github/workflows/sync-theme.yml` — sincroniza tema al repo público (pendiente PAT)
-- `themes/colomr-v1/` — submódulo git → https://github.com/colomr-dev/colomr-v1-theme
+- `themes/colomr-v1/` — submódulo git → https://github.com/colomr-cc/colomr-v1-theme
 - `layouts/` — overrides personales (footer, iconos gemini/claude)
 - `content/*/index.md` — Page Bundles, contenido en front matter YAML
 

@@ -2,7 +2,7 @@
 
 Sitio web personal construido con [Hugo](https://gohugo.io/) y desplegado en [Firebase Hosting](https://firebase.google.com/).
 
-Tema propio [colomr-v1](https://github.com/colomr-dev/colomr-v1-theme) basado en Material Design 3.
+Tema propio [colomr-v1](https://github.com/colomr-cc/colomr-v1-theme) basado en Material Design 3.
 
 ## Tecnologias
 
@@ -43,7 +43,7 @@ colomr.cc/
 
 ```bash
 # Clonar con submódulos
-git clone --recurse-submodules https://github.com/colomr-dev/colomr.cc.git
+git clone --recurse-submodules https://github.com/colomr-cc/colomr.cc.git
 
 # Servidor local
 hugo server
@@ -74,7 +74,7 @@ Procedimiento documentado en [scripts/MANUAL_BADGES.md](scripts/MANUAL_BADGES.md
 
 El código de este sitio está bajo [MIT License](LICENSE).
 El contenido (textos, imágenes, datos personales) es propiedad del autor.
-El tema colomr-v1 está bajo [GPL-3.0](https://github.com/colomr-dev/colomr-v1-theme/blob/main/LICENSE).
+El tema colomr-v1 está bajo [GPL-3.0](https://github.com/colomr-cc/colomr-v1-theme/blob/main/LICENSE).
 
 ## Autor
 

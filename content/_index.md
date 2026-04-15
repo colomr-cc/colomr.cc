@@ -1,5 +1,5 @@
 ---
-title: "AI Practitioner | Google Cloud · Anthropic"
+title: "AI Practitioner | Claude Code"
 
 # Hero section
 hero:
