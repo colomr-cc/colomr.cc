@@ -40,6 +40,11 @@ googleAnalytics = 'G-Y0X8CR726Y'
   icon = "fa fa-code fa-2x"
   weight = 4
   url = "https://g.dev/colomr"
+[[params.social]]
+  name = "Reddit"
+  icon = "fa fa-reddit fa-2x"
+  weight = 5
+  url = "https://www.reddit.com/user/colomr/"
 
 # ─── Español ───
 [languages.es]
