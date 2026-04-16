@@ -91,20 +91,9 @@ def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> 
     return [b for b in profile_badges if b["url"] not in existing_urls]
 
 
-def generate_descriptions(badges: list[dict]) -> list[str]:
-    """Use Gemini API to generate Spanish descriptions for new badges."""
+def _call_gemini(prompt: str) -> str:
+    """Call Gemini API with automatic model fallback. Returns raw response text."""
     client = genai.Client()
-
-    badges_list = "\n".join(f'{i+1}. "{b["titulo"]}"' for i, b in enumerate(badges))
-
-    prompt = f"""Para cada badge/certificación de Google Cloud, genera una descripción
-en español de 1-2 frases sobre qué se aprende. Estilo profesional y conciso.
-
-Badges:
-{badges_list}
-
-Responde SOLO con un JSON array de strings (sin markdown), una descripción por badge, en el mismo orden."""
-
     models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
     response = None
     for model in models_to_try:
@@ -125,7 +114,22 @@ Responde SOLO con un JSON array de strings (sin markdown), una descripción por 
     response_text = response.text.strip()
     response_text = re.sub(r"^```(?:json)?\s*", "", response_text)
     response_text = re.sub(r"\s*```$", "", response_text)
+    return response_text
 
+
+def generate_descriptions(badges: list[dict]) -> list[dict]:
+    """Use Gemini API to generate Spanish and English descriptions for new badges."""
+    badges_list = "\n".join(f'{i+1}. "{b["titulo"]}"' for i, b in enumerate(badges))
+
+    prompt = f"""Para cada badge/certificación de Google Cloud, genera una descripción
+en español y otra en inglés (1-2 frases cada una) sobre qué se aprende. Estilo profesional y conciso.
+
+Badges:
+{badges_list}
+
+Responde SOLO con un JSON array de objetos (sin markdown), cada objeto con "desc" (español) y "desc_en" (inglés), en el mismo orden."""
+
+    response_text = _call_gemini(prompt)
     return json.loads(response_text)
 
 
@@ -163,8 +167,9 @@ def main():
     print(f"Generating descriptions for {len(new_badges)} badge(s)...")
     descriptions = generate_descriptions(new_badges)
 
-    for badge, desc in zip(new_badges, descriptions):
-        badge["desc"] = desc
+    for badge, desc_pair in zip(new_badges, descriptions):
+        badge["desc"] = desc_pair["desc"]
+        badge["desc_en"] = desc_pair["desc_en"]
 
     # Merge: keep existing descriptions for badges we already had
     existing_by_url = {b["url"]: b for b in existing_badges}

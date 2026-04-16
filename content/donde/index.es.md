@@ -1,7 +1,7 @@
 ---
 title: "Visión"
 description: "Visión profesional y hacia dónde voy — Francisco Colomer"
-url: "/vision/"
+url: "/es/vision/"
 layout: "blocks"
 
 # Page hero data

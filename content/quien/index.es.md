@@ -1,7 +1,7 @@
 ---
 title: "Sobre mí"
 description: "Francisco Colomer — AI Practitioner"
-url: "/sobre-mi/"
+url: "/es/sobre-mi/"
 layout: "blocks"
 
 # Page hero data

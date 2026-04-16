@@ -1,8 +1,8 @@
 baseurl = "https://colomr.cc/"
 title = "AI Practitioner"
 theme = "colomr-v1"
-languagecode = "es"
-defaultcontentlanguage = "es"
+defaultContentLanguage = "es"
+defaultContentLanguageInSubdir = true
 
 # Google Analytics tracking ID
 googleAnalytics = 'G-Y0X8CR726Y'
@@ -10,17 +10,16 @@ googleAnalytics = 'G-Y0X8CR726Y'
 # Desactivar taxonomías (no las usamos)
 [taxonomies]
 
+# Params compartidos (language-independent)
 [params]
   author = "Francisco Colomer"
-  description = "Preventa técnica de Google Cloud Platform (GCP)"
-  keywords = "preventa, preventa técnica, presales, presales engineer, google, google cloud, gcp, google cloud platform, sales, ventas, IA, inteligencia artificial"
   avatarurl = "/images/avatar.png"
   favicon_32 = "/images/favicon-32x32.png"
   favicon_16 = "/images/favicon-16x16.png"
   since = 2023
   github_corner = "false"
 
-# Social links (footer)
+# Social links (footer) — compartidos entre idiomas
 [[params.social]]
   name = "Github"
   icon = "fa fa-github fa-2x"
@@ -42,16 +41,48 @@ googleAnalytics = 'G-Y0X8CR726Y'
   weight = 4
   url = "https://g.dev/colomr"
 
-# Nav links (icon = Material Symbols name, dejar vacío para sin icono)
-[[params.nav_links]]
+# ─── Español ───
+[languages.es]
+  languageCode = "es"
+  languageName = "Español"
+  weight = 1
+
+[languages.es.params]
+  description = "Preventa técnica de Google Cloud Platform (GCP)"
+  keywords = "preventa, preventa técnica, presales, presales engineer, google, google cloud, gcp, google cloud platform, sales, ventas, IA, inteligencia artificial"
+
+[[languages.es.params.nav_links]]
   label = "Quién"
   url = "/sobre-mi/"
   nav_icon = "person"
-[[params.nav_links]]
+[[languages.es.params.nav_links]]
   label = "Qué"
   url = "/formacion/"
   nav_icon = "experiment"
-[[params.nav_links]]
+[[languages.es.params.nav_links]]
   label = "Dónde"
+  url = "/vision/"
+  nav_icon = "tactic"
+
+# ─── English ───
+[languages.en]
+  languageCode = "en"
+  languageName = "English"
+  weight = 2
+
+[languages.en.params]
+  description = "Google Cloud Platform (GCP) Technical Presales"
+  keywords = "presales, presales engineer, google, google cloud, gcp, google cloud platform, sales, AI, artificial intelligence"
+
+[[languages.en.params.nav_links]]
+  label = "Who"
+  url = "/about/"
+  nav_icon = "person"
+[[languages.en.params.nav_links]]
+  label = "What"
+  url = "/training/"
+  nav_icon = "experiment"
+[[languages.en.params.nav_links]]
+  label = "Where"
   url = "/vision/"
   nav_icon = "tactic"

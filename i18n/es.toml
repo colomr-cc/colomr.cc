@@ -1,0 +1,26 @@
+[home_label]
+other = "Inicio"
+
+[explore_btn]
+other = "Explorar"
+
+[page_under_construction]
+other = "Página en construcción."
+
+[toggle_theme]
+other = "Cambiar modo de color"
+
+[open_menu]
+other = "Abrir menú"
+
+[footer_credit]
+other = "Desarrollado con"
+
+[footer_using]
+other = "usando"
+
+[switch_language]
+other = "EN"
+
+[nav_aria]
+other = "Navegación principal"

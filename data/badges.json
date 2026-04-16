@@ -4,41 +4,47 @@
     "img": "https://cdn.qwiklabs.com/WcxbS5GLopt%2F0kDlgb7FWMWOdxrYl6Ozw8q4c4JCfLU%3D",
     "fecha": "2026-04-13",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23586889",
-    "desc": "Aprende a diseñar, desarrollar e implementar agentes conversacionales personalizados utilizando el kit de desarrollo de agentes (ADK) de Google Cloud para potenciar la interacción y automatización."
+    "desc": "Aprende a diseñar, desarrollar e implementar agentes conversacionales personalizados utilizando el kit de desarrollo de agentes (ADK) de Google Cloud para potenciar la interacción y automatización.",
+    "desc_en": "Learn to design, develop and deploy custom conversational agents using Google Cloud's Agent Development Kit (ADK) to enhance interaction and automation."
   },
   {
     "titulo": "Develop AI-Powered Prototypes in Google AI Studio",
     "img": "https://cdn.qwiklabs.com/e0vrsrLtbulKwrXJQFs%2FedMNW74Y2W9Mc7x41lZ0RPw%3D",
     "fecha": "2026-04-03",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23431471",
-    "desc": "Aprenda a diseñar, crear y desplegar prototipos de aplicaciones con IA utilizando Google AI Studio y Gemini, abarcando desde la concepción hasta la implementación."
+    "desc": "Aprenda a diseñar, crear y desplegar prototipos de aplicaciones con IA utilizando Google AI Studio y Gemini, abarcando desde la concepción hasta la implementación.",
+    "desc_en": "Learn to design, build and deploy AI-powered application prototypes using Google AI Studio and Gemini, from concept to implementation."
   },
   {
     "titulo": "AI Boost Bites: Advanced Analysis in Sheets",
     "img": "https://cdn.qwiklabs.com/Mvm3fVq9wNPbD18KSavBge%2F7BAEqCA0PBnNJKBLGDo0%3D",
     "fecha": "2026-03-24",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23227066",
-    "desc": "Aprende a realizar análisis avanzados de datos directamente en Google Sheets. Descubre cómo las capacidades de Gemini pueden potenciar tus hojas de cálculo con funcionalidades de IA para obtener insights más profundos."
+    "desc": "Aprende a realizar análisis avanzados de datos directamente en Google Sheets. Descubre cómo las capacidades de Gemini pueden potenciar tus hojas de cálculo con funcionalidades de IA para obtener insights más profundos.",
+    "desc_en": "Learn to perform advanced data analysis directly in Google Sheets. Discover how Gemini's capabilities can power up your spreadsheets with AI features for deeper insights."
   },
   {
     "titulo": "AI Boost Bites: Notes to Sheets with Gemini",
     "img": "https://cdn.qwiklabs.com/UtTzuA%2BEMiCpGbOQ0o%2FVwGHFXOaerR0I7Nyfliq69Ng%3D",
     "fecha": "2026-03-24",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23227008",
-    "desc": "Integra tus notas en Google Sheets utilizando Gemini. Este badge te enseña a transferir y organizar información de tus notas a hojas de cálculo de manera eficiente y automática."
+    "desc": "Integra tus notas en Google Sheets utilizando Gemini. Este badge te enseña a transferir y organizar información de tus notas a hojas de cálculo de manera eficiente y automática.",
+    "desc_en": "Integrate your notes into Google Sheets using Gemini. This badge teaches you to transfer and organise note information into spreadsheets efficiently and automatically."
   },
   {
     "titulo": "AI Boost Bites: Gemini Calendar Hacks in Gmail",
     "img": "https://cdn.qwiklabs.com/P7x51m2%2Bq9cdRKiIKnVv2Ex4r151hLx19i2zVnWnXHE%3D",
     "fecha": "2026-03-24",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23226948",
-    "desc": "Optimiza la gestión de tu calendario en Gmail con trucos de Gemini. Aprende a utilizar la IA para simplificar la organización de eventos y citas, mejorando tu productividad diaria."
+    "desc": "Optimiza la gestión de tu calendario en Gmail con trucos de Gemini. Aprende a utilizar la IA para simplificar la organización de eventos y citas, mejorando tu productividad diaria.",
+    "desc_en": "Optimise your calendar management in Gmail with Gemini hacks. Learn to use AI to simplify event and appointment scheduling, boosting your daily productivity."
   },
   {
     "titulo": "AI Boost Bites: Build Slides Fast with Gemini",
     "img": "https://cdn.qwiklabs.com/rfyHXDMUIISYQD4bXOaszWnS%2BZ46jwucmKNbFc1iMtE%3D",
     "fecha": "2026-03-24",
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23226874",
-    "desc": "Crea presentaciones de forma rápida con Gemini en Google Slides. Descubre cómo la IA puede ayudarte a generar contenido y estructuras para tus diapositivas de manera eficiente."
+    "desc": "Crea presentaciones de forma rápida con Gemini en Google Slides. Descubre cómo la IA puede ayudarte a generar contenido y estructuras para tus diapositivas de manera eficiente.",
+    "desc_en": "Create presentations quickly with Gemini in Google Slides. Discover how AI can help you generate content and slide structures efficiently."
   }
 ]
