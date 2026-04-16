@@ -51,10 +51,10 @@ blocks:
     heading: "Trayectoria"
     items:
       - role: "Google Cloud Presales Engineer"
-        company: "Altostratus Cloud Consulting"
+        company: "Altostratus | Telefónica Tech"
         period: "Febrero 2022 – actualidad"
       - role: "Coordinador de Preventa GCP"
-        company: "Altostratus Cloud Consulting"
+        company: "Altostratus | Telefónica Tech"
         period: "Marzo 2025 – Abril 2026"
       - role: "Director de Proyectos TI e Innovación"
         company: "Punt Sistemes"
