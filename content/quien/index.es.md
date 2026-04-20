@@ -26,13 +26,13 @@ blocks:
   - type: "text"
     heading: "Sobre mí"
     body: |
-      Cuando llegó la ola de la IA, no esperé: Llevo más de 100 cursos, 130 labs, 550 lecciones en Google Cloud Skills Boost, entre 2023 y 2026, por iniciativa propia. Google me reconoció como Presales Engineer referente dentro de su ecosistema de Partners.
+      Cuando llegó la ola de la IA, no esperé: Llevo más de 100 cursos, 130 labs, 550 lecciones en Google Cloud Skills Boost, entre 2023 y 2026, por iniciativa propia.  Google me reconoció como Presales Engineer referente dentro de su ecosistema de Partners.
 
-      Antes de eso, 20 años decidiendo cuándo una tecnología sirve y cuándo no. IBM Greenock, Sun Microsystems Edinburgh, RIM London. Co-fundé una empresa como arquitecto técnico con equity. Fundé otra al 100% y la operé nueve años con equipo propio, hasta que una empresa mayor vio lo que estábamos construyendo y propuso integrarnos.
+      Antes de eso, trabajé en IBM Greenock, Sun Microsystems Edinburgh y RIM London. Co-fundé una empresa como arquitecto técnico con equity. Fundé otra al 100% y la operé nueve años con equipo propio, hasta que una empresa mayor vio lo que estábamos construyendo y propuso integrarnos.
 
-      No negocié precio, negocié que mi equipo tuviera un nuevo hogar. Me quedé dos años dentro, viendo cómo se integra una adquisición. Ahora sé leer cuándo una tecnología empuja al negocio y cuándo el negocio va arrastrando a la tecnología.
+      Me quedé dos años dentro, viendo cómo se integra una adquisición. Ahora sé leer cuándo una tecnología empuja al negocio y cuándo el negocio va arrastrando a la tecnología.
 
-      Busco mi próximo reto como Presales / Customer / Solutions Engineer en una compañía que cree su propio producto de IA.
+      Busco mi próximo reto como FDE o Presales/Customer/Solutions Engineer en una compañía que cree su propio producto de IA.
 
   - type: "cards"
     heading: "En qué destaco"

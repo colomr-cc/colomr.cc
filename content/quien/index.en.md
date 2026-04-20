@@ -23,13 +23,13 @@ blocks:
   - type: "text"
     heading: "About me"
     body: |
-      When the AI wave hit, I didn't wait: Over 100 courses, 130 labs, 550 lessons on Google Cloud Skills Boost between 2023 and 2026, on my own initiative. Google recognised me as a standout Presales Engineer within their Partner ecosystem.
+      When the AI ​​wave arrived, I didn't wait: I've delivered over 100 courses, 130 labs, and 550 lessons on Google Cloud Skills Boost between 2023 and 2026, all on my own initiative. Google recognized me as a leading Presales Engineer within its Partner ecosystem.
 
-      Before that, 20 years deciding when a technology delivers and when it doesn't. IBM Greenock, Sun Microsystems Edinburgh, RIM London. I co-founded a company as technical architect with equity. I founded another one from scratch and ran it for nine years with my own team, until a larger company saw what we were building and proposed to integrate us.
+      Before that, I worked at IBM Greenock, Sun Microsystems Edinburgh and RIM London. I co-founded a company as a technical architect with equity. I founded another company wholly-owned and operated it for nine years with my own team, until a larger company saw what we were building and proposed a merger.
 
-      I didn't negotiate price — I negotiated a new home for my team. I stayed two years inside, learning how an acquisition integrates. Now I can read when technology pushes the business and when the business drags the technology along.
+      I stayed on for two years, observing how an acquisition is integrated. Now I know when a technology is driving the business and when the business is driving the technology.
 
-      I'm looking for my next challenge as a Presales / Customer / Solutions Engineer at a company building its own AI product.
+      I'm looking for my next challenge as an FDE or Presales/Customer/Solutions Engineer at a company that develops its own AI product.
 
   - type: "cards"
     heading: "What I'm good at"
