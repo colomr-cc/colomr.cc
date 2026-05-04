@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Introduction to AI Agents",
+    "img": "https://cdn.qwiklabs.com/7xFCpXl6c41wp0LLllrB7TUvpcYBIcfIbPMjsKESjGQ%3D",
+    "fecha": "2026-05-03",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23947226",
+    "desc": "Este badge introduce los conceptos fundamentales de los agentes de IA, su arquitectura y cómo se pueden utilizar para automatizar tareas y mejorar la interacción.",
+    "desc_en": "This badge introduces the fundamental concepts of AI agents, their architecture, and how they can be used to automate tasks and enhance interaction."
+  },
+  {
     "titulo": "Service Orchestration and Choreography on Google Cloud",
     "img": "https://cdn.qwiklabs.com/qBbNJUPr0qCV%2B3VL9T3h2ok9%2B5cknOVMpBXpfodHcss%3D",
     "fecha": "2026-04-21",
@@ -38,13 +46,5 @@
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23227066",
     "desc": "Aprende a realizar análisis avanzados de datos directamente en Google Sheets. Descubre cómo las capacidades de Gemini pueden potenciar tus hojas de cálculo con funcionalidades de IA para obtener insights más profundos.",
     "desc_en": "Learn to perform advanced data analysis directly in Google Sheets. Discover how Gemini's capabilities can power up your spreadsheets with AI features for deeper insights."
-  },
-  {
-    "titulo": "AI Boost Bites: Notes to Sheets with Gemini",
-    "img": "https://cdn.qwiklabs.com/UtTzuA%2BEMiCpGbOQ0o%2FVwGHFXOaerR0I7Nyfliq69Ng%3D",
-    "fecha": "2026-03-24",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23227008",
-    "desc": "Integra tus notas en Google Sheets utilizando Gemini. Este badge te enseña a transferir y organizar información de tus notas a hojas de cálculo de manera eficiente y automática.",
-    "desc_en": "Integrate your notes into Google Sheets using Gemini. This badge teaches you to transfer and organise note information into spreadsheets efficiently and automatically."
   }
 ]
