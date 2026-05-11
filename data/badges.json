@@ -1,5 +1,29 @@
 [
   {
+    "titulo": "Create Your First Gemini Enterprise Application",
+    "img": "https://cdn.qwiklabs.com/%2FoLo60xg2CMZB%2BWs7JLFlQhAVVn7ZXEVsiHws3APcHY%3D",
+    "fecha": "2026-05-10",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24072215",
+    "desc": "Aprende los pasos esenciales para desarrollar tu primera aplicación utilizando Gemini Enterprise, enfocándote en la integración y la funcionalidad básica.",
+    "desc_en": "Learn the essential steps to develop your first application using Gemini Enterprise, focusing on integration and basic functionality."
+  },
+  {
+    "titulo": "Enterprise Agents and Use Cases",
+    "img": "https://cdn.qwiklabs.com/e%2B%2FPYFSmVhRO03c6pLQZCCkY3jQsoBbI32sIHScUeuY%3D",
+    "fecha": "2026-05-09",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24062721",
+    "desc": "Explora cómo las empresas pueden implementar agentes de IA avanzados y sus casos de uso prácticos para optimizar operaciones y mejorar la experiencia del cliente.",
+    "desc_en": "Explore how enterprises can implement advanced AI agents and their practical use cases to optimize operations and enhance customer experience."
+  },
+  {
+    "titulo": "Agent Fundamentals",
+    "img": "https://cdn.qwiklabs.com/d7fgl5Am8p0NbqK9QhS4%2FDYPRBDMSwU6392ifq0p7UY%3D",
+    "fecha": "2026-05-06",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23994115",
+    "desc": "Comprende los principios fundamentales para la construcción y gestión de agentes de IA, cubriendo los componentes clave y las mejores prácticas.",
+    "desc_en": "Understand the fundamental principles for building and managing AI agents, covering key components and best practices."
+  },
+  {
     "titulo": "Introduction to AI Agents",
     "img": "https://cdn.qwiklabs.com/7xFCpXl6c41wp0LLllrB7TUvpcYBIcfIbPMjsKESjGQ%3D",
     "fecha": "2026-05-03",
@@ -22,29 +46,5 @@
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23664936",
     "desc": "Este badge valida la capacidad de desarrollar e implementar aplicaciones en Google Cloud, cubriendo desde los servicios fundamentales hasta las prácticas recomendadas de desarrollo.",
     "desc_en": "This badge validates the ability to develop and deploy applications on Google Cloud, covering fundamental services and development best practices."
-  },
-  {
-    "titulo": "Build Agents with Agent Development Kit (ADK)",
-    "img": "https://cdn.qwiklabs.com/WcxbS5GLopt%2F0kDlgb7FWMWOdxrYl6Ozw8q4c4JCfLU%3D",
-    "fecha": "2026-04-13",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23586889",
-    "desc": "Aprende a diseñar, desarrollar e implementar agentes conversacionales personalizados utilizando el kit de desarrollo de agentes (ADK) de Google Cloud para potenciar la interacción y automatización.",
-    "desc_en": "Learn to design, develop and deploy custom conversational agents using Google Cloud's Agent Development Kit (ADK) to enhance interaction and automation."
-  },
-  {
-    "titulo": "Develop AI-Powered Prototypes in Google AI Studio",
-    "img": "https://cdn.qwiklabs.com/e0vrsrLtbulKwrXJQFs%2FedMNW74Y2W9Mc7x41lZ0RPw%3D",
-    "fecha": "2026-04-03",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23431471",
-    "desc": "Aprenda a diseñar, crear y desplegar prototipos de aplicaciones con IA utilizando Google AI Studio y Gemini, abarcando desde la concepción hasta la implementación.",
-    "desc_en": "Learn to design, build and deploy AI-powered application prototypes using Google AI Studio and Gemini, from concept to implementation."
-  },
-  {
-    "titulo": "AI Boost Bites: Advanced Analysis in Sheets",
-    "img": "https://cdn.qwiklabs.com/Mvm3fVq9wNPbD18KSavBge%2F7BAEqCA0PBnNJKBLGDo0%3D",
-    "fecha": "2026-03-24",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23227066",
-    "desc": "Aprende a realizar análisis avanzados de datos directamente en Google Sheets. Descubre cómo las capacidades de Gemini pueden potenciar tus hojas de cálculo con funcionalidades de IA para obtener insights más profundos.",
-    "desc_en": "Learn to perform advanced data analysis directly in Google Sheets. Discover how Gemini's capabilities can power up your spreadsheets with AI features for deeper insights."
   }
 ]
