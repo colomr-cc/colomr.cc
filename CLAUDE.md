@@ -175,6 +175,11 @@ Se marca con `git tag` + GitHub Release en cada versión.
 - Imágenes: el usuario las elige y pasa la URL — Claude no las busca solo
 - Paso a paso con aprobación del usuario para cambios estructurales
 
+### Autoría y estilo de commits/PRs
+- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría.
+- **Mensaje de commit**: una sola línea, en minúsculas, en español, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `añadido nuevo badge Introduction to AI Agents`, `cambiado emoji de la página Sobre mí: 👨‍💻 → 👾`.
+- **Cuerpo del PR**: breve — una o dos frases. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
+
 ## Tareas pendientes
 1. ⏳ Optimizar imágenes de cover a local (WebP 1920x1080, `static/images/covers/`)
 2. ⏳ Imágenes definitivas con "alma" para las páginas
