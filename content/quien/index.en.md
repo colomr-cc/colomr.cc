@@ -9,7 +9,7 @@ cover: "https://www.visitvalencia.com/sites/default/files/styles/full_width_gall
 cover_position: "center center"
 cover_ratio: "16 / 9"
 cover_opacity: "0.50"
-icon: "👨‍💻"
+icon: "👾"
 pageTitle: "Francisco Colomer"
 subtitle: "AI Practitioner"
 
