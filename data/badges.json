@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Introduction to Looker",
+    "img": "https://cdn.qwiklabs.com/trCZwK0Hdr%2FpsCC0BqzQUWJ97KmXJYa662iHvG4E1wk%3D",
+    "fecha": "2026-05-23",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24378214",
+    "desc": "Este badge cubre los conceptos fundamentales de Looker, permitiéndole explorar datos y crear informes visualmente atractivos para impulsar la toma de decisiones estratégicas.",
+    "desc_en": "This badge covers the fundamental concepts of Looker, enabling you to explore data and create visually appealing reports to drive strategic decision-making."
+  },
+  {
     "titulo": "Create Your First Gemini Enterprise Application",
     "img": "https://cdn.qwiklabs.com/%2FoLo60xg2CMZB%2BWs7JLFlQhAVVn7ZXEVsiHws3APcHY%3D",
     "fecha": "2026-05-10",
@@ -38,13 +46,5 @@
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23721886",
     "desc": "Aprende a diseñar y construir flujos de trabajo resilientes y escalables utilizando servicios de orquestación y coreografía en Google Cloud, como Cloud Composer y Cloud Workflows.",
     "desc_en": "Learn to design and build resilient and scalable workflows using orchestration and choreography services on Google Cloud, such as Cloud Composer and Cloud Workflows."
-  },
-  {
-    "titulo": "Developing Applications with Google Cloud: Foundations",
-    "img": "https://cdn.qwiklabs.com/A6pBAbPUDcs6%2B%2Bf7PAI%2FIuL2OzCzj3FFJIcXICIe9EE%3D",
-    "fecha": "2026-04-17",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23664936",
-    "desc": "Este badge valida la capacidad de desarrollar e implementar aplicaciones en Google Cloud, cubriendo desde los servicios fundamentales hasta las prácticas recomendadas de desarrollo.",
-    "desc_en": "This badge validates the ability to develop and deploy applications on Google Cloud, covering fundamental services and development best practices."
   }
 ]
