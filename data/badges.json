@@ -1,5 +1,21 @@
 [
   {
+    "titulo": "Create Real-time Data Processing Pipelines",
+    "img": "https://cdn.qwiklabs.com/BjIbnjPeYQKHQJgSM6uoDDGmxLOy1VYKIaSq%2Brrk3Cs%3D",
+    "fecha": "2026-05-28",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24495549",
+    "desc": "Aprenda a diseñar e implementar pipelines de procesamiento de datos en tiempo real en Google Cloud, asegurando flujos de datos eficientes y análisis inmediatos.",
+    "desc_en": "Learn to design and implement real-time data processing pipelines on Google Cloud, ensuring efficient data flows and immediate insights."
+  },
+  {
+    "titulo": "Orchestrate Data Lifecycle Automation with Data Agents",
+    "img": "https://cdn.qwiklabs.com/2A3i9dOELXxMkcrv778RreIcF88iNrkyQw8tNyMV5LA%3D",
+    "fecha": "2026-05-27",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24471440",
+    "desc": "Domine la orquestación de la automatización del ciclo de vida de los datos utilizando Data Agents, optimizando la gestión y el control de los datos.",
+    "desc_en": "Master the orchestration of data lifecycle automation using Data Agents, optimizing data management and governance."
+  },
+  {
     "titulo": "Introduction to Looker",
     "img": "https://cdn.qwiklabs.com/trCZwK0Hdr%2FpsCC0BqzQUWJ97KmXJYa662iHvG4E1wk%3D",
     "fecha": "2026-05-23",
@@ -30,21 +46,5 @@
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23994115",
     "desc": "Comprende los principios fundamentales para la construcción y gestión de agentes de IA, cubriendo los componentes clave y las mejores prácticas.",
     "desc_en": "Understand the fundamental principles for building and managing AI agents, covering key components and best practices."
-  },
-  {
-    "titulo": "Introduction to AI Agents",
-    "img": "https://cdn.qwiklabs.com/7xFCpXl6c41wp0LLllrB7TUvpcYBIcfIbPMjsKESjGQ%3D",
-    "fecha": "2026-05-03",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23947226",
-    "desc": "Este badge introduce los conceptos fundamentales de los agentes de IA, su arquitectura y cómo se pueden utilizar para automatizar tareas y mejorar la interacción.",
-    "desc_en": "This badge introduces the fundamental concepts of AI agents, their architecture, and how they can be used to automate tasks and enhance interaction."
-  },
-  {
-    "titulo": "Service Orchestration and Choreography on Google Cloud",
-    "img": "https://cdn.qwiklabs.com/qBbNJUPr0qCV%2B3VL9T3h2ok9%2B5cknOVMpBXpfodHcss%3D",
-    "fecha": "2026-04-21",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23721886",
-    "desc": "Aprende a diseñar y construir flujos de trabajo resilientes y escalables utilizando servicios de orquestación y coreografía en Google Cloud, como Cloud Composer y Cloud Workflows.",
-    "desc_en": "Learn to design and build resilient and scalable workflows using orchestration and choreography services on Google Cloud, such as Cloud Composer and Cloud Workflows."
   }
 ]
