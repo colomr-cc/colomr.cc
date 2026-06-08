@@ -1,5 +1,21 @@
 [
   {
+    "titulo": "Build Infrastructure with Terraform on Google Cloud",
+    "img": "https://cdn.qwiklabs.com/V5hy7oPDiKov68Q4kTcuuA%2BMHNMX3Z0my4mncKPPGvY%3D",
+    "fecha": "2026-06-06",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24727058",
+    "desc": "Aprenda a provisionar y administrar la infraestructura de Google Cloud de forma declarativa y automatizada utilizando Terraform.",
+    "desc_en": "Learn to provision and manage Google Cloud infrastructure declaratively and automatically using Terraform."
+  },
+  {
+    "titulo": "Design Secure Landing Zones and Architecture",
+    "img": "https://cdn.qwiklabs.com/CIPmsO9buB5uFD%2FZrWmRoArQbGKsda4%2FIKZhHR156Dg%3D",
+    "fecha": "2026-06-04",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24673614",
+    "desc": "Desarrolle habilidades para diseñar arquitecturas seguras y escalables en Google Cloud, estableciendo bases sólidas para sus cargas de trabajo.",
+    "desc_en": "Develop skills to design secure and scalable architectures on Google Cloud, establishing a solid foundation for your workloads."
+  },
+  {
     "titulo": "Create Real-time Data Processing Pipelines",
     "img": "https://cdn.qwiklabs.com/BjIbnjPeYQKHQJgSM6uoDDGmxLOy1VYKIaSq%2Brrk3Cs%3D",
     "fecha": "2026-05-28",
@@ -30,21 +46,5 @@
     "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24072215",
     "desc": "Aprende los pasos esenciales para desarrollar tu primera aplicación utilizando Gemini Enterprise, enfocándote en la integración y la funcionalidad básica.",
     "desc_en": "Learn the essential steps to develop your first application using Gemini Enterprise, focusing on integration and basic functionality."
-  },
-  {
-    "titulo": "Enterprise Agents and Use Cases",
-    "img": "https://cdn.qwiklabs.com/e%2B%2FPYFSmVhRO03c6pLQZCCkY3jQsoBbI32sIHScUeuY%3D",
-    "fecha": "2026-05-09",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24062721",
-    "desc": "Explora cómo las empresas pueden implementar agentes de IA avanzados y sus casos de uso prácticos para optimizar operaciones y mejorar la experiencia del cliente.",
-    "desc_en": "Explore how enterprises can implement advanced AI agents and their practical use cases to optimize operations and enhance customer experience."
-  },
-  {
-    "titulo": "Agent Fundamentals",
-    "img": "https://cdn.qwiklabs.com/d7fgl5Am8p0NbqK9QhS4%2FDYPRBDMSwU6392ifq0p7UY%3D",
-    "fecha": "2026-05-06",
-    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/23994115",
-    "desc": "Comprende los principios fundamentales para la construcción y gestión de agentes de IA, cubriendo los componentes clave y las mejores prácticas.",
-    "desc_en": "Understand the fundamental principles for building and managing AI agents, covering key components and best practices."
   }
 ]
