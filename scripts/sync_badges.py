@@ -57,6 +57,12 @@ def fetch_profile_badges() -> list[dict]:
             "url": url,
         })
 
+    if len(badges) == 0:
+        raise RuntimeError(
+            f"Scraping devolvió 0 badges desde {PROFILE_URL}. "
+            "Probablemente Google cambió el HTML del perfil — revisar selectores CSS."
+        )
+
     return badges
 
 
