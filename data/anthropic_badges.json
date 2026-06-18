@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Introduction to Agent Skills",
+    "img": "/images/anthropic-agent-skills-opt.jpg",
+    "fecha": "2026-06-18",
+    "url": "https://verify.skilljar.com/c/8ikj9yc694ca",
+    "desc": "Crear y compartir Skills para Claude: estructura del SKILL.md, descripciones que activan el matching, progressive disclosure y distribución vía repos, plugins y settings de empresa.",
+    "desc_en": "Build and share Claude Skills: SKILL.md structure, descriptions that trigger matching, progressive disclosure, and distribution via repos, plugins and enterprise settings."
+  },
+  {
     "titulo": "Claude 101",
     "img": "/images/anthropic-claude101-opt.jpg",
     "fecha": "2024-12-01",

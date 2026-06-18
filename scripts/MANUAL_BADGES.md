@@ -27,9 +27,16 @@ Editar `data/anthropic_badges.json` y añadir al **inicio** del array:
   "img": "/images/anthropic-nombre-curso-opt.jpg",
   "fecha": "2026-04-01",
   "url": "https://verify.skilljar.com/c/XXXXX",
-  "desc": "Descripción breve de 1-2 líneas sobre qué se aprende en el curso."
+  "desc": "Descripción breve de 1-2 líneas sobre qué se aprende en el curso.",
+  "desc_en": "Short 1-2 line description of what the course teaches."
 }
 ```
+
+> **Importante (web bilingüe es/en):** el campo `desc_en` es obligatorio.
+> El sitio renderiza `desc_en` en la versión inglesa y cae a `desc` si falta,
+> así que sin él la web en inglés mostraría el texto en español.
+> El campo `categoria` que pueda aparecer en entradas antiguas es opcional y no
+> se renderiza — se puede omitir.
 
 ### 4. Verificar y desplegar
 ```bash
@@ -48,5 +55,5 @@ git push
 ## Notas
 - Mantener solo los 6 badges más recientes en el JSON
 - Si hay más de 6, eliminar los más antiguos del final del array
-- El campo `desc` es un resumen propio, no generado por IA
+- Los campos `desc` (español) y `desc_en` (inglés) son resúmenes propios, no generados por IA
 - Las imágenes locales van en `static/images/`, no en URLs externas
