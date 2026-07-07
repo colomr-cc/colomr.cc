@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Building with the Claude API",
+    "img": "/images/anthropic-anthropic-api-opt.jpg",
+    "fecha": "2026-07-06",
+    "url": "https://verify.skilljar.com/c/34cjseb47y64",
+    "desc": "Construir aplicaciones con la API de Claude: llamadas al modelo, prompting efectivo, tool use, streaming y buenas prácticas para integrar Claude en tus propios servicios.",
+    "desc_en": "Build applications with the Claude API: model calls, effective prompting, tool use, streaming and best practices for integrating Claude into your own services."
+  },
+  {
     "titulo": "Introduction to Agent Skills",
     "img": "/images/anthropic-agent-skills-opt.jpg",
     "fecha": "2026-06-18",
