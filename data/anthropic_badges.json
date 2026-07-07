@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Introduction to Model Context Protocol",
+    "img": "/images/anthropic-mcp-opt.jpg",
+    "fecha": "2026-07-07",
+    "url": "https://verify.skilljar.com/c/e6wheranqtys",
+    "desc": "Fundamentos del Model Context Protocol (MCP): estándar abierto para conectar Claude con herramientas y fuentes de datos externas mediante servidores MCP, con arquitectura cliente-servidor, recursos, prompts y tools.",
+    "desc_en": "Fundamentals of the Model Context Protocol (MCP): open standard for connecting Claude to external tools and data sources through MCP servers, covering client-server architecture, resources, prompts and tools."
+  },
+  {
     "titulo": "Building with the Claude API",
     "img": "/images/anthropic-anthropic-api-opt.jpg",
     "fecha": "2026-07-06",
