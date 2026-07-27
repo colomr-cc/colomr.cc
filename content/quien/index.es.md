@@ -26,12 +26,12 @@ blocks:
   - type: "text"
     heading: "Sobre mí"
     body: |
-      Empecé de niño con un Amstrad CPC464. Vi nacer el PC, Internet, la Virtualización, la Nube, y ahora la Inteligencia Artificial. Cada nueva revolución se asienta sobre la base de lo que ya aprendí, me siento un privilegiado por vivir en primera persona esta época tan apasionante.
+      Empecé de niño con un Amstrad CPC464. Vi nacer el PC, Internet, la Virtualización, la Nube, Blockchain y ahora la Inteligencia Artificial. Cada nueva revolución se asienta sobre la base de lo que ya aprendí, me siento un privilegiado por vivir en primera persona esta época tan apasionante.
 
-      En mi etapa de junior la ilusión me llevó a IBM Greenock, Sun Microsystems Edinburgh, RIM London. Regresé a España y co-fundé una empresa de E-Commerce como director técnico. Dos años más tarde lancé una compañía con capital propio y la operé nueve años, hasta que una empresa, de mayor tamaño, propuso integrarnos. Dejé el mercado de la PyME, cansado de tener que integrar soluciones multi-vendor. Decidí focalizarme en Google como único fabricante; llevo cinco años en una startup adquirida por Telefónica ayudando a empresas en su migración de cargas a Google Cloud. Mi trabajo de GCP Presales Engineer me facilita estar a caballo entre el negocio y la tecnología, rol donde me siento como pez en el agua.
+      En mi etapa de junior la ilusión me llevó a IBM Greenock, Sun Microsystems Edinburgh, RIM London. Regresé a España y co-fundé una empresa de E-Commerce como director técnico. Dos años más tarde lancé una compañía con capital propio y la operé nueve años, hasta que una empresa, de mayor tamaño, propuso integrarnos. Dejé el mercado de la PyME, cansado de integrar soluciones multi-vendor. Decidí especializarme en Google como único fabricante; llevo cinco años en una startup adquirida por Telefónica ayudando a empresas en su migración de cargas a Google Cloud. Mi trabajo de GCP Presales Engineer me facilita estar a caballo entre el negocio y la tecnología, rol donde me siento como pez en el agua.
 
-      - De día diseño arquitecturas Google Cloud para grandes cuentas: RFPs, demos técnicas, ciclos de venta complejos... Aquí aprendo cómo piensa una organización grande cuando tiene miedo de equivocarse.
-      - En mi tiempo libre diseño y construyo "cosas" que ahora van solas 🤖. Encargarme de mis side-projects me da una visión 360º que ningún curso te enseña: idea, prototipado, arquitectura, código, calidad, despliegue, mantenimiento, etc.
+      - De día diseño arquitecturas de Google Cloud para grandes cuentas: RFPs, demos técnicas, ciclos de venta complejos... Aquí aprendo cómo piensa una organización grande cuando tiene miedo de equivocarse.
+      - En mi tiempo libre construyo "cosas" que ahora van solas 🤖. Encargarme de todas las fases en mis side-projects me da una visión 360º que ningún curso te enseña: idea, prototipado, arquitectura, código, calidad, despliegue, mantenimiento, etc.
 
       Lo que me motiva es ver crecimiento y sentido en lo que hago. Lo que me apaga es repetir sin aprender, el "siempre se ha hecho así".
 
