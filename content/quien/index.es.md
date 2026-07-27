@@ -26,7 +26,7 @@ blocks:
   - type: "text"
     heading: "Sobre mí"
     body: |
-      Empecé de niño con un Amstrad CPC464. Vi nacer el PC, Internet, la Virtualización, la Nube, Blockchain, y ahora la Inteligencia Artificial. Cada nueva revolución se asienta sobre la base de lo que ya aprendí, me siento un privilegiado por vivir en primera persona esta época tan apasionante.
+      Empecé de niño con un Amstrad CPC464. Vi nacer el PC, Internet, la Virtualización, la Nube, Blockchain y ahora la Inteligencia Artificial. Cada nueva revolución se asienta sobre la base de lo que ya aprendí, me siento un privilegiado por vivir en primera persona esta época tan apasionante.
 
       En mi etapa de junior la ilusión me llevó a IBM Greenock, Sun Microsystems Edinburgh, RIM London. Regresé a España y co-fundé una empresa de E-Commerce como director técnico. Dos años más tarde lancé una compañía con capital propio y la operé nueve años, hasta que una empresa, de mayor tamaño, propuso integrarnos. Dejé el mercado de la PyME, cansado de integrar soluciones multi-vendor. Decidí especializarme en Google como único fabricante; llevo cinco años en una startup adquirida por Telefónica ayudando a empresas en su migración de cargas a Google Cloud. Mi trabajo de GCP Presales Engineer me facilita estar a caballo entre el negocio y la tecnología, rol donde me siento como pez en el agua.
 
