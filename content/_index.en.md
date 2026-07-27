@@ -1,5 +1,5 @@
 ---
-title: "AI Practitioner | Claude Code"
+title: "AI Practitioner | Cloud Architect | Solo Developer"
 
 # Hero section
 hero:
