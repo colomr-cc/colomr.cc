@@ -11,7 +11,7 @@ cover_ratio: "16 / 9"
 cover_opacity: "0.50"
 icon: "👾"
 pageTitle: "Francisco Colomer"
-subtitle: "AI Practitioner"
+subtitle: "AI Practitioner | Cloud Architect | Solo Developer"
 
 tags_list:
   - label: "Google Cloud"
@@ -23,13 +23,14 @@ blocks:
   - type: "text"
     heading: "About me"
     body: |
-      When the AI ​​wave arrived, I didn't wait: I've delivered over 100 courses, 130 labs, and 550 lessons on Google Cloud Skills Boost between 2023 and 2026, all on my own initiative. Google recognized me as a leading Presales Engineer within its Partner ecosystem.
+      I started as a kid with an Amstrad CPC464. I watched the PC, the Internet, Virtualization, the Cloud, and now Artificial Intelligence come to life. Every new revolution builds on what I already learned — I feel privileged to live through such an exciting era firsthand.
 
-      Before that, I worked at IBM Greenock, Sun Microsystems Edinburgh and RIM London. I co-founded a company as a technical architect with equity. I founded another company wholly-owned and operated it for nine years with my own team, until a larger company saw what we were building and proposed a merger.
+      In my junior years, enthusiasm took me to IBM Greenock, Sun Microsystems Edinburgh, and RIM London. I returned to Spain and co-founded an e-commerce company as technical director. Two years later I launched a wholly-owned company and ran it for nine years, until a larger firm proposed integrating us. I left the SMB market, tired of stitching together multi-vendor solutions. I decided to focus on Google as a single vendor; I've spent the last five years at a startup acquired by Telefónica, helping enterprises migrate their workloads to Google Cloud. My role as a GCP Presales Engineer lets me sit at the intersection of business and technology — right where I feel at home.
 
-      I stayed on for two years, observing how an acquisition is integrated. Now I know when the  technology is driving the business and when the business is driving the technology.
+      - By day, I design Google Cloud architectures for large accounts: RFPs, technical demos, complex sales cycles... Here I learn how a big organization thinks when it's afraid of getting it wrong.
+      - In my spare time I design and build "things" that now run on their own 🤖. Owning my side-projects end-to-end gives me a 360° perspective no course can teach: idea, prototyping, architecture, code, quality, deployment, maintenance, and so on.
 
-      I'm looking for my next challenge as an FDE or Presales/Customer/Solutions Engineer at a company that develops its own AI product.
+      What motivates me is seeing growth and purpose in what I do. What burns me out is repeating without learning — the "we've always done it this way".
 
   - type: "cards"
     heading: "What I'm good at"
