@@ -11,7 +11,7 @@ cover_ratio: "16 / 9"
 cover_opacity: "0.50"
 icon: "👾"
 pageTitle: "Francisco Colomer"
-subtitle: "AI Practitioner | Cloud Architect | Solo Developer"
+subtitle: "🤖AI Practitioner ⛅Cloud Architect 🌙Solo Developer"
 
 tags_list:
   - label: "Google Cloud"
