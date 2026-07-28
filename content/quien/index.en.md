@@ -27,8 +27,8 @@ blocks:
 
       In my junior years, enthusiasm took me to IBM Greenock, Sun Microsystems Edinburgh, and RIM London. I returned to Spain and co-founded an e-commerce company as technical director. Two years later I launched a wholly-owned company and ran it for nine years, until a larger firm proposed integrating us. I left the SMB market, tired of stitching together multi-vendor solutions. I decided to specialize in Google as a single vendor; I've spent the last five years at a startup acquired by Telefónica, helping enterprises migrate their workloads to Google Cloud. My role as a GCP Presales Engineer lets me sit at the intersection of business and technology — right where I feel at home.
 
-      - By day, I design Google Cloud architectures for large accounts: RFPs, technical demos, complex sales cycles... Here I learn how a big organization thinks when it's afraid of getting it wrong.
-      - In my spare time I build "things" that now run on their own 🤖. Owning every phase of my side-projects gives me a 360° perspective no course can teach: idea, prototyping, architecture, code, quality, deployment, maintenance, and so on.
+      - By day, I ⛅ design Google Cloud architectures for large accounts: RFPs, technical demos, complex sales cycles... Here I learn how a big organization thinks when it's afraid of getting it wrong.
+      - In my spare time I 🌙 build "things" that now run on their own 🤖. Owning every phase of my side-projects gives me a 360° perspective no course can teach: idea, prototyping, architecture, code, quality, deployment, maintenance, and so on.
 
       What motivates me is seeing growth and purpose in what I do. What burns me out is repeating without learning — the "we've always done it this way".
 
