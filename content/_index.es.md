@@ -1,5 +1,5 @@
 ---
-title: "AI Practitioner | Cloud Architect | Solo Developer"
+title: "🤖AI Practitioner ⛅Cloud Architect 🌙Solo Developer"
 
 # Hero section
 hero:
