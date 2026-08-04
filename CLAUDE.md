@@ -178,6 +178,9 @@ firebase deploy --only hosting       # deploy a Firebase
 python scripts/sync_badges.py        # sync manual (requiere GOOGLE_API_KEY)
 git -c commit.gpgsign=false commit   # commit sin GPG
 
+# Regenerar lock de dependencias CI (tras cambiar requirements-dev.txt o scripts/requirements.txt)
+uv pip compile --generate-hashes --python-version 3.12 requirements-dev.txt scripts/requirements.txt -o requirements-ci.lock
+
 # ExampleSite del tema
 hugo server --source themes/colomr-v1/exampleSite --themesDir ../..
 ```
