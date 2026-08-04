@@ -20,7 +20,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install tools
-        run: pip install ruff check-jsonschema pytest -r scripts/requirements.txt
+        run: pip install --only-binary ':all:' -r requirements-dev.txt -r scripts/requirements.txt
 
       - name: Lint Python (ruff)
         run: ruff check scripts/ tests/
