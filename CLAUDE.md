@@ -204,7 +204,7 @@ Se marca con `git tag` + GitHub Release en cada versión.
 - Paso a paso con aprobación del usuario para cambios estructurales
 
 ### Autoría y estilo de commits/PRs
-- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría.
+- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría, ni "Generated with..." en commits o PRs. **Enforcement de máquina**: el paso "Sin atribución de IA" de ci.yml falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR.
 - **Mensaje de commit**: una sola línea, en minúsculas, en español, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `añadido nuevo badge Introduction to AI Agents`, `cambiado emoji de la página Sobre mí: 👨‍💻 → 👾`.
 - **Cuerpo del PR**: breve — una o dos frases. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
 
