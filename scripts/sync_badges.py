@@ -38,7 +38,7 @@ def fetch_profile_badges() -> list[dict]:
         title_span = badge_div.select_one("span.ql-title-medium")
         date_span = badge_div.select_one("span.ql-body-medium")
 
-        if not all([link, img, title_span, date_span]):
+        if link is None or img is None or title_span is None or date_span is None:
             continue
 
         url = link["href"]
@@ -68,19 +68,15 @@ def fetch_profile_badges() -> list[dict]:
 
 def parse_date(text: str) -> str | None:
     """Parse 'Earned Feb 13, 2026 EST' to '2026-02-13'."""
-    match = re.match(r"Earned\s+(.+?)\s+\w{3,4}$", text)
+    match = re.match(r"Earned\s+([A-Za-z]{3}\s+\d{1,2},\s+\d{4})\s+\S+$", text)
     if not match:
         return None
+    cleaned = " ".join(match.group(1).split())
     try:
-        dt = datetime.strptime(match.group(1).strip(), "%b %d, %Y")
+        dt = datetime.strptime(cleaned, "%b %d, %Y")
         return dt.strftime("%Y-%m-%d")
     except ValueError:
-        cleaned = re.sub(r"\s+", " ", match.group(1).strip())
-        try:
-            dt = datetime.strptime(cleaned, "%b %d, %Y")
-            return dt.strftime("%Y-%m-%d")
-        except ValueError:
-            return None
+        return None
 
 
 def load_existing_badges() -> list[dict]:
@@ -118,8 +114,9 @@ def _call_gemini(prompt: str) -> str:
         raise RuntimeError("All Gemini models exhausted their quota.")
 
     response_text = response.text.strip()
-    response_text = re.sub(r"^```(?:json)?\s*", "", response_text)
-    response_text = re.sub(r"\s*```$", "", response_text)
+    if response_text.startswith("```"):
+        response_text = response_text.removeprefix("```json").removeprefix("```").strip()
+        response_text = response_text.removesuffix("```").strip()
     return response_text
 
 
@@ -137,6 +134,34 @@ Responde SOLO con un JSON array de objetos (sin markdown), cada objeto con "desc
 
     response_text = _call_gemini(prompt)
     return json.loads(response_text)
+
+
+def merge_badges(latest_badges: list[dict], existing_badges: list[dict], new_badges: list[dict]) -> list[dict]:
+    """Build the final list: keep existing entries (with descriptions) and fill gaps with new badges."""
+    existing_by_url = {b["url"]: b for b in existing_badges}
+    new_by_url = {b["url"]: b for b in new_badges}
+    final_badges = []
+    for badge in latest_badges:
+        merged = existing_by_url.get(badge["url"]) or new_by_url.get(badge["url"])
+        if merged is not None:
+            final_badges.append(merged)
+    return final_badges
+
+
+def write_github_output(new_badges: list[dict]) -> None:
+    """Expose results to GitHub Actions via GITHUB_OUTPUT, or print locally."""
+    names = ", ".join(b["titulo"] for b in new_badges)
+    output_file = os.environ.get("GITHUB_OUTPUT")
+    if not output_file:
+        print(f"\nNew badges: {names}")
+        return
+    with open(output_file, "a") as f:
+        f.write("new_badges=true\n")
+        f.write(f"badge_count={len(new_badges)}\n")
+        if len(new_badges) == 1:
+            f.write(f"commit_msg=añadido nuevo badge {new_badges[0]['titulo']}\n")
+        else:
+            f.write(f"commit_msg=añadidos {len(new_badges)} nuevos badges: {names}\n")
 
 
 def save_badges(badges: list[dict]) -> None:
@@ -177,35 +202,11 @@ def main():
         badge["desc"] = desc_pair["desc"]
         badge["desc_en"] = desc_pair["desc_en"]
 
-    # Merge: keep existing descriptions for badges we already had
-    existing_by_url = {b["url"]: b for b in existing_badges}
-    final_badges = []
-    for badge in latest_badges:
-        if badge["url"] in existing_by_url:
-            final_badges.append(existing_by_url[badge["url"]])
-        else:
-            # Find the new badge with description
-            for nb in new_badges:
-                if nb["url"] == badge["url"]:
-                    final_badges.append(nb)
-                    break
-
+    final_badges = merge_badges(latest_badges, existing_badges, new_badges)
     save_badges(final_badges)
     print(f"Saved {len(final_badges)} badges to badges.json.")
 
-    # GitHub Actions output
-    names = ", ".join(b["titulo"] for b in new_badges)
-    output_file = os.environ.get("GITHUB_OUTPUT")
-    if output_file:
-        with open(output_file, "a") as f:
-            f.write("new_badges=true\n")
-            f.write(f"badge_count={len(new_badges)}\n")
-            if len(new_badges) == 1:
-                f.write(f"commit_msg=añadido nuevo badge {new_badges[0]['titulo']}\n")
-            else:
-                f.write(f"commit_msg=añadidos {len(new_badges)} nuevos badges: {names}\n")
-    else:
-        print(f"\nNew badges: {names}")
+    write_github_output(new_badges)
 
 
 if __name__ == "__main__":
