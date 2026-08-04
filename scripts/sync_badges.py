@@ -24,6 +24,40 @@ BADGES_JSON = PROJECT_ROOT / "data" / "badges.json"
 MAX_BADGES = 6
 
 
+def extract_badge(badge_div) -> dict | None:
+    """Extrae un badge del HTML del perfil, o None si le falta algún dato.
+
+    Cada elemento se comprueba justo antes de usarlo: el acceso queda al lado de
+    su guarda, sin condiciones compuestas que oscurezcan la garantía.
+    """
+    link = badge_div.select_one("a.badge-image")
+    if link is None:
+        return None
+
+    img = badge_div.select_one("a.badge-image img")
+    if img is None:
+        return None
+
+    title_span = badge_div.select_one("span.ql-title-medium")
+    if title_span is None:
+        return None
+
+    date_span = badge_div.select_one("span.ql-body-medium")
+    if date_span is None:
+        return None
+
+    fecha = parse_date(date_span.get_text(strip=True))
+    if fecha is None:
+        return None
+
+    return {
+        "titulo": title_span.get_text(strip=True),
+        "img": img["src"],
+        "fecha": fecha,
+        "url": link["href"],
+    }
+
+
 def fetch_profile_badges() -> list[dict]:
     """Scrape badges from the public Google Skills profile."""
     resp = requests.get(PROFILE_URL, timeout=30)
@@ -33,29 +67,9 @@ def fetch_profile_badges() -> list[dict]:
     badges = []
 
     for badge_div in soup.select("div.profile-badge"):
-        link = badge_div.select_one("a.badge-image")
-        img = badge_div.select_one("a.badge-image img")
-        title_span = badge_div.select_one("span.ql-title-medium")
-        date_span = badge_div.select_one("span.ql-body-medium")
-
-        if link is None or img is None or title_span is None or date_span is None:
-            continue
-
-        url = link["href"]
-        img_src = img["src"]
-        titulo = title_span.get_text(strip=True)
-        date_text = date_span.get_text(strip=True)
-
-        fecha = parse_date(date_text)
-        if fecha is None:
-            continue
-
-        badges.append({
-            "titulo": titulo,
-            "img": img_src,
-            "fecha": fecha,
-            "url": url,
-        })
+        badge = extract_badge(badge_div)
+        if badge is not None:
+            badges.append(badge)
 
     if len(badges) == 0:
         raise RuntimeError(
