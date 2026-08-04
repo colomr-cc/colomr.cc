@@ -72,3 +72,7 @@ google-cloud-sdk/
 # Hugo generated files
 public/
 resources/_gen/
+
+# Python
+__pycache__/
+.pytest_cache/

@@ -5,6 +5,29 @@ Sitio web personal generado con **Hugo** y desplegado en **Firebase Hosting**.
 Muestra badges/certificaciones de Google Cloud Skills Boost y Anthropic Academy.
 Rama principal: **`main`**. Tema colomr-v1 en producción.
 
+## 🚦 Flujo E2E obligatorio (MANDATORY)
+
+**Todo cambio en este repo sigue este flujo, sin excepciones.** Leer y aplicar desde el inicio de cada sesión.
+
+```
+💡 Idea (sin Specs/ADR — excepción consciente: proyecto personal, bajo riesgo)
+   → rama feature (nunca push directo a main)
+   → cambio atómico (+ UT solo si se toca lógica; hoy solo hay lógica en scripts/sync_badges.py)
+   → PR contra main
+       ├─ CI · ci.yml         → ruff + validación JSON schemas + pytest
+       ├─ CI · deploy.yml     → build Hugo (smoke test) + preview Firebase (URL en el PR)
+       ├─ QA · SonarCloud     → Automatic Analysis → Quality Gate
+       └─ 🚦 Branch protection: todos los checks en verde son obligatorios
+   → HITL: el usuario revisa la preview de Firebase + checks → aprueba
+   → merge (la rama feature se borra automáticamente)
+   → main → deploy automático a producción (CD via deploy.yml)
+```
+
+Reglas derivadas:
+- **UT solo donde hay lógica.** Si se modifica `scripts/sync_badges.py`, actualizar/añadir tests en `tests/`. Contenido, SCSS y plantillas no llevan tests: los cubren el build de Hugo, los schemas y Sonar.
+- **Schemas JSON.** Si cambia la estructura de `data/*.json`, actualizar `schemas/badges.schema.json` en el mismo PR.
+- **Nunca mergear con checks en rojo** ni pedir saltarse la branch protection.
+
 ## Estructura clave
 - `hugo.toml` — configuración Hugo
 - `data/badges.json` — 6 últimos badges Google Cloud Skills Boost

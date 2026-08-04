@@ -173,7 +173,7 @@ def main():
     print(f"Generating descriptions for {len(new_badges)} badge(s)...")
     descriptions = generate_descriptions(new_badges)
 
-    for badge, desc_pair in zip(new_badges, descriptions):
+    for badge, desc_pair in zip(new_badges, descriptions, strict=True):
         badge["desc"] = desc_pair["desc"]
         badge["desc_en"] = desc_pair["desc_en"]
 
