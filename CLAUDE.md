@@ -5,6 +5,31 @@ Sitio web personal generado con **Hugo** y desplegado en **Firebase Hosting**.
 Muestra badges/certificaciones de Google Cloud Skills Boost y Anthropic Academy.
 Rama principal: **`main`**. Tema colomr-v1 en producción.
 
+## 🚦 Flujo E2E obligatorio (MANDATORY)
+
+**Todo cambio en este repo sigue este flujo, sin excepciones.** Leer y aplicar desde el inicio de cada sesión.
+
+```
+💡 Idea (sin Specs/ADR — excepción consciente: proyecto personal, bajo riesgo)
+   → rama feature (nunca push directo a main)
+   → cambio atómico (+ UT solo si se toca lógica; hoy solo hay lógica en scripts/sync_badges.py)
+   → Claude verifica los checks en local, commitea (avisando antes), hace push y CREA EL PR
+   → Claude pasa la URL del PR al owner — y AHÍ SE DETIENE
+       ├─ CI · ci.yml         → ruff + validación JSON schemas + pytest
+       ├─ CI · deploy.yml     → build Hugo (smoke test) + preview Firebase (URL en el PR)
+       ├─ QA · SonarCloud     → Automatic Analysis → Quality Gate
+       └─ 🚦 Branch protection: todos los checks en verde son obligatorios
+   → HITL: el usuario revisa la preview de Firebase + checks → aprueba
+   → merge (la rama feature se borra automáticamente)
+   → main → deploy automático a producción (CD via deploy.yml)
+```
+
+Reglas derivadas:
+- **UT solo donde hay lógica.** Si se modifica `scripts/sync_badges.py`, actualizar/añadir tests en `tests/`. Contenido, SCSS y plantillas no llevan tests: los cubren el build de Hugo, los schemas y Sonar.
+- **Schemas JSON.** Si cambia la estructura de `data/*.json`, actualizar `schemas/badges.schema.json` en el mismo PR.
+- **Regla Gatekeeper (sin excepciones ni interpretación posible):** Claude crea el PR y pasa su URL al owner. Ahí termina su trabajo: Claude NUNCA aprueba ni mergea PRs — ni siquiera con OK verbal en la conversación. Revisar (preview de Firebase + diff + checks), aprobar y mergear es siempre del owner en GitHub.
+- **Nunca mergear con checks en rojo** ni pedir saltarse la branch protection.
+
 ## Estructura clave
 - `hugo.toml` — configuración Hugo
 - `data/badges.json` — 6 últimos badges Google Cloud Skills Boost
@@ -155,6 +180,9 @@ firebase deploy --only hosting       # deploy a Firebase
 python scripts/sync_badges.py        # sync manual (requiere GOOGLE_API_KEY)
 git -c commit.gpgsign=false commit   # commit sin GPG
 
+# Regenerar lock de dependencias CI (tras cambiar requirements-dev.txt o scripts/requirements.txt)
+uv pip compile --generate-hashes --python-version 3.12 requirements-dev.txt scripts/requirements.txt -o requirements-ci.lock
+
 # ExampleSite del tema
 hugo server --source themes/colomr-v1/exampleSite --themesDir ../..
 ```
@@ -176,7 +204,7 @@ Se marca con `git tag` + GitHub Release en cada versión.
 - Paso a paso con aprobación del usuario para cambios estructurales
 
 ### Autoría y estilo de commits/PRs
-- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría.
+- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría, ni "Generated with..." en commits o PRs. **Enforcement de máquina**: el paso "Sin atribución de IA" de ci.yml falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR.
 - **Mensaje de commit**: una sola línea, en minúsculas, en español, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `añadido nuevo badge Introduction to AI Agents`, `cambiado emoji de la página Sobre mí: 👨‍💻 → 👾`.
 - **Cuerpo del PR**: breve — una o dos frases. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
 
