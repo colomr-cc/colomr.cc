@@ -18,7 +18,9 @@ jobs:
           token: ${{ secrets.THEME_SYNC_PAT }}
 
       - name: Push submodule to public repo
+        env:
+          THEME_SYNC_PAT: ${{ secrets.THEME_SYNC_PAT }}
         run: |
           cd themes/colomr-v1
-          git remote set-url origin https://x-access-token:${{ secrets.THEME_SYNC_PAT }}@github.com/colomr-cc/colomr-v1-theme.git
+          git remote set-url origin "https://x-access-token:${THEME_SYNC_PAT}@github.com/colomr-cc/colomr-v1-theme.git"
           git push origin HEAD:main
