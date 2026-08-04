@@ -13,7 +13,8 @@ Rama principal: **`main`**. Tema colomr-v1 en producción.
 💡 Idea (sin Specs/ADR — excepción consciente: proyecto personal, bajo riesgo)
    → rama feature (nunca push directo a main)
    → cambio atómico (+ UT solo si se toca lógica; hoy solo hay lógica en scripts/sync_badges.py)
-   → PR contra main
+   → Claude verifica los checks en local, commitea (avisando antes) y hace push de la rama — y AHÍ SE DETIENE
+   → PR contra main: LO CREA EL OWNER desde GitHub (rol Gatekeeper)
        ├─ CI · ci.yml         → ruff + validación JSON schemas + pytest
        ├─ CI · deploy.yml     → build Hugo (smoke test) + preview Firebase (URL en el PR)
        ├─ QA · SonarCloud     → Automatic Analysis → Quality Gate
@@ -26,6 +27,7 @@ Rama principal: **`main`**. Tema colomr-v1 en producción.
 Reglas derivadas:
 - **UT solo donde hay lógica.** Si se modifica `scripts/sync_badges.py`, actualizar/añadir tests en `tests/`. Contenido, SCSS y plantillas no llevan tests: los cubren el build de Hugo, los schemas y Sonar.
 - **Schemas JSON.** Si cambia la estructura de `data/*.json`, actualizar `schemas/badges.schema.json` en el mismo PR.
+- **Regla Gatekeeper (sin excepciones ni interpretación posible):** Claude NUNCA crea, aprueba ni mergea PRs — ni siquiera con OK verbal del owner en la conversación. El trabajo de Claude termina en el push de la rama feature; a partir de ahí todo (crear el PR, revisarlo, mergearlo) es del owner en GitHub.
 - **Nunca mergear con checks en rojo** ni pedir saltarse la branch protection.
 
 ## Estructura clave
