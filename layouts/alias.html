@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang | default "es" }}">
 <head>
   <meta charset="utf-8">
   <title>colomr.cc</title>
@@ -8,21 +8,23 @@
     (function() {
       var STORAGE_KEY = 'colomr-lang';
       var saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && (saved === 'es' || saved === 'en')) {
+      if (saved === 'es' || saved === 'en') {
         window.location.replace('/' + saved + '/');
         return;
       }
       var langs = navigator.languages || [navigator.language || 'es'];
-      var preferred = 'es';
-      for (var i = 0; i < langs.length; i++) {
-        var l = langs[i].toLowerCase();
-        if (l.startsWith('en')) { preferred = 'en'; break; }
-        if (l.startsWith('es')) { preferred = 'es'; break; }
+      for (var lang of langs) {
+        var l = lang.toLowerCase();
+        if (l.startsWith('en')) { window.location.replace('/en/'); return; }
+        if (l.startsWith('es')) { break; }
       }
-      window.location.replace('/' + preferred + '/');
+      window.location.replace('/es/');
     })();
   </script>
+  <!-- Fallback para clientes sin JavaScript (incluidos los bots de previsualización de enlaces) -->
   <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
 </head>
-<body></body>
+<body>
+  <p>Redirigiendo… Si no ocurre automáticamente, <a href="{{ .Permalink }}">entra aquí</a>.</p>
+</body>
 </html>
