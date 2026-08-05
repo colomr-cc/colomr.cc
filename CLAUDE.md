@@ -37,14 +37,16 @@ Reglas derivadas:
 - `scripts/sync_badges.py` — sincronización automática de badges Google
 - `scripts/MANUAL_BADGES.md` — procedimiento manual para badges Anthropic
 - `.github/workflows/sync-badges.yml` — sync semanal (lunes 8:00 UTC)
-- `.github/workflows/sync-theme.yml` — sincroniza tema al repo público (pendiente PAT)
 - `themes/colomr-v1/` — submódulo git → https://github.com/colomr-cc/colomr-v1-theme
+  El tema tiene su propio repo, CI y branch protection: los cambios se hacen allí por PR
+  y aquí solo se actualiza el puntero del submódulo (también por PR).
 - `layouts/` — overrides personales (footer, iconos gemini/claude)
 - `content/*/index.md` — Page Bundles, contenido en front matter YAML
 
 ## Tema colomr-v1
 Tema propio Material Design 3, diseñado con Google Stitch 2. Licencia GPL-3.0.
-Es un submódulo git — los cambios al tema se hacen dentro del submódulo y se sincronizan al repo público.
+Es un submódulo git con repo propio, CI y branch protection: los cambios se hacen allí por PR y
+aquí solo se actualiza el puntero del submódulo, también por PR.
 
 ### Páginas
 | URL | Archivo | Layout | Estado |
@@ -159,14 +161,19 @@ Muestra los **6 badges más recientes** de cada provider. Tabs estilo pill con l
 Se ejecuta cada lunes (cron `0 8 * * 1`) o manualmente:
 1. Scrapa los 6 badges más recientes del perfil Google Skills
 2. Detecta nuevos comparando por URL con `data/badges.json`
-3. Genera descripción en español via Gemini API
-4. Si hay cambios: build Hugo + deploy Firebase + commit al repo
+3. Genera descripciones (español e inglés) via Gemini API
+4. Si hay cambios: crea una rama y **abre un PR** con revisión solicitada al owner
+5. El owner revisa las descripciones en la preview y mergea → `deploy.yml` publica
+
+Usa el token de la GitHub App `colomr-cc-automation` (secrets `AUTOMATION_APP_ID` y
+`AUTOMATION_APP_PRIVATE_KEY`): caduca en 1 hora y, a diferencia de `GITHUB_TOKEN`, sí
+dispara los checks obligatorios sobre el PR.
 
 ### Gemini API
-```python
-models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
-```
-Fallback automático si un modelo tiene cuota agotada.
+`select_models()` consulta a la API qué modelos ofrece la clave y los ordena por familia
+(flash-lite primero, luego flash; versión más reciente antes). No hay lista fija: jubilar
+un modelo no rompe el script. Si todos fallan, el error incluye los modelos probados y el
+mensaje literal de Google.
 
 ### Badges Anthropic (manual)
 Procedimiento documentado en `scripts/MANUAL_BADGES.md`.
@@ -211,4 +218,4 @@ Se marca con `git tag` + GitHub Release en cada versión.
 ## Tareas pendientes
 1. ⏳ Optimizar imágenes de cover a local (WebP 1920x1080, `static/images/covers/`)
 2. ⏳ Imágenes definitivas con "alma" para las páginas
-3. ⏳ PR #693 Hugo Themes — esperando revisión, configurar PAT y flujo sync cuando aprueben
+3. ⏳ PR #693 Hugo Themes — esperando revisión
