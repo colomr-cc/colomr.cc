@@ -48,7 +48,7 @@ googleAnalytics = 'G-Y0X8CR726Y'
 
 # ─── Español ───
 [languages.es]
-  languageCode = "es"
+  locale = "es"
   languageName = "Español"
   weight = 1
 
@@ -71,7 +71,7 @@ googleAnalytics = 'G-Y0X8CR726Y'
 
 # ─── English ───
 [languages.en]
-  languageCode = "en"
+  locale = "en"
   languageName = "English"
   weight = 2
 
