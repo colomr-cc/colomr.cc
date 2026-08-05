@@ -8,10 +8,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from bs4 import BeautifulSoup
 
 from sync_badges import (
+    clean_json_response,
     extract_badge,
     find_new_badges,
     merge_badges,
     parse_date,
+    select_models,
     write_github_output,
 )
 
@@ -30,6 +32,46 @@ def _div(html: str):
 
 def _badge(url: str, titulo: str = "Badge", fecha: str = "2026-01-01") -> dict:
     return {"titulo": titulo, "img": "https://cdn.example/x.png", "fecha": fecha, "url": url}
+
+
+def test_select_models_prefiere_flash_lite_y_la_version_mas_reciente():
+    disponibles = [
+        "gemini-2.0-flash",
+        "gemini-2.5-flash",
+        "gemini-2.0-flash-lite",
+        "gemini-2.5-flash-lite",
+    ]
+    assert select_models(disponibles) == [
+        "gemini-2.5-flash-lite",
+        "gemini-2.0-flash-lite",
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+    ]
+
+
+def test_select_models_descarta_familias_que_no_aplican():
+    disponibles = [
+        "text-embedding-004",
+        "gemini-2.5-flash-image",
+        "gemini-3.0-flash-preview",
+        "gemini-2.5-flash",
+    ]
+    assert select_models(disponibles) == ["gemini-2.5-flash"]
+
+
+def test_select_models_sin_candidatos_devuelve_lista_vacia():
+    assert select_models(["text-embedding-004", "imagen-3.0"]) == []
+
+
+def test_select_models_limita_el_numero_de_intentos():
+    disponibles = [f"gemini-{v}-flash" for v in ("1.0", "2.0", "2.5", "3.0", "3.5", "4.0")]
+    assert len(select_models(disponibles)) == 4
+
+
+def test_clean_json_response_quita_los_fences():
+    assert clean_json_response('```json\n[{"desc": "x"}]\n```') == '[{"desc": "x"}]'
+    assert clean_json_response('```\n[{"desc": "x"}]\n```') == '[{"desc": "x"}]'
+    assert clean_json_response('  [{"desc": "x"}]  ') == '[{"desc": "x"}]'
 
 
 def test_extract_badge_completo():

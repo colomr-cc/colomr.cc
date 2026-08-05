@@ -22,6 +22,7 @@ PROFILE_URL = "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BADGES_JSON = PROJECT_ROOT / "data" / "badges.json"
 MAX_BADGES = 6
+MAX_MODELS_TO_TRY = 4  # techo para no encadenar decenas de intentos si la API lista muchos
 
 
 def extract_badge(badge_div) -> dict | None:
@@ -107,31 +108,72 @@ def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> 
     return [b for b in profile_badges if b["url"] not in existing_urls]
 
 
-def _call_gemini(prompt: str) -> str:
-    """Call Gemini API with automatic model fallback. Returns raw response text."""
-    client = genai.Client()
-    models_to_try = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite"]
-    response = None
-    for model in models_to_try:
-        try:
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt,
-            )
-            break
-        except Exception as e:
-            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e) or "503" in str(e) or "UNAVAILABLE" in str(e):
-                print(f"  -> Model {model} unavailable, trying next...")
-                continue
-            raise
-    if response is None:
-        raise RuntimeError("All Gemini models exhausted their quota.")
+def select_models(available: list[str]) -> list[str]:
+    """Ordena los modelos disponibles por preferencia para esta tarea.
 
-    response_text = response.text.strip()
-    if response_text.startswith("```"):
-        response_text = response_text.removeprefix("```json").removeprefix("```").strip()
-        response_text = response_text.removesuffix("```").strip()
-    return response_text
+    Redactar dos frases sobre un badge no necesita razonamiento avanzado: se prefiere
+    la familia más barata y rápida (flash-lite), luego flash. Se descartan familias que
+    no aplican y las variantes inestables. La preferencia es por FAMILIA, no por versión
+    concreta, para que jubilar un modelo no rompa el script.
+    """
+    descartadas = ("embedding", "vision", "image", "audio", "tts", "preview", "exp")
+    candidatos = [m for m in available if not any(d in m for d in descartadas)]
+
+    elegidos: list[str] = []
+    for familia in ("flash-lite", "flash"):
+        # Orden descendente: entre versiones de la misma familia, la más reciente primero
+        for modelo in sorted(candidatos, reverse=True):
+            if familia in modelo and modelo not in elegidos:
+                elegidos.append(modelo)
+    return elegidos[:MAX_MODELS_TO_TRY]
+
+
+def clean_json_response(text: str) -> str:
+    """Quita los fences de markdown con los que el modelo a veces envuelve el JSON."""
+    limpio = text.strip()
+    if limpio.startswith("```"):
+        limpio = limpio.removeprefix("```json").removeprefix("```").strip()
+        limpio = limpio.removesuffix("```").strip()
+    return limpio
+
+
+def _available_models(client) -> list[str]:
+    """Modelos que la API ofrece a esta clave y sirven para generar contenido."""
+    nombres = []
+    for modelo in client.models.list():
+        acciones = modelo.supported_actions or []
+        if "generateContent" in acciones:
+            nombres.append(modelo.name.removeprefix("models/"))
+    return nombres
+
+
+def _call_gemini(prompt: str) -> str:
+    """Llama a Gemini probando los modelos disponibles por orden de preferencia."""
+    client = genai.Client()
+
+    disponibles = _available_models(client)
+    modelos = select_models(disponibles)
+    if not modelos:
+        raise RuntimeError(
+            "Ningún modelo compatible para esta clave. "
+            f"La API ofreció: {', '.join(disponibles) or '(ninguno)'}"
+        )
+    print(f"  Modelos a probar: {', '.join(modelos)}")
+
+    ultimo_error = None
+    for modelo in modelos:
+        try:
+            response = client.models.generate_content(model=modelo, contents=prompt)
+        except Exception as e:  # noqa: BLE001 — se registra y se prueba el siguiente
+            ultimo_error = e
+            print(f"  -> {modelo} falló: {e}")
+            continue
+        print(f"  -> descripción generada con {modelo}")
+        return clean_json_response(response.text)
+
+    raise RuntimeError(
+        f"Ningún modelo respondió. Probados: {', '.join(modelos)}. Último error: {ultimo_error}"
+    )
 
 
 def generate_descriptions(badges: list[dict]) -> list[dict]:
