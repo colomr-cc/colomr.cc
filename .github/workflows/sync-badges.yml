@@ -8,13 +8,21 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
+      # Token de la GitHub App propia: caduca en 1 hora y, a diferencia de GITHUB_TOKEN,
+      # sí dispara ci.yml y deploy.yml sobre el PR (los checks obligatorios).
+      - name: Acuñar token de la App
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.AUTOMATION_APP_ID }}
+          private-key: ${{ secrets.AUTOMATION_APP_PRIVATE_KEY }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: true
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -39,32 +47,28 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Setup Hugo
-        if: steps.changes.outputs.changed == 'true'
-        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Build site
-        if: steps.changes.outputs.changed == 'true'
-        run: hugo --cleanDestinationDir
-
-      - name: Deploy to Firebase
-        if: steps.changes.outputs.changed == 'true'
-        uses: FirebaseExtended/action-hosting-deploy@500ac625ca2dd40cbd15f7659af953801858032a # v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
-
-      - name: Commit and push changes
+      # El despliegue ya no vive aquí: al mergear el PR, deploy.yml publica a producción.
+      # Así el repo nunca queda desincronizado con lo desplegado.
+      - name: Crear rama y PR con los badges nuevos
         if: steps.changes.outputs.changed == 'true'
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           COMMIT_MSG: ${{ steps.sync.outputs.commit_msg }}
+          BADGE_COUNT: ${{ steps.sync.outputs.badge_count }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          BRANCH="badges/sync-$(date -u +%Y%m%d-%H%M)"
+          # Autoría del owner: la automatización es su herramienta, no un coautor
+          git config user.name "F Colomer"
+          git config user.email "colomr@pm.me"
+          git checkout -b "$BRANCH"
           git add data/badges.json
           git commit -m "$COMMIT_MSG"
-          git push
+          git push origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "$COMMIT_MSG" \
+            --reviewer colomr-cc \
+            --body "Sincronización automática desde el perfil de Google Cloud Skills Boost ($BADGE_COUNT badge(s) nuevo(s)).
+
+          Las descripciones las genera Gemini: revísalas en la preview de Firebase antes de mergear. Al mergear, deploy.yml publica a producción."
