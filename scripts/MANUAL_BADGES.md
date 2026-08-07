@@ -1,46 +1,48 @@
-# Procedimiento manual: añadir badge de Anthropic Academy
+# Manual procedure: add Anthropic Academy badge
 
-## Cuándo
-Cada vez que completes un curso en Anthropic Academy.
+> **Spanish version:** [MANUAL_BADGES_ES.md](MANUAL_BADGES_ES.md)
 
-## Pasos
+## When
+Every time you complete a course in Anthropic Academy.
 
-### 1. Obtener los datos del badge
-- Título del curso (exacto como aparece en Anthropic Academy)
-- URL de verificación (ej: `https://verify.skilljar.com/c/...`)
-- Fecha de obtención (formato YYYY-MM-DD)
+## Steps
 
-### 2. Preparar la imagen
-- Descargar la imagen del certificado/badge
-- Optimizar con sharp o Gimp:
-  - Tamaño: 600px de ancho
-  - Formato: JPG, calidad 80%
-  - Nombre: `anthropic-{nombre-curso}-opt.jpg` (minúsculas, guiones)
-- Guardar en `static/images/`
+### 1. Get badge data
+- Course title (exact as it appears in Anthropic Academy)
+- Verification URL (e.g., `https://verify.skilljar.com/c/...`)
+- Obtained date (format YYYY-MM-DD)
 
-### 3. Añadir entrada al JSON
-Editar `data/anthropic_badges.json` y añadir al **inicio** del array:
+### 2. Prepare the image
+- Download the certificate/badge image
+- Optimize with sharp or Gimp:
+  - Size: 600px wide
+  - Format: JPG, quality 80%
+  - Name: `anthropic-{course-name}-opt.jpg` (lowercase, hyphens)
+- Save in `static/images/`
+
+### 3. Add entry to JSON
+Edit `data/anthropic_badges.json` and add at the **start** of the array:
 
 ```json
 {
-  "titulo": "Nombre del Curso",
-  "img": "/images/anthropic-nombre-curso-opt.jpg",
+  "titulo": "Course Name",
+  "img": "/images/anthropic-course-name-opt.jpg",
   "fecha": "2026-04-01",
   "url": "https://verify.skilljar.com/c/XXXXX",
-  "desc": "Descripción breve de 1-2 líneas sobre qué se aprende en el curso.",
+  "desc": "Short 1-2 line description of what you learn in the course.",
   "desc_en": "Short 1-2 line description of what the course teaches."
 }
 ```
 
-> **Importante (web bilingüe es/en):** el campo `desc_en` es obligatorio.
-> El sitio renderiza `desc_en` en la versión inglesa y cae a `desc` si falta,
-> así que sin él la web en inglés mostraría el texto en español.
-> El campo `categoria` que pueda aparecer en entradas antiguas es opcional y no
-> se renderiza — se puede omitir.
+> **Important (bilingual site es/en):** the `desc_en` field is mandatory.
+> The site renders `desc_en` in the English version and falls back to `desc` if missing,
+> so without it the English site would show Spanish text.
+> The `categoria` field that may appear in old entries is optional and not
+> rendered — it can be omitted.
 
-### 4. Verificar y desplegar
+### 4. Verify and deploy
 ```bash
-hugo server              # revisar en localhost
+hugo server              # check at localhost
 hugo --cleanDestinationDir
 firebase deploy --only hosting
 ```
@@ -48,12 +50,12 @@ firebase deploy --only hosting
 ### 5. Commit
 ```bash
 git add data/anthropic_badges.json static/images/anthropic-*
-git commit -m "añadido badge Anthropic: Nombre del Curso"
+git commit -m "add anthropic badge: Course Name"
 git push
 ```
 
-## Notas
-- Mantener solo los 6 badges más recientes en el JSON
-- Si hay más de 6, eliminar los más antiguos del final del array
-- Los campos `desc` (español) y `desc_en` (inglés) son resúmenes propios, no generados por IA
-- Las imágenes locales van en `static/images/`, no en URLs externas
+## Notes
+- Keep only the 6 most recent badges in the JSON
+- If there are more than 6, delete the oldest ones from the end of the array
+- The `desc` (Spanish) and `desc_en` (English) fields are own summaries, not AI-generated
+- Local images go in `static/images/`, not external URLs
