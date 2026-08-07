@@ -1,54 +1,56 @@
 # colomr.cc
 
-Sitio web personal construido con [Hugo](https://gohugo.io/) y desplegado en [Firebase Hosting](https://firebase.google.com/).
+> **Spanish version:** [README_ES.md](README_ES.md)
 
-Tema propio [colomr-v1](https://github.com/colomr-cc/colomr-v1-theme) basado en Material Design 3.
+Personal website built with [Hugo](https://gohugo.io/) and deployed on [Firebase Hosting](https://firebase.google.com/).
 
-## Tecnologias
+Custom theme [colomr-v1](https://github.com/colomr-cc/colomr-v1-theme) based on Material Design 3.
 
-- **Hugo** (Extended) — generador de sitios estáticos
-- **Firebase Hosting** — despliegue y CDN
-- **colomr-v1** — tema propio MD3 (submódulo git)
-- **GitHub Actions** — sincronizacion automática de badges
-- **Gemini API** — generación de descripciones de badges
+## Technologies
 
-## Estructura
+- **Hugo** (Extended) — static site generator
+- **Firebase Hosting** — deployment and CDN
+- **colomr-v1** — custom MD3 theme (git submodule)
+- **GitHub Actions** — automatic badge synchronization
+- **Gemini API** — badge description generation
+
+## Structure
 
 ```
 colomr.cc/
-├── hugo.toml                    # Configuración del sitio
+├── hugo.toml                    # Site configuration
 ├── content/
 │   ├── _index.md                # Home
-│   ├── quien/index.md           # /sobre-mi/ (layout: blocks)
-│   ├── que/index.md             # /formacion/ (layout: providers)
+│   ├── quien/index.md           # /about-me/ (layout: blocks)
+│   ├── que/index.md             # /experience/ (layout: providers)
 │   └── donde/index.md           # /vision/ (layout: blocks)
 ├── data/
-│   ├── badges.json              # 6 últimos badges Google Cloud
-│   └── anthropic_badges.json    # Badges Anthropic Academy (manual)
-├── layouts/                     # Overrides personales
+│   ├── badges.json              # 6 latest Google Cloud badges
+│   └── anthropic_badges.json    # Anthropic Academy badges (manual)
+├── layouts/                     # Custom overrides
 │   └── partials/
 │       ├── footer.html
-│       └── icons/               # Logos Gemini y Claude
+│       └── icons/               # Gemini and Claude logos
 ├── scripts/
-│   ├── sync_badges.py           # Sync automático Google badges
-│   └── MANUAL_BADGES.md         # Procedimiento manual Anthropic
+│   ├── sync_badges.py           # Automatic Google badges sync
+│   └── MANUAL_BADGES.md         # Anthropic manual procedure
 ├── static/images/               # Avatar, logos, favicons, badges
-├── themes/colomr-v1/            # Submódulo → colomr-v1-theme
+├── themes/colomr-v1/            # Submodule → colomr-v1-theme
 └── .github/workflows/
-    ├── sync-badges.yml          # Sync semanal de badges Google
-    └── sync-theme.yml           # Sync tema al repo público
+    ├── sync-badges.yml          # Weekly Google badges sync
+    └── sync-theme.yml           # Theme sync to public repo
 ```
 
-## Desarrollo local
+## Local Development
 
 ```bash
-# Clonar con submódulos
+# Clone with submodules
 git clone --recurse-submodules https://github.com/colomr-cc/colomr.cc.git
 
-# Servidor local
+# Local server
 hugo server
 
-# Build producción
+# Production build
 hugo --cleanDestinationDir
 
 # Deploy
@@ -57,25 +59,25 @@ firebase deploy --only hosting
 
 ## Badges
 
-### Google Cloud (automático)
-Cada lunes a las 8:00 UTC, GitHub Actions sincroniza los 6 badges más recientes del perfil de Google Cloud Skills Boost. Genera descripciones en español via Gemini API.
+### Google Cloud (automatic)
+Every Monday at 8:00 UTC, GitHub Actions syncs the 6 latest badges from Google Cloud Skills Boost profile. Generates descriptions in Spanish via Gemini API.
 
-Secrets necesarios en GitHub:
+Required secrets on GitHub:
 
-| Secret | Descripción |
+| Secret | Description |
 |---|---|
-| `GEMINI_API_KEY` | API key de Google AI Studio |
-| `FIREBASE_SERVICE_ACCOUNT` | Service account de Firebase |
+| `GEMINI_API_KEY` | Google AI Studio API key |
+| `FIREBASE_SERVICE_ACCOUNT` | Firebase service account |
 
 ### Anthropic Academy (manual)
-Procedimiento documentado en [scripts/MANUAL_BADGES.md](scripts/MANUAL_BADGES.md).
+Procedure documented in [scripts/MANUAL_BADGES.md](scripts/MANUAL_BADGES.md).
 
-## Licencia
+## License
 
-El código de este sitio está bajo [MIT License](LICENSE).
-El contenido (textos, imágenes, datos personales) es propiedad del autor.
-El tema colomr-v1 está bajo [GPL-3.0](https://github.com/colomr-cc/colomr-v1-theme/blob/main/LICENSE).
+The code of this site is under [MIT License](LICENSE).
+The content (texts, images, personal data) is property of the author.
+The colomr-v1 theme is under [GPL-3.0](https://github.com/colomr-cc/colomr-v1-theme/blob/main/LICENSE).
 
-## Autor
+## Author
 
 **Francisco Colomer** — [colomr.cc](https://colomr.cc)
