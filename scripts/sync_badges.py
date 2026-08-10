@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Sincroniza los 6 badges más recientes desde el perfil público de Google Cloud Skills Boost.
+Syncs the 6 most recent badges from the public Google Cloud Skills Boost profile.
 
-Detecta badges nuevos comparando con data/badges.json,
-genera una descripción en español via Gemini API,
-y guarda solo los 6 más recientes.
+Detects new badges by comparing against data/badges.json,
+generates their descriptions via the Gemini API,
+and keeps only the 6 most recent ones.
 """
 
 import json
@@ -26,10 +26,10 @@ MAX_MODELS_TO_TRY = 4  # techo para no encadenar decenas de intentos si la API l
 
 
 def extract_badge(badge_div) -> dict | None:
-    """Extrae un badge del HTML del perfil, o None si le falta algún dato.
+    """Extract a badge from the profile HTML, or None if any field is missing.
 
-    Cada elemento se comprueba justo antes de usarlo: el acceso queda al lado de
-    su guarda, sin condiciones compuestas que oscurezcan la garantía.
+    Each element is checked right before it is used: the access sits next to its
+    guard, with no compound conditions that would obscure the guarantee.
     """
     link = badge_div.select_one("a.badge-image")
     if link is None:
@@ -74,8 +74,8 @@ def fetch_profile_badges() -> list[dict]:
 
     if len(badges) == 0:
         raise RuntimeError(
-            f"Scraping devolvió 0 badges desde {PROFILE_URL}. "
-            "Probablemente Google cambió el HTML del perfil — revisar selectores CSS."
+            f"Scraping returned 0 badges from {PROFILE_URL}. "
+            "Google probably changed the profile HTML — check the CSS selectors."
         )
 
     return badges
@@ -109,19 +109,19 @@ def find_new_badges(profile_badges: list[dict], existing_badges: list[dict]) -> 
 
 
 def select_models(available: list[str]) -> list[str]:
-    """Ordena los modelos disponibles por preferencia para esta tarea.
+    """Sort the available models by preference for this task.
 
-    Redactar dos frases sobre un badge no necesita razonamiento avanzado: se prefiere
-    la familia más barata y rápida (flash-lite), luego flash. Se descartan familias que
-    no aplican y las variantes inestables. La preferencia es por FAMILIA, no por versión
-    concreta, para que jubilar un modelo no rompa el script.
+    Writing two sentences about a badge needs no advanced reasoning: the cheapest and
+    fastest family (flash-lite) comes first, then flash. Families that do not apply and
+    unstable variants are discarded. The preference is by FAMILY, not by a specific
+    version, so retiring a model does not break the script.
     """
     descartadas = ("embedding", "vision", "image", "audio", "tts", "preview", "exp")
     candidatos = [m for m in available if not any(d in m for d in descartadas)]
 
     elegidos: list[str] = []
     for familia in ("flash-lite", "flash"):
-        # Orden descendente: entre versiones de la misma familia, la más reciente primero
+        # Descending order: among versions of the same family, the most recent first
         for modelo in sorted(candidatos, reverse=True):
             if familia in modelo and modelo not in elegidos:
                 elegidos.append(modelo)
@@ -155,24 +155,24 @@ def _call_gemini(prompt: str) -> str:
     modelos = select_models(disponibles)
     if not modelos:
         raise RuntimeError(
-            "Ningún modelo compatible para esta clave. "
-            f"La API ofreció: {', '.join(disponibles) or '(ninguno)'}"
+            "No compatible model for this key. "
+            f"The API offered: {', '.join(disponibles) or '(none)'}"
         )
-    print(f"  Modelos a probar: {', '.join(modelos)}")
+    print(f"  Models to try: {', '.join(modelos)}")
 
     ultimo_error = None
     for modelo in modelos:
         try:
             response = client.models.generate_content(model=modelo, contents=prompt)
-        except Exception as e:  # noqa: BLE001 — se registra y se prueba el siguiente
+        except Exception as e:  # noqa: BLE001 — it is logged and the next one is tried
             ultimo_error = e
-            print(f"  -> {modelo} falló: {e}")
+            print(f"  -> {modelo} failed: {e}")
             continue
-        print(f"  -> descripción generada con {modelo}")
+        print(f"  -> description generated with {modelo}")
         return clean_json_response(response.text)
 
     raise RuntimeError(
-        f"Ningún modelo respondió. Probados: {', '.join(modelos)}. Último error: {ultimo_error}"
+        f"No model responded. Tried: {', '.join(modelos)}. Last error: {ultimo_error}"
     )
 
 
