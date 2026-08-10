@@ -45,6 +45,11 @@ googleAnalytics = 'G-Y0X8CR726Y'
   icon = "fa-solid fa-code fa-2x"
   weight = 5
   url = "https://g.dev/colomr"
+[[params.social]]
+  name = "Dev Community"
+  icon = "fa-brands fa-dev fa-2x"
+  weight = 6
+  url = "https://dev.to/colomr"
 
 # ─── Español ───
 [languages.es]
