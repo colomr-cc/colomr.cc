@@ -22,29 +22,34 @@ googleAnalytics = 'G-Y0X8CR726Y'
 # Social links (footer) — compartidos entre idiomas
 [[params.social]]
   name = "Github"
-  icon = "fa fa-github fa-2x"
+  icon = "fa-brands fa-github fa-2x"
   weight = 1
   url = "https://github.com/colomr-cc"
 [[params.social]]
   name = "Reddit"
-  icon = "fa fa-reddit fa-2x"
+  icon = "fa-brands fa-reddit fa-2x"
   weight = 2
   url = "https://www.reddit.com/user/colomr/"
 [[params.social]]
   name = "LinkedIn"
-  icon = "fa fa-linkedin fa-2x"
+  icon = "fa-brands fa-linkedin-in fa-2x"
   weight = 3
   url = "https://www.linkedin.com/in/colomr"
 [[params.social]]
   name = "Google Cloud"
-  icon = "fa fa-google fa-2x"
+  icon = "fa-brands fa-google fa-2x"
   weight = 4
   url = "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45"
 [[params.social]]
   name = "Google for Developers"
-  icon = "fa fa-code fa-2x"
+  icon = "fa-solid fa-code fa-2x"
   weight = 5
   url = "https://g.dev/colomr"
+[[params.social]]
+  name = "Dev Community"
+  icon = "fa-brands fa-dev fa-2x"
+  weight = 6
+  url = "https://dev.to/colomr"
 
 # ─── Español ───
 [languages.es]

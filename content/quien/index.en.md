@@ -25,7 +25,7 @@ blocks:
     body: |
       I started as a kid with an Amstrad CPC464. I watched the PC, the Internet, Virtualization, the Cloud, Blockchain and now Artificial Intelligence come to life. Every new revolution builds on what I already learned — I feel privileged to live through such an exciting era firsthand.
 
-      In my junior years, enthusiasm took me to IBM Greenock, Sun Microsystems Edinburgh, and RIM London. I returned to Spain and co-founded an e-commerce company as technical director. Two years later I launched a wholly-owned company and ran it for nine years, until a larger firm proposed integrating us. I left the SMB market, tired of stitching together multi-vendor solutions. I decided to specialize in Google as a single vendor; I've spent the last five years at a startup acquired by Telefónica, helping enterprises migrate their workloads to Google Cloud. My role as a GCP Presales Engineer lets me sit at the intersection of business and technology — right where I feel at home.
+      In my junior years, enthusiasm took me to IBM Greenock, Sun Microsystems Edinburgh, and RIM London. I returned to Spain and co-founded an e-commerce company as technical director. Two years later I launched a wholly-owned company and ran it for nine years, until a larger firm proposed integrating us into their corporate structure. I left the SMB market, tired of stitching together multi-vendor solutions. I decided to specialize in Google as a single vendor; I've spent the last five years at a startup acquired by Telefónica, helping enterprises migrate their workloads to Google Cloud. My role as a GCP Presales Engineer lets me sit at the intersection of business and technology — right where I feel at home.
 
       - By day, I ⛅ design Google Cloud architectures for large accounts: RFPs, technical demos, complex sales cycles... Here I learn how a big organization thinks when it's afraid of getting it wrong.
       - In my spare time I 🌙 build "things" that now run on their own 🤖. Owning every phase of my side-projects gives me a 360° perspective no course can teach: idea, prototyping, architecture, code, quality, deployment, maintenance, and so on.
@@ -82,11 +82,11 @@ blocks:
     items:
       - label: "LinkedIn"
         url: "https://www.linkedin.com/in/colomr"
-        icon: "fa fa-linkedin"
+        icon: "fa-brands fa-linkedin-in"
       - label: "GitHub"
         url: "https://github.com/colomr-cc"
-        icon: "fa fa-github"
+        icon: "fa-brands fa-github"
       - label: "Google for Developers"
         url: "https://g.dev/colomr"
-        icon: "fa fa-code"
+        icon: "fa-solid fa-code"
 ---
