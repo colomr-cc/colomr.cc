@@ -182,7 +182,7 @@ Mantener solo 6 badges. Imágenes locales optimizadas en `static/images/`.
 
 ## Comandos útiles
 ```bash
-# Hugo: versión fijada en los workflows (0.164.0). Para igualar el local:
+# Hugo local y CI van a la misma versión (0.164.0). Al subirla en deploy.yml, subir también aquí:
 #   curl -sL https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.deb -o /tmp/hugo.deb && sudo apt install -y /tmp/hugo.deb
 
 hugo server                          # desarrollo local (puerto 1313)
