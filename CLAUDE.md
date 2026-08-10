@@ -27,7 +27,8 @@ Rama principal: **`main`**. Tema colomr-v1 en producción.
 Reglas derivadas:
 - **UT solo donde hay lógica.** Si se modifica `scripts/sync_badges.py`, actualizar/añadir tests en `tests/`. Contenido, SCSS y plantillas no llevan tests: los cubren el build de Hugo, los schemas y Sonar.
 - **Schemas JSON.** Si cambia la estructura de `data/*.json`, actualizar `schemas/badges.schema.json` en el mismo PR.
-- **Regla Gatekeeper (sin excepciones ni interpretación posible):** Claude crea el PR y pasa su URL al owner. Ahí termina su trabajo: Claude NUNCA aprueba ni mergea PRs — ni siquiera con OK verbal en la conversación. Revisar (preview de Firebase + diff + checks), aprobar y mergear es siempre del owner en GitHub.
+- **Regla Gatekeeper:** rige la regla 6 del contrato global (`~/.claude/CLAUDE.md`, repo `claude-sync`).
+  Concreción en este repo: lo que el owner revisa antes de aprobar es la preview de Firebase + el diff + los checks.
 - **Nunca mergear con checks en rojo** ni pedir saltarse la branch protection.
 
 ## Estructura clave
@@ -214,9 +215,14 @@ Se marca con `git tag` + GitHub Release en cada versión.
 - Paso a paso con aprobación del usuario para cambios estructurales
 
 ### Autoría y estilo de commits/PRs
-- **Autor del commit**: siempre `F Colomer <colomr@pm.me>`. La IA ayuda pero no es autora ni se atribuye la propiedad intelectual — no usar `Claude <noreply@anthropic.com>` ni añadir trailers de coautoría, ni "Generated with..." en commits o PRs. **Enforcement de máquina**: el paso "Sin atribución de IA" de ci.yml falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR.
-- **Mensaje de commit**: una sola línea, en minúsculas, en español, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `añadido nuevo badge Introduction to AI Agents`, `cambiado emoji de la página Sobre mí: 👨‍💻 → 👾`.
-- **Cuerpo del PR**: breve — una o dos frases. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
+La autoría y la prohibición de atribución de IA las fija la regla 5 del contrato global
+(`~/.claude/CLAUDE.md`, repo `claude-sync`); el idioma del contenido público, la regla 8.
+Aquí solo lo específico de este repo:
+
+- **Enforcement de máquina**: el paso "No AI attribution" de `ci.yml` falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR.
+- **Mensaje de commit**: una sola línea, en minúsculas, **en inglés**, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `add dev.to link to the footer`, `upgrade font awesome to 7 across the site`.
+- **Cuerpo del PR**: breve — una o dos frases, en inglés. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
+- **Qué NO se traduce**: el contenido del sitio es bilingüe es/en por diseño (`content/*/index.es.md` y `.en.md`), y este `CLAUDE.md` y las sesiones siguen en español. El inglés aplica a lo que se publica en GitHub.
 
 ## Tareas pendientes
 1. ⏳ Optimizar imágenes de cover a local (WebP 1920x1080, `static/images/covers/`)

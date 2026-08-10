@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch: {} # Manual trigger (selector de rama incluido)
+  workflow_dispatch: {} # Manual trigger (branch selector included)
 
 jobs:
   deploy:
@@ -23,15 +23,15 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
         with:
-          # Fijada a propósito: con 'latest', el CI puede aprobar código que rompe
-          # el build en local. Actualizar aquí y en las máquinas a la vez.
+          # Pinned on purpose: with 'latest', CI can approve code that breaks
+          # the local build. Update here and on the machines at the same time.
           hugo-version: '0.164.0'
           extended: true
 
       - name: Build site
         run: hugo --cleanDestinationDir
 
-      # Push a main → deploy a producción
+      # Push to main → deploy to production
       - name: Deploy to production
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: FirebaseExtended/action-hosting-deploy@500ac625ca2dd40cbd15f7659af953801858032a # v0
@@ -40,7 +40,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
 
-      # PR → deploy a preview channel
+      # PR → deploy to a preview channel
       - name: Deploy preview
         if: github.event_name == 'pull_request'
         uses: FirebaseExtended/action-hosting-deploy@500ac625ca2dd40cbd15f7659af953801858032a # v0
