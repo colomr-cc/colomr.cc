@@ -1,5 +1,13 @@
 [
   {
+    "titulo": "Build Infrastructure with Terraform on Google Cloud",
+    "img": "https://cdn.qwiklabs.com/V5hy7oPDiKov68Q4kTcuuA%2BMHNMX3Z0my4mncKPPGvY%3D",
+    "fecha": "2026-06-06",
+    "url": "https://www.skills.google/public_profiles/36fdb0e1-891c-4dc5-aef1-d89aecc3dd45/badges/24727058",
+    "desc": "Aprende a aprovisionar, gestionar y desplegar infraestructura como código (IaC) de forma automatizada y escalable utilizando Terraform en Google Cloud.",
+    "desc_en": "Learn to provision, manage, and deploy infrastructure as code (IaC) in an automated and scalable way using Terraform on Google Cloud."
+  },
+  {
     "titulo": "Design Secure Landing Zones and Architecture",
     "img": "https://cdn.qwiklabs.com/CIPmsO9buB5uFD%2FZrWmRoArQbGKsda4%2FIKZhHR156Dg%3D",
     "fecha": "2026-06-04",
