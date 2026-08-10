@@ -82,11 +82,11 @@ blocks:
     items:
       - label: "LinkedIn"
         url: "https://www.linkedin.com/in/colomr"
-        icon: "fa fa-linkedin"
+        icon: "fa-brands fa-linkedin-in"
       - label: "GitHub"
         url: "https://github.com/colomr-cc"
-        icon: "fa fa-github"
+        icon: "fa-brands fa-github"
       - label: "Google for Developers"
         url: "https://g.dev/colomr"
-        icon: "fa fa-code"
+        icon: "fa-solid fa-code"
 ---

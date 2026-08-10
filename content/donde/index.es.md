@@ -45,5 +45,5 @@ blocks:
     items:
       - label: "LinkedIn"
         url: "https://www.linkedin.com/in/colomr"
-        icon: "fa fa-linkedin"
+        icon: "fa-brands fa-linkedin-in"
 ---

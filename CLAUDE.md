@@ -119,7 +119,7 @@ blocks:
     heading: "Título"
     body: "Texto introductorio"
     items:
-      - icon: "fa fa-linkedin"  # Font Awesome 4.7
+      - icon: "fa-brands fa-linkedin-in"  # Font Awesome 7
         label: "Texto"
         url: "https://..."
 ```
