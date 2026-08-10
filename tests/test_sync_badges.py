@@ -151,7 +151,7 @@ def test_write_github_output_un_badge(tmp_path, monkeypatch):
     contenido = out.read_text(encoding="utf-8")
     assert "new_badges=true" in contenido
     assert "badge_count=1" in contenido
-    assert "commit_msg=añadido nuevo badge Nuevo Badge" in contenido
+    assert "commit_msg=add new badge Nuevo Badge" in contenido
 
 
 def test_write_github_output_varios_badges(tmp_path, monkeypatch):
@@ -162,4 +162,4 @@ def test_write_github_output_varios_badges(tmp_path, monkeypatch):
 
     contenido = out.read_text(encoding="utf-8")
     assert "badge_count=2" in contenido
-    assert "commit_msg=añadidos 2 nuevos badges: Uno, Dos" in contenido
+    assert "commit_msg=add 2 new badges: Uno, Dos" in contenido

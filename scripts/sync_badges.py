@@ -215,9 +215,9 @@ def write_github_output(new_badges: list[dict]) -> None:
         f.write("new_badges=true\n")
         f.write(f"badge_count={len(new_badges)}\n")
         if len(new_badges) == 1:
-            f.write(f"commit_msg=añadido nuevo badge {new_badges[0]['titulo']}\n")
+            f.write(f"commit_msg=add new badge {new_badges[0]['titulo']}\n")
         else:
-            f.write(f"commit_msg=añadidos {len(new_badges)} nuevos badges: {names}\n")
+            f.write(f"commit_msg=add {len(new_badges)} new badges: {names}\n")
 
 
 def save_badges(badges: list[dict]) -> None:
