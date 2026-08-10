@@ -54,7 +54,7 @@ googleAnalytics = 'G-Y0X8CR726Y'
 # ─── Español ───
 [languages.es]
   locale = "es"
-  languageName = "Español"
+  label = "Español"
   weight = 1
 
 [languages.es.params]
@@ -77,7 +77,7 @@ googleAnalytics = 'G-Y0X8CR726Y'
 # ─── English ───
 [languages.en]
   locale = "en"
-  languageName = "English"
+  label = "English"
   weight = 2
 
 [languages.en.params]
