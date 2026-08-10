@@ -166,7 +166,7 @@ Se ejecuta cada lunes (cron `0 8 * * 1`) o manualmente:
 4. Si hay cambios: crea una rama y **abre un PR** con revisión solicitada al owner
 5. El owner revisa las descripciones en la preview y mergea → `deploy.yml` publica
 
-Usa el token de la GitHub App `colomr-cc-automation` (secrets `AUTOMATION_APP_ID` y
+Usa el token de la GitHub App `colomr-cc-automation` (variable `APP_CLIENT_ID` y secret
 `AUTOMATION_APP_PRIVATE_KEY`): caduca en 1 hora y, a diferencia de `GITHUB_TOKEN`, sí
 dispara los checks obligatorios sobre el PR.
 
