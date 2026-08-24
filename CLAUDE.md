@@ -15,9 +15,9 @@ Rama principal: **`main`**. Tema colomr-v1 en producción.
    → cambio atómico (+ UT solo si se toca lógica; hoy solo hay lógica en scripts/sync_badges.py)
    → Claude verifica los checks en local, commitea (avisando antes), hace push y CREA EL PR
    → Claude pasa la URL del PR al owner — y AHÍ SE DETIENE
-       ├─ CI · ci.yml         → ruff + validación JSON schemas + pytest
+       ├─ CI · ci.yml         → ci-hugo.yml (build) + ci-python.yml (ruff/pytest) + badges schema + sonar-scan.yml (CI-based Quality Gate)
        ├─ CI · deploy.yml     → build Hugo (smoke test) + preview Firebase (URL en el PR)
-       ├─ QA · SonarCloud     → Automatic Analysis → Quality Gate
+       ├─ Org ruleset         → no-ai-attribution.yml (required workflow, org-wide, no vive en este ci.yml)
        └─ 🚦 Branch protection: todos los checks en verde son obligatorios
    → HITL: el usuario revisa la preview de Firebase + checks → aprueba
    → merge (la rama feature se borra automáticamente)
@@ -219,8 +219,8 @@ La autoría y la prohibición de atribución de IA las fija la regla 5 del contr
 (`~/.claude/CLAUDE.md`, repo `claude-sync`); el idioma del contenido público, la regla 8.
 Aquí solo lo específico de este repo:
 
-- **Enforcement de máquina**: el paso "No AI attribution" de `ci.yml` falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR.
-- **Mensaje de commit**: una sola línea, en minúsculas, **en inglés**, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. Ejemplos del repo: `add dev.to link to the footer`, `upgrade font awesome to 7 across the site`.
+- **Enforcement de máquina**: `no-ai-attribution.yml`, required workflow a nivel de org (`maiwei-app`, ruleset "Protect default branch"), falla el PR si detecta cualquier cuño de IA en autores, mensajes de commit, título o cuerpo del PR. No vive como step local en el `ci.yml` de este repo.
+- **Mensaje de commit**: [Conventional Commits](https://www.conventionalcommits.org/) — `type: subject`, una sola línea, en minúsculas, **en inglés**, descriptiva y concisa. Sin body salvo que aporte algo imprescindible. `type` es uno de `feat|fix|docs|perf|refactor|chore|style|test|ci` (ver `changelog-sections` en `.release-please-config.json`). Enforcement de máquina: job `commitlint` de `ci-python.yml`. Ejemplos: `feat: add dev.to link to the footer`, `chore: upgrade font awesome to 7 across the site`.
 - **Cuerpo del PR**: breve — una o dos frases, en inglés. No incluir plan de prueba manual; la URL de preview de Firebase llega automáticamente al PR y sirve para revisar.
 - **Qué NO se traduce**: el contenido del sitio es bilingüe es/en por diseño (`content/*/index.es.md` y `.en.md`), y este `CLAUDE.md` y las sesiones siguen en español. El inglés aplica a lo que se publica en GitHub.
 
