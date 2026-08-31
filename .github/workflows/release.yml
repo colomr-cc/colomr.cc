@@ -20,7 +20,7 @@ jobs:
           private-key: ${{ secrets.MAIBOT_APP_PRIVATE_KEY }}
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Bootstrap initial release if none exists
         id: bootstrap
