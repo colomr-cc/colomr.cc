@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://github.com/maiwei-app/colomr.cc/compare/v2.1.0...v2.2.0) (2026-08-31)
+
+
+### Features
+
+* add new badge Build Infrastructure with Terraform on Google Cloud ([cba879a](https://github.com/maiwei-app/colomr.cc/commit/cba879ae5ec6bd8920de331be475dbb1e48f77e7))
+* add new badge Build Infrastructure with Terraform on Google Cloud ([9107bf4](https://github.com/maiwei-app/colomr.cc/commit/9107bf49812c9cdfb9481a3825dcb6c3292cff1d))
+
 ## [2.1.0](https://github.com/maiwei-app/colomr.cc/compare/v2.0.0...v2.1.0) (2026-08-31)
 
 
