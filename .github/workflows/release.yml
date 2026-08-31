@@ -1,0 +1,48 @@
+name: Automated Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Generate maibot-app token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.MAIBOT_APP_ID }}
+          private-key: ${{ secrets.MAIBOT_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bootstrap initial release if none exists
+        id: bootstrap
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          if [ -z "$(gh release list --limit 1)" ]; then
+            version=$(jq -r '.["."]' .release-please-manifest.json)
+            gh release create "v${version}" --title "v${version}" --notes "Initial release"
+            echo "bootstrapped=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "bootstrapped=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # DO NOT add "release-type" here as a direct input — with release-type present,
+      # release-please-action@v4 ignores config-file/manifest-file entirely (it uses
+      # Manifest.fromConfig instead of fromManifest). release-type belongs only inside
+      # .release-please-config.json. See maiwei-app/workflows#40 and #41.
+      - name: Run Release Please
+        if: steps.bootstrap.outputs.bootstrapped == 'false'
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          config-file: .release-please-config.json
+          manifest-file: .release-please-manifest.json
