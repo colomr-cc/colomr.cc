@@ -23,6 +23,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BADGES_JSON = PROJECT_ROOT / "data" / "badges.json"
 MAX_BADGES = 6
 MAX_MODELS_TO_TRY = 4  # techo para no encadenar decenas de intentos si la API lista muchos
+MAX_HEADER_LENGTH = 100  # límite de cabecera de commitlint (config-conventional)
 
 
 def extract_badge(badge_div) -> dict | None:
@@ -204,6 +205,18 @@ def merge_badges(latest_badges: list[dict], existing_badges: list[dict], new_bad
     return final_badges
 
 
+def build_commit_msg(new_badges: list[dict]) -> str:
+    """Conventional commit header for the badges PR, within commitlint's limits.
+
+    Se usa también como título del PR. Con varios badges los títulos van en el
+    cuerpo del PR, que ya informa del recuento.
+    """
+    if len(new_badges) > 1:
+        return f"feat: add {len(new_badges)} new badges"
+    header = f"feat: add new badge {new_badges[0]['titulo']}"
+    return header[:MAX_HEADER_LENGTH].rstrip(" .")
+
+
 def write_github_output(new_badges: list[dict]) -> None:
     """Expose results to GitHub Actions via GITHUB_OUTPUT, or print locally."""
     names = ", ".join(b["titulo"] for b in new_badges)
@@ -214,10 +227,7 @@ def write_github_output(new_badges: list[dict]) -> None:
     with open(output_file, "a") as f:
         f.write("new_badges=true\n")
         f.write(f"badge_count={len(new_badges)}\n")
-        if len(new_badges) == 1:
-            f.write(f"commit_msg=add new badge {new_badges[0]['titulo']}\n")
-        else:
-            f.write(f"commit_msg=add {len(new_badges)} new badges: {names}\n")
+        f.write(f"commit_msg={build_commit_msg(new_badges)}\n")
 
 
 def save_badges(badges: list[dict]) -> None:

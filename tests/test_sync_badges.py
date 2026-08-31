@@ -8,6 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from bs4 import BeautifulSoup
 
 from sync_badges import (
+    MAX_HEADER_LENGTH,
+    build_commit_msg,
     clean_json_response,
     extract_badge,
     find_new_badges,
@@ -151,7 +153,7 @@ def test_write_github_output_un_badge(tmp_path, monkeypatch):
     contenido = out.read_text(encoding="utf-8")
     assert "new_badges=true" in contenido
     assert "badge_count=1" in contenido
-    assert "commit_msg=add new badge Nuevo Badge" in contenido
+    assert "commit_msg=feat: add new badge Nuevo Badge" in contenido
 
 
 def test_write_github_output_varios_badges(tmp_path, monkeypatch):
@@ -162,4 +164,27 @@ def test_write_github_output_varios_badges(tmp_path, monkeypatch):
 
     contenido = out.read_text(encoding="utf-8")
     assert "badge_count=2" in contenido
-    assert "commit_msg=add 2 new badges: Uno, Dos" in contenido
+    assert "commit_msg=feat: add 2 new badges" in contenido
+
+
+def test_build_commit_msg_un_badge():
+    assert build_commit_msg([_badge("https://a", titulo="Nuevo Badge")]) == (
+        "feat: add new badge Nuevo Badge"
+    )
+
+
+def test_build_commit_msg_varios_badges_no_lista_titulos():
+    """Con varios badges los títulos van al cuerpo del PR: la cabecera se desbordaría."""
+    badges = [_badge(f"https://{i}", titulo="T" * 40) for i in range(3)]
+    assert build_commit_msg(badges) == "feat: add 3 new badges"
+
+
+def test_build_commit_msg_recorta_titulo_largo():
+    msg = build_commit_msg([_badge("https://a", titulo="A" * 140)])
+    assert len(msg) == MAX_HEADER_LENGTH
+
+
+def test_build_commit_msg_sin_punto_final():
+    """subject-full-stop rechaza un punto al final de la cabecera."""
+    msg = build_commit_msg([_badge("https://a", titulo="Título con punto.")])
+    assert not msg.endswith(".")
