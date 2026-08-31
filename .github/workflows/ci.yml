@@ -15,6 +15,8 @@ jobs:
 
   quality:
     uses: maiwei-app/workflows/.github/workflows/ci-python.yml@main
+    with:
+      coverage: true
 
   # Repo-specific: ci-python.yml's generic JSON check only validates
   # syntax for files outside its own fixed schema map (release-please,
@@ -41,5 +43,8 @@ jobs:
     uses: maiwei-app/workflows/.github/workflows/sonar-scan.yml@main
     with:
       project-key: maiwei-app_colomr.cc
+      # Report uploaded by the quality job; without it Sonar reads new code
+      # as 0% covered and the quality gate fails.
+      coverage-artifact: coverage-xml
     secrets:
       sonar-token: ${{ secrets.SONAR_TOKEN }}
