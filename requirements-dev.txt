@@ -2,6 +2,6 @@
 -r scripts/requirements.txt
 
 ruff==0.16.4
-check-jsonschema==0.37.4
+check-jsonschema==0.38.0
 pytest==9.1.1
 pytest-cov==7.1.0
