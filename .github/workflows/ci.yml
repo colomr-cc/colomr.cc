@@ -31,7 +31,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install tools
-        run: pip install --only-binary ':all:' --require-hashes -r requirements-ci.lock
+        run: pip install --only-binary ':all:' -r requirements-ci.lock
 
       - name: Validate badges JSON against schema
         run: check-jsonschema --schemafile schemas/badges.schema.json data/badges.json data/anthropic_badges.json
