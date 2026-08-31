@@ -9,6 +9,12 @@ on:
 
 jobs:
   deploy:
+    # Dependabot runs read from Dependabot's secret store, so
+    # FIREBASE_SERVICE_ACCOUNT arrives empty and the deploy fails. Granting it
+    # there would publish an identical preview — a dependency bump does not
+    # change the rendered site — and hand the production key to runs triggered
+    # by third-party updates. The Hugo build still runs as ci.yml's build job.
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
