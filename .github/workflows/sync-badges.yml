@@ -30,7 +30,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install --only-binary ':all:' -r scripts/requirements.lock
+        run: pip install --only-binary ':all:' -r scripts/requirements.txt
 
       - name: Sync badges from Google Skills profile
         id: sync

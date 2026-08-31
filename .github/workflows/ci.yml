@@ -16,6 +16,8 @@ jobs:
   quality:
     uses: maiwei-app/workflows/.github/workflows/ci-python.yml@main
     with:
+      # The reusable defaults to requirements-ci.lock, which no longer exists.
+      requirements-file: requirements-dev.txt
       coverage: true
 
   # Repo-specific: ci-python.yml's generic JSON check only validates
@@ -33,7 +35,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install tools
-        run: pip install --only-binary ':all:' -r requirements-ci.lock
+        run: pip install --only-binary ':all:' -r requirements-dev.txt
 
       - name: Validate badges JSON against schema
         run: check-jsonschema --schemafile schemas/badges.schema.json data/badges.json data/anthropic_badges.json
