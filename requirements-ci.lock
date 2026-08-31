@@ -25,6 +25,8 @@ check-jsonschema==0.37.4
     # via -r requirements-dev.txt
 click==8.4.2
     # via check-jsonschema
+coverage==7.16.0
+    # via pytest-cov
 cryptography==50.0.0
     # via google-auth
 distro==1.9.0
@@ -53,7 +55,9 @@ jsonschema-specifications==2025.9.1
 packaging==26.2
     # via pytest
 pluggy==1.6.0
-    # via pytest
+    # via
+    #   pytest
+    #   pytest-cov
 pyasn1==0.6.4
     # via pyasn1-modules
 pyasn1-modules==0.4.2
@@ -67,6 +71,10 @@ pydantic-core==2.46.4
 pygments==2.20.0
     # via pytest
 pytest==9.1.1
+    # via
+    #   -r requirements-dev.txt
+    #   pytest-cov
+pytest-cov==7.1.0
     # via -r requirements-dev.txt
 referencing==0.37.0
     # via
