@@ -81,3 +81,4 @@ The colomr-v1 theme is under [GPL-3.0](https://github.com/colomr-cc/colomr-v1-th
 ## Author
 
 **Francisco Colomer** — [colomr.cc](https://colomr.cc)
+
