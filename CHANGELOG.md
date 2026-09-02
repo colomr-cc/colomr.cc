@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/maiwei-app/colomr.cc/compare/v2.2.0...v2.2.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* **ci:** unify sync-badges on the app-id convention ([#103](https://github.com/maiwei-app/colomr.cc/issues/103)) ([0985ea3](https://github.com/maiwei-app/colomr.cc/commit/0985ea357861a2281228bec95468b6b48e9a79fa)), closes [#102](https://github.com/maiwei-app/colomr.cc/issues/102)
+
 ## [2.2.0](https://github.com/maiwei-app/colomr.cc/compare/v2.1.0...v2.2.0) (2026-08-31)
 
 
