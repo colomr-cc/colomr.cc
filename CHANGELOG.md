@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/maiwei-app/colomr.cc/compare/v2.2.1...v2.2.2) (2026-09-02)
+
+
+### Bug Fixes
+
+* **ci:** pin deploy actions by semver tag instead of SHA ([#105](https://github.com/maiwei-app/colomr.cc/issues/105)) ([d43d601](https://github.com/maiwei-app/colomr.cc/commit/d43d6013b90c2a5dc26b651de748da447d1dca2e))
+
 ## [2.2.1](https://github.com/maiwei-app/colomr.cc/compare/v2.2.0...v2.2.1) (2026-09-02)
 
 
