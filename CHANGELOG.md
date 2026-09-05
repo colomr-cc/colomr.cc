@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/maiwei-app/colomr.cc/compare/v2.2.2...v2.3.0) (2026-09-05)
+
+
+### Features
+
+* swap reddit and dev.to footer icons for substack ([#110](https://github.com/maiwei-app/colomr.cc/issues/110)) ([8503c52](https://github.com/maiwei-app/colomr.cc/commit/8503c5271af8ec7411b93018e2c28fa82ec0016f))
+
 ## [2.2.2](https://github.com/maiwei-app/colomr.cc/compare/v2.2.1...v2.2.2) (2026-09-02)
 
 
